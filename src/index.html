@@ -1,13 +1,68 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <title>Webpack Starter Kit</title>
+    <meta charset='UTF-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/ca77517a12.js" crossorigin="anonymous"></script>
+    <title>Travel Tracker</title>
   </head>
   <body>
-    <h1>Webpack Starter Kit</h1>
-
-    <img src="./images/turing-logo.png" alt="turing logo" height="100px" width="100px">
-
-    <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
+    <header>
+      <article class="username-menu">
+        <div>
+          <button>LOG OUT</button>
+        </div>
+      </article>
+      <nav class="nav-bar">
+        <ul class="nav-bar-links"> 
+          <li>
+            <i class="fas fa-plane"></i>
+            <p class="active">MY TRIPS</p>
+          </li>
+          <li class="inactive">
+            <i class="fas fa-globe-africa"></i>
+            <p>FUTURE TRIPS</p>
+          </li>
+          <li class="inactive">
+            <i class="fas fa-passport"></i>
+            <p>PAST TRIPS</p>
+          </li>
+        </ul>
+        <span class="nav-bar-logo">
+          <p class="logo-text" src="">TOTAL SPENT: $5000</p>
+        </span>
+      </nav>
+    </header>
+    <main>
+      <div class="main-wrapper">
+        <p class="box-grid-title">My Trips</p>
+        <section class="box-grid">
+          <article class="box">
+            <span class="box-top">
+              <img class="arrow" src="./images/arrow.png">
+              <div class="travelers-box">
+                <p class="travelers-title">TRAVELERS</p>
+                <p class="travelers-num">02</p>
+              </div>
+            </span>
+            <span class="box-bottom">
+              <div class="trip-header">
+                <p class="trip-name">TRIP NAME</p>
+                <p class="destination">DESTINATION</p>
+              </div>
+              <div class="info-box">suggested activities</div>
+              <div class="date-box">
+                <p class="title">DATE</p>
+                <p class="date-num">05/02/2021</p>
+              </div>
+              <div class="status-box">
+                <p class="title">TRIP STATUS</p>
+                <p class="status">pending</p>
+              </div>
+            </span>
+          </article>
+        </section>
+      </div>
+    </main>
   </body>
 </html>

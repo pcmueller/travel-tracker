@@ -1,0 +1,56 @@
+/* This is an example of using Sass, otherwise plain CSS works too*/
+$primary-background: radial-gradient(circle, rgba(25, 68, 198, 0.418) 0%, rgba(166, 189, 249, 0.66) 30%, rgba(73, 130, 245, 0.534) 50%, #458ef5b6 70%, #ffffffd5 100%);
+;
+
+// main section
+
+body {
+  background: $primary-background;
+  height: 100%;
+  width: 100vw;
+  font-family: 'Open Sans',
+  sans-serif;
+}
+
+// html {
+//   height: 100%;
+// }
+
+main {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+/** box grid **/
+
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 94%;
+  height: 100%;
+}
+
+.box-grid-title {
+  display: flex;
+  align-items: center;
+  height: 3vw;
+  margin: 3% 0 3% 0;
+  font-size: 4vw;
+  font-weight: bold;
+  color: #060708b3;
+}
+
+.box-grid {
+  display: grid;
+  grid-template-columns: 24% 24% 24% 24%;
+  grid-column-gap: 1.4%;
+  grid-row-gap: 1.4%;
+  justify-items: center;
+  align-content: flex-start;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 30%;
+}
+
