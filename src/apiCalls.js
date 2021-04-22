@@ -2,7 +2,7 @@ const apiCalls = {
 
   getAllData() {
     const promises = [ getAllTravelers(), getAllDestinations(), getAllTrips() ];
-    return Promise.all(promises)
+      return Promise.all(promises)
     .then(values => {
       return values;
     })
@@ -27,7 +27,7 @@ const apiCalls = {
   getAllTrips() {
     return fetchData("http://localhost:3001/api/v1/trips");
   },
-  
+
 }
 
 export default apiCalls;
