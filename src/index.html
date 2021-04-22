@@ -1,13 +1,232 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
+    <meta charset='UTF-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/ca77517a12.js" crossorigin="anonymous"></script>
     <title>Travel Tracker</title>
   </head>
   <body>
-    <h1>Travel Tracker</h1>
-
-    <img src="./images/turing-logo.png" alt="turing logo" height="100px" width="100px">
-
-    <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
+    <header>
+      <nav class="nav-bar">
+        <ul class="nav-bar-links"> 
+          <li>
+            <i class="fas fa-book-dead active"></i>
+            <p class="active">COLLECTION</p>
+          </li>
+          <li class="inactive">
+            <i class="fas fa-hat-wizard"></i>
+            <p>PLAYLISTS</p>
+          </li>
+          <li class="inactive">
+            <i class="fas fa-hand-sparkles"></i>
+            <p>COMMUNITY</p>
+          </li>
+        </ul>
+        <span class="nav-bar-logo">
+          <img class="logo-text" src="./assets/logos/sanctum-logo.png">
+          <img class="logo-image" src="./assets/logos/astral-plane.png">
+        </span>
+      </nav>
+    </header>
+    <main>
+      <div class="main-wrapper">
+        <p class="box-grid-title">Collection</p>
+        <section class="box-grid">
+          <article class="box">
+            <span class="box-top album-1">
+              <img class="arrow" src="./assets/icons/arrow.png">
+              <div class="plays-box">
+                <p class="plays-title">PLAYS</p>
+                <p class="plays-num">11</p>
+              </div>
+            </span>
+            <span class="box-bottom">
+              <div class="album-header">
+                <p class="album-title">Black Sabbath</p>
+                <p class="artist-name"> Black Sabbath</p>
+              </div>
+              <div class="link-box">https://www.allmusic.com/album/0191741</div>
+              <div class="release-date">
+                <p class="title">YEAR RELEASED</p>
+                <p class="date-num">1970</p>
+              </div>
+              <div class="active-listeners">
+                <p class="title">ACTIVE LISTENERS</p>
+                <p class="listeners-num">341</p>
+              </div>
+            </span>
+          </article>
+          <article class="box">
+            <span class="box-top album-2">
+              <img class="arrow" src="./assets/icons/arrow.png">
+              <div class="plays-box">
+                <p class="plays-title">PLAYS</p>
+                <p class="plays-num">03</p>
+              </div>
+            </span>
+            <span class="box-bottom">
+              <div class="album-header">
+                <p class="album-title">Reign in Blood</p>
+                <p class="artist-name">Slayer</p>
+              </div>
+              <div class="link-box">https://www.allmusic.com/album/0191741</div>
+              <div class="release-date">
+                <p class="title">YEAR RELEASED</p>
+                <p class="date-num">1986</p>
+              </div>
+              <div class="active-listeners">
+                <p class="title">ACTIVE LISTENERS</p>
+                <p class="listeners-num">2301</p>
+              </div>
+            </span>
+          </article>
+          <article class="box">
+            <span class="box-top album-3">
+              <img class="arrow" src="./assets/icons/arrow.png">
+              <div class="plays-box">
+                <p class="plays-title">PLAYS</p>
+                <p class="plays-num">06</p>
+              </div>
+            </span>
+            <span class="box-bottom">
+              <div class="album-header">
+                <p class="album-title">Master of Puppets</p>
+                <p class="artist-name">Metallica</p>
+              </div>
+              <div class="link-box">https://www.allmusic.com/album/0191741</div>
+              <div class="release-date">
+                <p class="title">YEAR RELEASED</p>
+                <p class="date-num">1986</p>
+              </div>
+              <div class="active-listeners">
+                <p class="title">ACTIVE LISTENERS</p>
+                <p class="listeners-num">1506</p>
+              </div>
+            </span>
+          </article>
+          <article class="box">
+            <span class="box-top album-4">
+              <img class="arrow" src="./assets/icons/arrow.png">
+              <div class="plays-box">
+                <p class="plays-title">PLAYS</p>
+                <p class="plays-num">25</p>
+              </div>
+            </span>
+            <span class="box-bottom">
+              <div class="album-header">
+                <p class="album-title">Dopethrone</p>
+                <p class="artist-name">Electric Wizard</p>
+              </div>
+              <div class="link-box">https://www.allmusic.com/album/0191741</div>
+              <div class="release-date">
+                <p class="title">YEAR RELEASED</p>
+                <p class="date-num">2000</p>
+              </div>
+              <div class="active-listeners">
+                <p class="title">ACTIVE LISTENERS</p>
+                <p class="listeners-num">712</p>
+              </div>
+            </span>
+          </article>
+          <article class="box">
+            <span class="box-top album-5">
+              <img class="arrow" src="./assets/icons/arrow.png">
+              <div class="plays-box">
+                <p class="plays-title">PLAYS</p>
+                <p class="plays-num">51</p>
+              </div>
+            </span>
+            <span class="box-bottom">
+              <div class="album-header">
+                <p class="album-title">In the Court of the Crimson King</p>
+                <p class="artist-name">King Crimson</p>
+              </div>
+              <div class="link-box">https://www.allmusic.com/album/0191741</div>
+              <div class="release-date">
+                <p class="title">YEAR RELEASED</p>
+                <p class="date-num">1969</p>
+              </div>
+              <div class="active-listeners">
+                <p class="title">ACTIVE LISTENERS</p>
+                <p class="listeners-num">67</p>
+              </div>
+            </span>
+          </article>
+          <article class="box">
+            <span class="box-top album-6">
+              <img class="arrow" src="./assets/icons/arrow.png">
+              <div class="plays-box">
+                <p class="plays-title">PLAYS</p>
+                <p class="plays-num">33</p>
+              </div>
+            </span>
+            <span class="box-bottom">
+              <div class="album-header">
+                <p class="album-title">South of Heaven</p>
+                <p class="artist-name">Slayer</p>
+              </div>
+              <div class="link-box">https://www.allmusic.com/album/0191741</div>
+              <div class="release-date">
+                <p class="title">YEAR RELEASED</p>
+                <p class="date-num">1988</p>
+              </div>
+              <div class="active-listeners">
+                <p class="title">ACTIVE LISTENERS</p>
+                <p class="listeners-num">666</p>
+              </div>
+            </span>
+          </article>
+          <article class="box">
+            <span class="box-top album-7">
+              <img class="arrow" src="./assets/icons/arrow.png">
+              <div class="plays-box">
+                <p class="plays-title">PLAYS</p>
+                <p class="plays-num">46</p>
+              </div>
+            </span>
+            <span class="box-bottom">
+              <div class="album-header">
+                <p class="album-title">Paranoid</p>
+                <p class="artist-name">Black Sabbath</p>
+              </div>
+              <div class="link-box">https://www.allmusic.com/album/0191741</div>
+              <div class="release-date">
+                <p class="title">YEAR RELEASED</p>
+                <p class="date-num">1970</p>
+              </div>
+              <div class="active-listeners">
+                <p class="title">ACTIVE LISTENERS</p>
+                <p class="listeners-num">458</p>
+              </div>
+            </span>
+          </article>
+          <article class="box">
+            <span class="box-top album-8">
+              <img class="arrow" src="./assets/icons/arrow.png">
+              <div class="plays-box">
+                <p class="plays-title">PLAYS</p>
+                <p class="plays-num">17</p>
+              </div>
+            </span>
+            <span class="box-bottom">
+              <div class="album-header">
+                <p class="album-title">Ride the Lightning</p>
+                <p class="artist-name">Metallica</p>
+              </div>
+              <div class="link-box">https://www.allmusic.com/album/0191741</div>
+              <div class="release-date">
+                <p class="title">YEAR RELEASED</p>
+                <p class="date-num">1984</p>
+              </div>
+              <div class="active-listeners">
+                <p class="title">ACTIVE LISTENERS</p>
+                <p class="listeners-num">1256</p>
+              </div>
+            </span>
+          </article>
+        </section>
+      </div>
+    </main>
   </body>
 </html>

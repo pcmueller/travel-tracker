@@ -1,0 +1,274 @@
+/* This is an example of using Sass, otherwise plain CSS works too*/
+$primary-background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
+;
+
+body {
+  background: $primary-background;
+  height: 200vh;
+  width: 100vw;
+  font-family: 'Open Sans',
+  sans-serif;
+}
+
+/** main sections **/
+
+html {
+  height: 100%;
+}
+
+header {
+  display: grid;
+  grid-template-rows: 33% 66%;
+  height: 18vw;
+  border-bottom: 0.1em solid black;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+select {
+  margin-left: 3%;
+  width: 1.10vw;
+  height: 1.25vw;
+  justify-content: center;
+  background-color: rgba(73, 98, 152, 0);
+  border: none;
+  color: rgb(69, 114, 211);
+}
+
+// /** header **/
+
+.username-menu {
+  width: 15vw;
+  height: 1.75vw;
+  max-height: 20%;
+  justify-self: flex-end;
+  align-self: flex-start;
+  padding: 0.4% 0 1% 1.25%;
+  margin-top: 1%;
+  font-size: 1vw;
+  color: #ffffffa1;
+  background-color: rgba(73, 98, 152, 0);
+}
+
+.nav-bar {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 2%;
+}
+
+.nav-bar-links {
+  display: flex;
+  align-items: flex-end;
+  padding-left: 1%;
+  margin: 1% 1% 2% 2%;
+}
+
+.nav-bar-links li {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-self: flex-start;
+  justify-content: space-evenly;
+  align-self: flex-end;
+  align-items: center;
+  width: 13vw;
+  height: 3vw;
+  padding: 1% 3% 1% 3%;
+  margin: 1% 2% 1% 2%;
+  border: 0.1em solid #5181fbb0;
+  color: #ffffffaf;
+  background-color: rgba(94, 51, 129, 0.277);
+  font-size: 1.5vw;
+  cursor: pointer;
+}
+
+.active {
+  color: #ffffff;
+}
+
+i {
+  margin-right: 5%;
+}
+
+.nav-bar-logo {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-self: flex-end;
+  align-self: flex-end;
+  max-width: 30vw;
+  max-height: 100%;
+  padding-right: 1vw;
+  margin-right: 1vw;
+}
+
+.logo-text {
+  height: 100%;
+  max-width: 50%;
+  justify-self: flex-start;
+  align-self: flex-end;
+  padding: 0 3% 0 1%;
+}
+
+.logo-image {
+  height: 80%;
+  max-width: 50%;
+  max-height: 12vw;
+  justify-self: flex-start;
+  align-self: flex-end;
+}
+
+// /** box grid **/
+
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 94%;
+  height: 100%;
+}
+
+.box-grid-title {
+  display: flex;
+  align-items: center;
+  height: 6vw;
+  margin: 3% 0 3% 0;
+  font-size: 6vw;
+  font-weight: bold;
+  font-family: 'Alex Brush',
+    cursive;
+  color: #40fe2bb3;
+}
+
+.box-grid {
+  display: grid;
+  grid-template-columns: 24% 24% 24% 24%;
+  grid-column-gap: 1.4%;
+  grid-row-gap: 1.4%;
+  justify-items: center;
+  align-content: flex-start;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 2%;
+}
+
+// /** box + components **/
+
+
+.box {
+  display: flex;
+  flex-direction: column;
+  width: 23vw;
+  height: 35vw;
+  border-radius: 3px;
+  box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1),
+    0.3em 0.3em 0.3em 0.1em rgba(0, 0, 0, 0.2),
+    0.5em 0.5em 0.5em 0.2em rgba(0, 0, 0, 0.2);
+}
+
+.box-top {
+  display: flex;
+  flex-flow: row nowrap;
+  height: 35vh;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1%;
+  border-radius: 3px 3px 0 0;
+  background-color: rgba(51, 62, 133, 0.6);
+  flex-flow: row nowrap;
+}
+
+.box-bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 65vh;
+  border-radius: 0 0 3px 3px;
+  background-color: rgba(228, 248, 254, 0.941);
+  padding: 1.5vw;
+}
+
+.arrow {
+  background-repeat: no-repeat;
+  width: 4vw;
+  height: 4vw;
+  padding: 5% 0 0 5%;
+}
+
+.plays-box {
+  flex-direction: column;
+  margin: 3% 3% 1% 2%;
+  justify-content: center;
+  align-items: center;
+}
+
+.plays-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 1vw;
+  color: #ffffffd6;
+}
+
+.plays-num {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 3vw;
+  color: #f8fafec3;
+}
+
+.album-header {
+  justify-content: center;
+}
+
+.album-title {
+  font-size: 1.5vw;
+  color: rgba(0, 0, 0, 0.873);
+  margin-bottom: 0.5vw;
+}
+
+.artist-name {
+  font-size: 1.25vw;
+  color: rgba(0, 0, 0, 0.633)
+}
+
+.link-box {
+  height: 3vw;
+  font-size: 0.9vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.493);
+  background-color: rgba(0, 0, 0, 0.096);
+  padding: 0.75vw;
+}
+
+.release-date {
+  justify-content: center;
+}
+
+.title {
+  font-size: 1vw;
+  margin-bottom: 0.25vw;
+  color: rgba(0, 0, 0, 0.893)
+}
+
+.date-num {
+  font-size: 1.5vw;
+  color: rgba(0, 0, 0, 0.934)
+}
+
+.active-listeners {
+  justify-content: center;
+}
+
+.listeners-num {
+  font-size: 2.25vw;
+  color: rgba(38, 122, 248, 0.685)
+}
