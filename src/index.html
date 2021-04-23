@@ -3,63 +3,118 @@
   <head>
     <meta charset='UTF-8'>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/ca77517a12.js" crossorigin="anonymous"></script>
     <title>Travel Tracker</title>
   </head>
   <body>
     <header>
-      <article class="username-menu">
-        <div>
+      <section class="nav-left">
+        <div class="logo-container">
+          <img class="logo" src="./images/tt-logo-no-text.png">
+        </div>
+      </section>
+      <section class="nav-center">
+        <h1 class="title">Travel Tracker</h1>
+        <nav class="nav-buttons"> 
+          <button class="current-trips">
+            <i class="fas fa-plane"></i> Current Trips
+          </button>
+          <button class="upcoming-trips">
+            <i class="fas fa-globe-africa"></i> Upcoming Trips
+          </button>
+          <button class="previous-trips">
+            <i class="fas fa-passport"></i> Previous Trips
+          </button>
+          <button class="pending-trips">
+            <i class="far fa-clock"></i> Pending Trips
+          </button>
+        </nav>
+      </section>
+      <section class="nav-right">
+        <div class="upper-right-nav">
+          <p>Welcome, Brover!</p> 
           <button>LOG OUT</button>
         </div>
-      </article>
-      <nav class="nav-bar">
-        <ul class="nav-bar-links"> 
-          <li>
-            <i class="fas fa-plane"></i>
-            <p class="active">MY TRIPS</p>
-          </li>
-          <li class="inactive">
-            <i class="fas fa-globe-africa"></i>
-            <p>FUTURE TRIPS</p>
-          </li>
-          <li class="inactive">
-            <i class="fas fa-passport"></i>
-            <p>PAST TRIPS</p>
-          </li>
-        </ul>
-        <span class="nav-bar-logo">
-          <p class="logo-text" src="">TOTAL SPENT: $5000</p>
-        </span>
-      </nav>
+        <div class="lower-right-nav">
+          <p class="total-spent">TOTAL SPENT: $5000</p>
+        </div>
+      </section>
     </header>
+    <section class="booking-section">
+      <article class="booking-top">
+        <p>Plan Your Next Adventure!</p>
+      </article>
+      <article class="booking-bottom">
+        <div class="choice">
+          <label for="drop">Select destination:
+            <select required class="drop-down" id="destinationMenu">
+              <option value="0">Select destination</option>
+            </select>
+          </label>
+        </div>
+        <div class="choice">
+          <label for="startDate">Departure date:
+            <input required type="date" id="startDate" name="start" min="2000-01-01" max="2035-12-31">
+          </label>
+        </div>
+        <div class="choice">
+          <label for="tripDuration">Duration of trip:
+            <input required id="tripDuration" type="number" min="1">
+          </label>
+        </div>
+        <div class="choice">
+          <label for="travelersNum">Number of travelers:
+            <input required id="travelersNum" type="number" min="1">
+          </label>
+        </div>
+        <div class="booking-btns">
+          <button class="cost-button">Estimated Trip Cost</button>
+          <button class="book-button">Book Trip</button>
+        </div>
+      </article>
+    </section>
     <main>
       <div class="main-wrapper">
         <p class="box-grid-title">My Trips</p>
         <section class="box-grid">
           <article class="box">
-            <span class="box-top">
-              <img class="arrow" src="./images/arrow.png">
-              <div class="travelers-box">
-                <p class="travelers-title">TRAVELERS</p>
-                <p class="travelers-num">02</p>
+            <section class="box-top">
+              <div class="box-top-upper">
+                <img class="arrow" src="./images/arrow.png">
               </div>
-            </span>
-            <span class="box-bottom">
-              <div class="trip-header">
-                <p class="trip-name">TRIP NAME</p>
-                <p class="destination">DESTINATION</p>
+              <div class="box-top-lower">
+                <p id="destination">${DESTINATION}</p>
               </div>
-              <div class="info-box">suggested activities</div>
-              <div class="date-box">
-                <p class="title">DATE</p>
-                <p class="date-num">05/02/2021</p>
+            </section>
+            <section class="box-bottom">
+              <div class="travel-info">
+                <label for=startDate>Start Date:
+                  <p class="data-small" id="startDate">${date}</p>
+                </label>
               </div>
-              <div class="status-box">
-                <p class="title">TRIP STATUS</p>
-                <p class="status">pending</p>
+              <div class="travel-info">
+                <label for=duration>Duration of Stay:
+                  <p class="data-small" id="duration">${days}</p>
+                </label>
               </div>
-            </span>
+              <div class="travel-info">
+                <label for=activities>Suggested Activities: 
+                  <p class="data-small" id="activities">${array}</p>
+                </label>
+              </div>
+              <div class="travel-info">
+                <label for=travelers>Travelers: 
+                  <p class="data-small" id="travelers">${num}</p>
+                </label>
+              </div>
+              <div class="travel-info">
+                <label for=travelers>Trip Status: 
+                  <p class="data-small" id="tripStatus">${status}</p>
+                </label>
+              </div>
+            </section>
           </article>
         </section>
       </div>
