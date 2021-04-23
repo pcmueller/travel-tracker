@@ -1,4 +1,6 @@
-@import 'styles';
-@import '_box';
-@import '_navbar';
+@import '_normalize';
 @import '_variables';
+@import '_main';
+@import '_navbar';
+@import'_booking';
+@import '_box';
