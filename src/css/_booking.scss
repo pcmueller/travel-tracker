@@ -1,0 +1,60 @@
+// BOOKING CONTAINER
+
+.booking-section {
+  display: grid;
+  grid-template-rows: 40% 60%;
+  margin: 2% 15% 1% 15%;
+  box-shadow: $shadow-heavy;
+  background: $primary-accent;
+  color: $primary-dark;
+}
+
+.booking-top {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  font-size: 2.5vw;
+  font-weight: bold;
+}
+
+.booking-bottom {
+  display: grid;
+  grid-template-columns: 18% 18% 18% 18% 18%;
+  justify-content: space-around;
+  align-items: flex-end;
+  margin: 1% 2% 1% 2%;
+
+  input, select {
+    max-height: 1.5vw;
+    max-width: 10vw;
+    margin-top: 5%;
+    font-size: 1vw;
+  }
+
+  label {
+    justify-content: center;
+    align-items: center;
+    margin: auto 1% auto 1%;
+  }
+}
+
+.choice {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  padding: 5% 5% 1% 10%;
+  height: 100%;
+}
+
+.booking-btns {
+  display: flex;
+  flex-direction: column;
+  margin-left: 3%;
+
+  button {
+    margin: 2%;
+    padding: 2% 3% 2% 3%;
+    justify-self: center;
+    align-self: center;
+  }
+}
