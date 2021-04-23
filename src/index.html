@@ -34,7 +34,7 @@
       </section>
       <section class="nav-right">
         <div class="upper-right-nav">
-          <p>Welcome, Brover!</p> 
+          <p id="welcome"></p> 
           <button id="logoutBtn">LOG OUT</button>
         </div>
         <div class="lower-right-nav">
@@ -49,24 +49,24 @@
       <article class="booking-bottom">
         <div class="choice">
           <label for="drop">Select destination:
-            <select required class="drop-down" id="destDrop">
+            <select required class="drop-down" id="destinationDrop">
               <option value="0">Select destination</option>
             </select>
           </label>
         </div>
         <div class="choice">
           <label for="startDate">Departure date:
-            <input required type="date" id="startDate" name="start" min="2000-01-01" max="2035-12-31">
+            <input required type="date" id="startDateDrop" name="start" min="2000-01-01" max="2035-12-31">
           </label>
         </div>
         <div class="choice">
           <label for="tripDuration">Duration of trip:
-            <input required id="tripDuration" type="number" min="1">
+            <input required id="durationInput" type="number" min="1">
           </label>
         </div>
         <div class="choice">
           <label for="travelersNum">Number of travelers:
-            <input required id="travelersNum" type="number" min="1">
+            <input required id="numTravelersInput" type="number" min="1">
           </label>
         </div>
         <div class="booking-btns">

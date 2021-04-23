@@ -15,7 +15,8 @@ class Trip {
   }
 
   getTripDuration() {
-
+    let start = new Date(this.date);
+    let tripEnd = new Date(this.date).setDate(new Date(this.date).getDate() + this.duration);
   }
 }
 

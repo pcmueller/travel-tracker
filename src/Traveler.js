@@ -9,7 +9,12 @@ class Traveler {
   }
 
   populateTrips(allTrips) {
-    
+    allTrips.forEach(trip => {
+      if (trip.userID === this.id) {
+        this.trips.push(new Trip(trip));
+      }
+    });
+    this.sortTripsByDate();
   }
 
   getCurrentTrips() {
@@ -25,11 +30,15 @@ class Traveler {
   }
 
   getPendingTrips() {
-
+    return this.trips.filter(trip => {
+      return trip.status === 'pending';
+    });
   }
 
-  sortTrips() {
-
+  sortTripsByDate() {
+    this.trips.sort((a, b) => {
+      return a.date.localeCompare(b.date);
+    });
   }
 
   calculateAnnualSpending() {
