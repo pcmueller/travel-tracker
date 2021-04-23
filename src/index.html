@@ -18,16 +18,16 @@
       <section class="nav-center">
         <h1 class="title">Travel Tracker</h1>
         <nav class="nav-buttons"> 
-          <button class="current-trips">
+          <button class="current-trips" id="navBtn">
             <i class="fas fa-plane"></i> Current Trips
           </button>
-          <button class="upcoming-trips">
+          <button class="upcoming-trips" id="navBtn">
             <i class="fas fa-globe-africa"></i> Upcoming Trips
           </button>
-          <button class="previous-trips">
+          <button class="previous-trips" id="navBtn">
             <i class="fas fa-passport"></i> Previous Trips
           </button>
-          <button class="pending-trips">
+          <button class="pending-trips" id="navBtn">
             <i class="far fa-clock"></i> Pending Trips
           </button>
         </nav>
@@ -35,7 +35,7 @@
       <section class="nav-right">
         <div class="upper-right-nav">
           <p>Welcome, Brover!</p> 
-          <button>LOG OUT</button>
+          <button id="logoutBtn">LOG OUT</button>
         </div>
         <div class="lower-right-nav">
           <p class="total-spent">TOTAL SPENT: $5000</p>
@@ -49,7 +49,7 @@
       <article class="booking-bottom">
         <div class="choice">
           <label for="drop">Select destination:
-            <select required class="drop-down" id="destinationMenu">
+            <select required class="drop-down" id="destDrop">
               <option value="0">Select destination</option>
             </select>
           </label>
