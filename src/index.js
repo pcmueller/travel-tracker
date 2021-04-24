@@ -42,7 +42,12 @@ function createUser() {
   userID = getRandomIndex(allTravelers);
   currentTraveler = new Traveler(allTravelers[userID]);
   currentTraveler.populateTrips(allTrips);
+  displayUserData();
+}
+
+function displayUserData() {
   domUpdates.welcomeUser(currentTraveler);
+  domUpdates.buildBookingSection(allDestinations);
 }
 
 // HELPERS
