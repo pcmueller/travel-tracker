@@ -56,23 +56,29 @@ function createUser() {
 }
 
 function populateCardGrid(e) {
-  let clickedButton = e.target;
-  let userData;
+  let clickedClass = e.target.className;
+  let userData, titleText;
 
-  switch(clickedButton) {
+  switch(clickedClass) {
     case 'current-trips':
-      userData = getCurrentTrips();
+      titleText = 'Current Trips';
+      userData = currentTraveler.getCurrentTrips(currentDate);
       break;
     case 'upcoming-trips':
-      userData = getUpcomingTrips();
+      titleText = 'Upcoming Trips';
+      userData = currentTraveler.getUpcomingTrips(currentDate);
       break;
     case 'previous-trips':
-      userData = getPastTrips();
+      titleText = 'Previous Trips';
+      userData = currentTraveler.getPreviousTrips(currentDate);
       break;
     case 'pending-trips':
-      userData = getPendingTrips();
+      titleText = 'Pending Trips';
+      userData = currentTraveler.getPendingTrips();
       break;
   }
+
+  domUpdates.displayGridTitle(titleText);
   domUpdates.displayTripCards(userData, allDestinations);
 }
 

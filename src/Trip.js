@@ -9,6 +9,8 @@ class Trip {
     this.suggestedActivities = tripDatum.suggestedActivities;
     this.status = tripDatum.status;
     this.cost = null;
+    this.startDate = null;
+    this.endDate = null;
   }
 
   calculateTripCost(allDestinations) {
@@ -21,9 +23,15 @@ class Trip {
     return this.cost;
   }
 
-  getTripDuration() {
+  getTripDates() {
     let start = new Date(this.date);
-    let tripEnd = new Date(this.date).setDate(new Date(this.date).getDate() + this.duration);
+    let end = new Date(this.date).setDate(new Date(this.date).getDate() + this.duration);
+    
+    this.startDate = start.getTime();
+    this.endDate = end;
+    
+    console.log("startDate: ", this.startDate);
+    console.log("endDate: ", this.endDate);
   }
 }
 

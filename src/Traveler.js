@@ -14,19 +14,29 @@ class Traveler {
         this.trips.push(new Trip(trip));
       }
     });
+    this.trips.forEach(trip => trip.getTripDates());
     this.sortTripsByDate();
   }
 
-  getCurrentTrips() {
-
+  getCurrentTrips(currentDate) {
+    let today = new Date(currentDate).getTime();
+    return this.trips.filter(trip => {
+      return trip.startDate <= today && trip.endDate >= today;
+    });
   }
 
-  getUpcomingTrips() {
-
+  getUpcomingTrips(currentDate) {
+    let today = new Date(currentDate).getTime();
+    return this.trips.filter(trip => {
+      return trip.startDate > today;
+    });
   }
 
-  getPastTrips() {
-
+  getPreviousTrips(currentDate) {
+    let today = new Date(currentDate).getTime();
+    return this.trips.filter(trip => {
+      return trip.endDate < today;
+    });
   }
 
   getPendingTrips() {
