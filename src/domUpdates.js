@@ -1,9 +1,9 @@
 const domUpdates = {
 
   welcomeUser(user) {
-    const welcomeMessage = document.querySelector('#welcome');
+    const welcomeName = document.querySelector('#welcomeName');
     const [ firstName ] = user.name.split(' ');
-    welcomeMessage.innerHTML = `Welcome, ${firstName}!`;
+    welcomeName.innerText = `${firstName}!`;
   }
 
 }

@@ -82,38 +82,37 @@ header {
 
 .nav-right {
   display: grid;
-  grid-template-rows: 60% 40%;
-  margin-bottom: 2%;
-}
-
-.upper-right-nav {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-
-  p {
-    flex-direction: row wrap;
-    justify-self: center;
-    margin: 20% 1% auto 8%;
-    font-size: 2vw;
-    font-weight: bold;
-    color:rgb(20, 25, 186);
-  }
+  grid-template-rows: 33% 33% 33%;
+  // justify-content: flex-end;
+  align-items: space-between;
+  margin: 10% 10% 5% 0;
 
   button {
-    width: 9vw;
+    justify-self: flex-end;
+    align-self: flex-end;
+    width: 5vw;
     height: 2vw;
     font-size: 0.8vw;
-    margin: 20% 7% 2% 3%;
     color: $white;
     background-color: $primary-dark;
   }
 }
 
-.lower-right-nav {
+.welcome {
   display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  margin-bottom: 7%;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  font-size: 2vw;
+  font-weight: bold;
+  color: $primary-dark;
+}
+
+.total-spent {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
   font-size: 1.2vw;
 }
