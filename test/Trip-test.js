@@ -51,7 +51,15 @@ describe('Trip', function() {
   });
 
   it('should initialize with a null value cost property', function() {
-    expect(trip.cost).to.deep.eq(null);
+    expect(trip.cost).to.eq(null);
+  });
+
+  it('should initialize with a null start date property', function() {
+    expect(trip.startDate).to.eq(null);
+  });
+
+  it('should initialize with a null end date property', function() {
+    expect(trip.endDate).to.eq(null);
   });
   
 });
