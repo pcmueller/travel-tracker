@@ -3,11 +3,10 @@
 header {
   display: grid;
   height: 100%;
-  grid-template-columns: 25% 50% 25%;
+  grid-template-columns: 20% 60% 20%;
   background: $primary-header;
   border-bottom: 0.1em solid rgba(6, 10, 21, 0.274);
-  box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1),
-  0.3em 0.2em 0.1em rgba(0, 0, 0, 0.2);
+  box-shadow: $shadow-light;
 }
 
 // LEFT SIDE
@@ -45,7 +44,7 @@ header {
     align-self: center;
     margin: 0%;
     font-size: 5vw;
-    color: rgba(1, 3, 5, 0.77);
+    color: rgba(15, 39, 61, 0.77);
   }
 }
 
@@ -62,12 +61,14 @@ header {
     justify-content: space-evenly;
     align-items: center;
     justify-self: center;
-    width: 11vw;
-    height: 3.5vw;
+    width: 14vw;
+    height: 3.25vw;
     padding: 3%;
     margin: 1% 3% 1% 3%;
     color: $white;
     background-color: $primary-dark;
+    box-shadow: $shadow-light;
+    border: 1px solid rgba(159, 249, 174, 0.774);
     font-size: 1.3vw;
     cursor: pointer;
   }
@@ -81,38 +82,56 @@ header {
 
 .nav-right {
   display: grid;
-  grid-template-rows: 60% 40%;
-  margin-bottom: 2%;
-}
-
-.upper-right-nav {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-
-  p {
-    flex-direction: row wrap;
-    justify-self: center;
-    margin: 10% 1% auto 10%;
-    font-size: 2vw;
-    font-weight: bold;
-    color:rgba(49, 22, 222, 0.938);
-  }
+  grid-template-rows: 40% 40% 20%;
+  // justify-content: flex-end;
+  align-items: space-between;
+  margin: 7% 7% 5% 0;
 
   button {
-    width: 9vw;
-    height: 2.5vw;
-    font-size: 1.25vw;
-    margin: 10% 7% 2% 1%;
+    justify-self: flex-end;
+    align-self: flex-end;
+    width: 5vw;
+    height: 2vw;
+    font-size: 0.8vw;
     color: $white;
     background-color: $primary-dark;
+    border: 1px solid rgba(215, 247, 220, 0.671);
   }
 }
 
-.lower-right-nav {
+.welcome {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
-  margin-bottom: 3%;
-  font-size: 1.5vw;
+  align-items: center;
+  width: 100%;
+  font-size: 2.5vw;
+  font-weight: bold;
+  color: $primary-dark;
+}
+
+.total-spent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  justify-self: center;
+  align-self: center;
+  align-items: center;
+  width: 10vw;
+  height: 3.5vw;
+  background-color:#4ef981af;
+  // border: 1px solid rgba(7, 22, 9, 0.493);
+  box-shadow: $shadow-light;
+  color: rgba(1, 3, 5, 0.945);
+}
+
+.total-title {
+  font-size: 1vw;
+  font-weight: bold;
+  color: $primary-dark;
+}
+
+.total-amt {
+  font-size: 1.2vw;
+  color: rgb(17, 34, 227);
 }

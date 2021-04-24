@@ -18,28 +18,30 @@
       <section class="nav-center">
         <h1 class="title">Travel Tracker</h1>
         <nav class="nav-buttons"> 
-          <button class="current-trips">
+          <button class="current-trips" id="navBtn">
             <i class="fas fa-plane"></i> Current Trips
           </button>
-          <button class="upcoming-trips">
+          <button class="upcoming-trips" id="navBtn">
             <i class="fas fa-globe-africa"></i> Upcoming Trips
           </button>
-          <button class="previous-trips">
+          <button class="previous-trips" id="navBtn">
             <i class="fas fa-passport"></i> Previous Trips
           </button>
-          <button class="pending-trips">
+          <button class="pending-trips" id="navBtn">
             <i class="far fa-clock"></i> Pending Trips
           </button>
         </nav>
       </section>
       <section class="nav-right">
-        <div class="upper-right-nav">
-          <p>Welcome, Brover!</p> 
-          <button>LOG OUT</button>
-        </div>
-        <div class="lower-right-nav">
-          <p class="total-spent">TOTAL SPENT: $5000</p>
-        </div>
+          <div class="welcome">
+            <p>Welcome,</p>
+            <p id="welcomeName"></p>
+          </div>
+          <div class="total-spent">
+            <p class="total-title">TOTAL SPENT: </p>
+            <p class="total-amt">$5000</p>
+          </div>
+          <button id="logoutBtn">LOG OUT</button>
       </section>
     </header>
     <section class="booking-section">
@@ -49,28 +51,28 @@
       <article class="booking-bottom">
         <div class="choice">
           <label for="drop">Select destination:
-            <select required class="drop-down" id="destinationMenu">
+            <select required class="drop-down" id="destinationDrop">
               <option value="0">Select destination</option>
             </select>
           </label>
         </div>
         <div class="choice">
           <label for="startDate">Departure date:
-            <input required type="date" id="startDate" name="start" min="2000-01-01" max="2035-12-31">
+            <input required type="date" id="startDateDrop" name="start" min="2000-01-01" max="2035-12-31">
           </label>
         </div>
         <div class="choice">
           <label for="tripDuration">Duration of trip:
-            <input required id="tripDuration" type="number" min="1">
+            <input required id="durationInput" type="number" min="1">
           </label>
         </div>
         <div class="choice">
           <label for="travelersNum">Number of travelers:
-            <input required id="travelersNum" type="number" min="1">
+            <input required id="numTravelersInput" type="number" min="1">
           </label>
         </div>
         <div class="booking-btns">
-          <button class="cost-button">Estimated Trip Cost</button>
+          <button class="cost-button">Estimate Trip Cost</button>
           <button class="book-button">Book Trip</button>
         </div>
       </article>
