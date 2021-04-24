@@ -9,10 +9,11 @@ import domUpdates from './domUpdates.js';
 import apiCalls from './apiCalls.js';
 import Traveler from './Traveler.js';
 import Trip from './Trip.js';
+import travelers from '../test/test-data/travelers-data';
 
 // GLOBAL VARIABLES & QUERY SELECTORS
 
-let userID, allDestinations, allTravelers, allTrips, currentTraveler;
+let userID, allDestinations, allTravelers, allTrips, currentTraveler, totalCosts;
 let currentDate = "2021/01/09";
 
 const logoutBtn = document.querySelector('#logoutBtn');
@@ -42,12 +43,14 @@ function createUser() {
   userID = getRandomIndex(allTravelers);
   currentTraveler = new Traveler(allTravelers[userID]);
   currentTraveler.populateTrips(allTrips);
+  calculateTravelCosts();
   displayUserData();
 }
 
 function displayUserData() {
   domUpdates.welcomeUser(currentTraveler);
   domUpdates.buildBookingSection(allDestinations);
+  domUpdates.displayTravelCosts(totalCosts);
 }
 
 // HELPERS
@@ -56,3 +59,10 @@ function getRandomIndex(array) {
   const index = Math.floor(Math.random() * array.length);
   return index;
 }
+
+function calculateTravelCosts() {
+  totalCosts = currentTraveler.trips.reduce((total, trip) => {
+    total += trip.calculateTripCost(allDestinations);
+    return Math.round(total);
+  }, 0);
+};

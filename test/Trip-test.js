@@ -49,5 +49,9 @@ describe('Trip', function() {
   it('should initialize with a suggested activities property', function() {
     expect(trip.suggestedActivities).to.deep.eq([]);
   });
+
+  it('should initialize with a null value cost property', function() {
+    expect(trip.cost).to.deep.eq(null);
+  });
   
 });

@@ -8,10 +8,17 @@ class Trip {
     this.duration = tripDatum.duration;
     this.suggestedActivities = tripDatum.suggestedActivities;
     this.status = tripDatum.status;
+    this.cost = null;
   }
 
-  calculateTripCost() {
-
+  calculateTripCost(allDestinations) {
+    let destination = allDestinations.find(place => {
+      return place.id === this.destinationID;
+    });
+    let totalLodging = destination.estimatedLodgingCostPerDay * this.duration;
+    let totalAirfare = destination.estimatedFlightCostPerPerson * this.travelers;
+    this.cost = (totalLodging + totalAirfare) * 1.10;
+    return this.cost;
   }
 
   getTripDuration() {

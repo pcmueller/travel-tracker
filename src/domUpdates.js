@@ -13,14 +13,15 @@ const domUpdates = {
       return a.destination.localeCompare(b.destination);
     });
 
-    let destinationsHTML = allDestinations.reduce((acc, place) => {
-      acc += `<option value="${place.id}">${place.destination}</option>`;
-      return acc;
-    }, '');
+    allDestinations.forEach(place => {
+      menu.insertAdjacentHTML('beforeend', `<option value="${place.id}">${place.destination}</option>`);
+    })
+  },
 
-    menu.insertAdjacentHTML('beforeend', destinationsHTML);
-  }
-
+  displayTravelCosts(totalCost) {
+    let totalDisplay = document.querySelector('#totalAmt');
+    totalDisplay.innerText = `$${totalCost}`;
+  },
 
 }
 
