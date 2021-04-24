@@ -35,7 +35,7 @@
 
 .box-bottom {
   display: grid;
-  grid-template-rows: 20% 20% 20% 20% 20%;
+  grid-template-rows: 23% 23% 23% 23%;
   // justify-content: flex-start;
   align-items: space-between;
   padding: 1.5vw;
@@ -54,5 +54,5 @@
 .data-small {
   font-size: 1vw;
   // margin-bottom: 0.25vw;
-  color: rgba(0, 0, 0, 0.893)
+  color: rgb(57, 44, 28)
 }

@@ -1,4 +1,5 @@
 // IMPORTS
+
 import './css/base.scss';
 
 import './images/turing-logo.png'
@@ -9,12 +10,16 @@ import domUpdates from './domUpdates.js';
 import apiCalls from './apiCalls.js';
 import Traveler from './Traveler.js';
 import Trip from './Trip.js';
-import travelers from '../test/test-data/travelers-data';
 
 // GLOBAL VARIABLES & QUERY SELECTORS
 
-let userID, allDestinations, allTravelers, allTrips, currentTraveler, totalCosts;
 let currentDate = "2021/01/09";
+
+// user data
+let userID, currentTraveler, totalCosts;
+
+// API data
+let allDestinations, allTravelers, allTrips;
 
 const logoutBtn = document.querySelector('#logoutBtn');
 const navButtons = document.querySelectorAll('#navBtn');
@@ -27,7 +32,7 @@ const travelersInput = document.querySelector('#numTravelersInput');
 
 window.addEventListener('load', retrieveData);
 
-// FUNCTIONS
+// HANDLER FUNCTIONS
 
 function retrieveData() {
   apiCalls.getAllData()
@@ -47,13 +52,14 @@ function createUser() {
   displayUserData();
 }
 
+// HELPER & UTIL FUNCTIONS
+
 function displayUserData() {
   domUpdates.welcomeUser(currentTraveler);
   domUpdates.buildBookingSection(allDestinations);
   domUpdates.displayTravelCosts(totalCosts);
+  domUpdates.displayAllTripCards(currentTraveler.trips, allDestinations);
 }
-
-// HELPERS
 
 function getRandomIndex(array) {
   const index = Math.floor(Math.random() * array.length);

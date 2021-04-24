@@ -4,6 +4,7 @@
   display: grid;
   grid-template-rows: 30% 70%;
   margin: 3% 7% 1% 7%;
+  max-height: 15vw;
   box-shadow: $shadow-heavy;
   background: $primary-accent;
   color: $primary-dark;
