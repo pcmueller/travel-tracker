@@ -23,7 +23,7 @@ const domUpdates = {
     totalDisplay.innerText = `$${totalCost}`;
   },
 
-  displayAllTripCards(userTrips, allDestinations) {
+  displayTripCards(userTrips, allDestinations) {
     let cardGrid = document.querySelector('#cardGrid');
     userTrips.sort((a, b) => {
       return b.date.localeCompare(a.date);

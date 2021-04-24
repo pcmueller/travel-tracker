@@ -31,6 +31,9 @@ const travelersInput = document.querySelector('#numTravelersInput');
 // EVENT LISTENERS
 
 window.addEventListener('load', retrieveData);
+navButtons.forEach(button => button.addEventListener('click', function(event) {
+  populateCardGrid(event);
+}));
 
 // HANDLER FUNCTIONS
 
@@ -52,13 +55,34 @@ function createUser() {
   displayUserData();
 }
 
+function populateCardGrid(e) {
+  let clickedButton = e.target;
+  let userData;
+
+  switch(clickedButton) {
+    case 'current-trips':
+      userData = getCurrentTrips();
+      break;
+    case 'upcoming-trips':
+      userData = getUpcomingTrips();
+      break;
+    case 'previous-trips':
+      userData = getPastTrips();
+      break;
+    case 'pending-trips':
+      userData = getPendingTrips();
+      break;
+  }
+  domUpdates.displayTripCards(userData, allDestinations);
+}
+
 // HELPER & UTIL FUNCTIONS
 
 function displayUserData() {
   domUpdates.welcomeUser(currentTraveler);
   domUpdates.buildBookingSection(allDestinations);
   domUpdates.displayTravelCosts(totalCosts);
-  domUpdates.displayAllTripCards(currentTraveler.trips, allDestinations);
+  domUpdates.displayTripCards(currentTraveler.trips, allDestinations);
 }
 
 function getRandomIndex(array) {
