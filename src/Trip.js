@@ -26,12 +26,8 @@ class Trip {
   getTripDates() {
     let start = new Date(this.date);
     let end = new Date(this.date).setDate(new Date(this.date).getDate() + this.duration);
-    
     this.startDate = start.getTime();
     this.endDate = end;
-    
-    console.log("startDate: ", this.startDate);
-    console.log("endDate: ", this.endDate);
   }
 }
 

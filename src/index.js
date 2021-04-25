@@ -10,6 +10,7 @@ import domUpdates from './domUpdates.js';
 import apiCalls from './apiCalls.js';
 import Traveler from './Traveler.js';
 import Trip from './Trip.js';
+import destinations from '../test/test-data/destination-data';
 
 // GLOBAL VARIABLES & QUERY SELECTORS
 
@@ -25,8 +26,10 @@ const logoutBtn = document.querySelector('#logoutBtn');
 const navButtons = document.querySelectorAll('#navBtn');
 const destinationSelect = document.querySelector('#destinationDrop');
 const startDateSelect = document.querySelector('#startDateDrop');
-const durationSelect = document.querySelector('#durationInput');
+const durationInput = document.querySelector('#durationInput');
 const travelersInput = document.querySelector('#numTravelersInput');
+const costButton = document.querySelector('#costBtn');
+const bookButton = document.querySelector('#bookBtn');
 
 // EVENT LISTENERS
 
@@ -34,6 +37,8 @@ window.addEventListener('load', retrieveData);
 navButtons.forEach(button => button.addEventListener('click', function(event) {
   populateCardGrid(event);
 }));
+costButton.addEventListener('click', recieveBookingInputs);
+bookButton.addEventListener('click', bookNewTrip);
 
 // HANDLER FUNCTIONS
 
@@ -82,6 +87,11 @@ function populateCardGrid(e) {
   domUpdates.displayTripCards(userData, allDestinations);
 }
 
+function bookNewTrip() {
+  let newTripObject = recieveBookingInputs();
+  apiCalls.postNewTripRequest(newTripObject);
+}
+
 // HELPER & UTIL FUNCTIONS
 
 function displayUserData() {
@@ -102,3 +112,30 @@ function calculateTravelCosts() {
     return Math.round(total);
   }, 0);
 };
+
+function getNextTripID() {
+  allTrips.sort((a, b) => {
+    return b.id - a.id;
+  });
+  let [ lastEntry ] = allTrips;
+
+  return lastEntry.id + 1;
+};
+
+function recieveBookingInputs() {
+  let destinationID = parseInt(destinationSelect.value);
+  let startDate = parseInt(startDateSelect.value);
+  let duration = parseInt(durationInput.value);
+  let travelers = parseInt(travelersInput.value);
+  let tripObject = {
+    "id": getNextTripID(),
+    "userID": currentTraveler.id,
+    "destinationID": destinationID,
+    "travelers": travelers,
+    "date": startDate,
+    "duration": duration,
+    "status": "pending",
+    "suggestedActivities": [],
+  };
+  return tripObject;
+}
