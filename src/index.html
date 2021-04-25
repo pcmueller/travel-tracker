@@ -9,80 +9,94 @@
     <title>Travel Tracker</title>
   </head>
   <body>
-    <header>
-      <section class="nav-left">
-        <div class="logo-container">
-          <img class="logo" src="./images/tt-logo-no-text.png">
-        </div>
-      </section>
-      <section class="nav-center">
-        <h1 class="title">Travel Tracker</h1>
-        <nav class="nav-buttons"> 
-          <button class="current-trips" id="navBtn">
-            <i class="fas fa-plane"></i> Current Trips
-          </button>
-          <button class="upcoming-trips" id="navBtn">
-            <i class="fas fa-globe-africa"></i> Upcoming Trips
-          </button>
-          <button class="previous-trips" id="navBtn">
-            <i class="fas fa-passport"></i> Previous Trips
-          </button>
-          <button class="pending-trips" id="navBtn">
-            <i class="far fa-clock"></i> Pending Trips
-          </button>
-        </nav>
-      </section>
-      <section class="nav-right">
-          <div class="welcome">
-            <p>Welcome,</p>
-            <p id="welcomeName"></p>
-          </div>
-          <div class="total-spent">
-            <p class="total-title">TOTAL SPENT: </p>
-            <p class="total-amt" id="totalAmt"></p>
-          </div>
-          <button id="logoutBtn">LOG OUT</button>
-      </section>
-    </header>
-    <section class="booking-section">
-      <article class="booking-top">
-        <p>Plan Your Next Adventure!</p>
-      </article>
-      <article class="booking-bottom">
-        <div class="choice">
-          <label for="drop">Select destination:
-            <select required class="drop-down" id="destinationDrop">
-              <option value="0">Select destination</option>
-            </select>
-          </label>
-        </div>
-        <div class="choice">
-          <label for="startDateDrop">Departure date:
-            <input required type="date" id="startDateDrop" name="startDate" min="2021-01-01" max="2030-12-31">
-          </label>
-        </div>
-        <div class="choice">
-          <label for="tripDuration">Duration of trip:
-            <input required id="durationInput" type="number" min="1">
-          </label>
-        </div>
-        <div class="choice">
-          <label for="travelersNum">Number of travelers:
-            <input required id="numTravelersInput" type="number" min="1">
-          </label>
-        </div>
-        <div class="booking-btns">
-          <button class="cost-button" id="costBtn">Estimate Trip Cost</button>
-          <button class="book-button" id="bookBtn">Book Trip</button>
-        </div>
-      </article>
-    </section>
-    <main>
-      <div class="main-wrapper">
-        <p class="box-grid-title" id="gridTitle">My Trips</p>
-        <section class="box-grid" id="cardGrid">
-        </section>
+    <section class="login hidden">
+      <div class="login-box">
+        <img class="logo-big" id="logoBig" src="./images/tt-logo.png">
+        <form class="login-form" id="login-form">
+          <label for="username">Username</label>
+            <input type="text" name="username" id="username" class="login-form-field" placeholder="username">
+          <label for="password">Password</label>
+            <input type="password" name="password" id="password" class="login-form-field" placeholder="password">
+          <button type="submit" class="login-button" id="loginBtn">Login</button>
+        </form>
       </div>
-    </main>
+    </section>
+    <section class="user-page">
+      <header>
+        <section class="nav-left">
+          <div class="logo-container">
+            <img class="logo" id="logo" src="./images/tt-logo-no-text.png">
+          </div>
+        </section>
+        <section class="nav-center">
+          <h1 class="title">Travel Tracker</h1>
+          <nav class="nav-buttons"> 
+            <button class="current-trips" id="navBtn">
+              <i class="fas fa-plane"></i> Current Trips
+            </button>
+            <button class="upcoming-trips" id="navBtn">
+              <i class="fas fa-globe-africa"></i> Upcoming Trips
+            </button>
+            <button class="previous-trips" id="navBtn">
+              <i class="fas fa-passport"></i> Previous Trips
+            </button>
+            <button class="pending-trips" id="navBtn">
+              <i class="far fa-clock"></i> Pending Trips
+            </button>
+          </nav>
+        </section>
+        <section class="nav-right">
+            <div class="welcome">
+              <p>Welcome,</p>
+              <p id="welcomeName"></p>
+            </div>
+            <div class="total-spent">
+              <p class="total-title">TOTAL SPENT: </p>
+              <p class="total-amt" id="totalAmt"></p>
+            </div>
+            <button id="logoutBtn">LOG OUT</button>
+        </section>
+      </header>
+      <section class="booking-section">
+        <article class="booking-top">
+          <p>Plan Your Next Adventure!</p>
+        </article>
+        <article class="booking-bottom">
+          <div class="choice">
+            <label for="drop">Select destination:
+              <select required class="drop-down" id="destinationDrop">
+                <option value="0">Select destination</option>
+              </select>
+            </label>
+          </div>
+          <div class="choice">
+            <label for="startDateDrop">Departure date:
+              <input required type="date" id="startDateDrop" name="startDate" min="2021-01-01" max="2030-12-31">
+            </label>
+          </div>
+          <div class="choice">
+            <label for="tripDuration">Duration of trip:
+              <input required id="durationInput" type="number" min="1">
+            </label>
+          </div>
+          <div class="choice">
+            <label for="travelersNum">Number of travelers:
+              <input required id="numTravelersInput" type="number" min="1">
+            </label>
+          </div>
+          <div class="booking-btns">
+            <button class="cost-button" id="costBtn">Estimate Trip Cost</button>
+            <button class="book-button" id="bookBtn">Book Trip</button>
+          </div>
+        </article>
+      </section>
+      <main>
+        <div class="main-wrapper">
+          <p class="box-grid-title" id="gridTitle">My Trips</p>
+          <section class="box-grid" id="cardGrid">
+          </section>
+        </div>
+      </main>
+    </section>
   </body>
 </html>

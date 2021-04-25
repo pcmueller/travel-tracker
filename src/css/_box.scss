@@ -51,7 +51,7 @@
   align-items: space-between;
   padding: 1.6vw;
   border-radius: 0 0 3px 3px;
-  background: $primary-header;
+  background: rgba(255, 255, 255, 0.829);
 }
 
 .travel-info {
@@ -67,5 +67,10 @@
 .data-small {
   font-size: 1.25vw;
   margin: 0.5vw auto 0.5vw auto;
-  color: rgb(154, 31, 1)
+  color: rgb(51, 10, 173)
+}
+
+.no-match {
+  font-size: 2vw;
+  color: $offwhite;
 }

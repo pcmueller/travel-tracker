@@ -2,8 +2,10 @@
 
 import './css/base.scss';
 
-import './images/arrow.png'
-import './images/tt-logo-no-text.png'
+import './images/tt-logo.png';
+import './images/tt-logo-no-text.png';
+import './images/thai-beach.png';
+import './images/arrow.png';
 
 import domUpdates from './domUpdates.js';
 import apiCalls from './apiCalls.js';
@@ -17,21 +19,25 @@ let currentDate = "2021/01/09";
 // user data
 let userID, currentTraveler, totalCosts;
 
-// API data
+// API datasets
 let allDestinations, allTravelers, allTrips;
 
-const logoutBtn = document.querySelector('#logoutBtn');
+const homeButton = document.querySelector('#logo');
 const navButtons = document.querySelectorAll('#navBtn');
+const costButton = document.querySelector('#costBtn');
+const bookButton = document.querySelector('#bookBtn');
+const logoutBtn = document.querySelector('#logoutBtn');
+
 const destinationSelect = document.querySelector('#destinationDrop');
 const startDateSelect = document.querySelector('#startDateDrop');
 const durationInput = document.querySelector('#durationInput');
 const travelersInput = document.querySelector('#numTravelersInput');
-const costButton = document.querySelector('#costBtn');
-const bookButton = document.querySelector('#bookBtn');
+
 
 // EVENT LISTENERS
 
 window.addEventListener('load', retrieveData);
+homeButton.addEventListener('click', retrieveData);
 navButtons.forEach(button => button.addEventListener('click', function(event) {
   populateCardGrid(event);
 }));
@@ -84,6 +90,7 @@ function populateCardGrid(e) {
 
   domUpdates.displayGridTitle(titleText);
   domUpdates.displayTripCards(userData, allDestinations);
+  // domUpdates.updateActiveButton(e.target);
 }
 
 function estimateTripCost() {
@@ -99,7 +106,8 @@ function bookNewTrip() {
   apiCalls.postNewTripRequest(newTripRequest)
    .then(response => {
       alert(`Trip succesfully booked!`)
-      retrieveData();
+      retrieveData()
+      domUpdates.displayGridTitle('My Trips');
     });
 }
 

@@ -77,10 +77,19 @@ const domUpdates = {
         cardGrid.insertAdjacentHTML('beforeend', tripCard);
       });
     } else {
-      cardGrid.innerHTML = `<article>No matching trips!</article>`;
+      cardGrid.innerHTML = `<article class="no-match">No matching trips!</article>`;
     }
-
   },
+
+  // updateActiveButton(clicked) {
+  //   let allTripButtons = document.querySelectorAll('#navBtns');
+  //   clicked.classList.add('active');
+  //   allTripButtons.forEach(button => {
+  //     if (!button.classList.includes(clicked.className[0])){
+  //       button.classList.remove('active');
+  //     }
+  //   });
+  // },
 
 }
 
