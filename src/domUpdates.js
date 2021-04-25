@@ -63,12 +63,12 @@ const domUpdates = {
                 </label>
               </div>
               <div class="travel-info">
-                <label for=travelers>Travelers: 
+                <label for=travelers>Travelers:
                   <p class="data-small" id="travelers">${card.travelers}</p>
                 </label>
               </div>
               <div class="travel-info">
-                <label for=travelers>Trip Status: 
+                <label for=travelers>Trip Status:
                   <p class="data-small" id="tripStatus">${card.status}</p>
                 </label>
               </div>
