@@ -6,6 +6,7 @@ class Traveler {
     this.name = user.name;
     this.type = user.type;
     this.trips = [];
+    this.annualCosts = 0;
   }
 
   populateTrips(allTrips) {
@@ -51,9 +52,19 @@ class Traveler {
     });
   }
 
-  calculateAnnualSpending() {
-    
+  calculateAnnualSpending(currentDate, allDestinations) {
+    let currentYear = new Date(currentDate).getFullYear();
+
+    this.annualCosts = this.trips.reduce((total, trip) => {
+      let tripYear = new Date(trip.date).getFullYear();
+      if (tripYear === currentYear) {
+        total += trip.calculateTripCost(allDestinations);
+      }
+      return Math.round(total);
+    }, 0);
+
   }
+
 }
 
 export default Traveler;

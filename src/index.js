@@ -17,7 +17,7 @@ import Trip from './Trip.js';
 let currentDate = "2021/01/09";
 
 // user data
-let userID, currentTraveler, totalCosts;
+let userID, currentTraveler;
 
 // API datasets
 let allDestinations, allTravelers, allTrips;
@@ -61,7 +61,7 @@ function createUser() {
   userID = 45;
   currentTraveler = new Traveler(allTravelers[userID - 1]);
   currentTraveler.populateTrips(allTrips);
-  calculateTravelCosts();
+  currentTraveler.calculateAnnualSpending(currentDate, allDestinations);
   displayUserData();
 }
 
@@ -115,7 +115,7 @@ function bookNewTrip() {
 function displayUserData() {
   domUpdates.welcomeUser(currentTraveler);
   domUpdates.buildBookingSection(allDestinations);
-  domUpdates.displayTravelCosts(totalCosts);
+  domUpdates.displayTravelCosts(currentTraveler.annualCosts);
   domUpdates.displayTripCards(currentTraveler.trips, allDestinations);
 }
 
@@ -123,13 +123,6 @@ function getRandomIndex(array) {
   const index = Math.floor(Math.random() * array.length);
   return index;
 }
-
-function calculateTravelCosts() {
-  totalCosts = currentTraveler.trips.reduce((total, trip) => {
-    total += trip.calculateTripCost(allDestinations);
-    return Math.round(total);
-  }, 0);
-};
 
 function getNextTripID() {
   allTrips.sort((a, b) => {
