@@ -2,8 +2,9 @@
 
 import './css/base.scss';
 
-import './images/arrow.png'
-import './images/tt-logo-no-text.png'
+import './images/arrow.png';
+import './images/tt-logo-no-text.png';
+import './images/thai-beach.png';
 
 import domUpdates from './domUpdates.js';
 import apiCalls from './apiCalls.js';
@@ -84,6 +85,7 @@ function populateCardGrid(e) {
 
   domUpdates.displayGridTitle(titleText);
   domUpdates.displayTripCards(userData, allDestinations);
+  // domUpdates.updateActiveButton(e.target);
 }
 
 function estimateTripCost() {

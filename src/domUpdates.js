@@ -79,8 +79,17 @@ const domUpdates = {
     } else {
       cardGrid.innerHTML = `<article>No matching trips!</article>`;
     }
-
   },
+
+  // updateActiveButton(clicked) {
+  //   let allTripButtons = document.querySelectorAll('#navBtns');
+  //   clicked.classList.add('active');
+  //   allTripButtons.forEach(button => {
+  //     if (!button.classList.includes(clicked.className[0])){
+  //       button.classList.remove('active');
+  //     }
+  //   });
+  // },
 
 }
 
