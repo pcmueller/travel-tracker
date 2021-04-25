@@ -77,7 +77,7 @@ const domUpdates = {
         cardGrid.insertAdjacentHTML('beforeend', tripCard);
       });
     } else {
-      cardGrid.innerHTML = `<article>No matching trips!</article>`;
+      cardGrid.innerHTML = `<article class="no-match">No matching trips!</article>`;
     }
   },
 

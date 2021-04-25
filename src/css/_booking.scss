@@ -64,5 +64,10 @@
     margin: 2%;
     padding: 2% 3% 2% 3%;
     font-size: 1vw;
+    cursor: pointer;
+    
+    &:hover {
+      background-color: rgba(167, 255, 167, 0.836);
+    }
   }
 }

@@ -21,18 +21,22 @@ let userID, currentTraveler, totalCosts;
 // API data
 let allDestinations, allTravelers, allTrips;
 
-const logoutBtn = document.querySelector('#logoutBtn');
+const homeButton = document.querySelector('#logo');
 const navButtons = document.querySelectorAll('#navBtn');
+const costButton = document.querySelector('#costBtn');
+const bookButton = document.querySelector('#bookBtn');
+const logoutBtn = document.querySelector('#logoutBtn');
+
 const destinationSelect = document.querySelector('#destinationDrop');
 const startDateSelect = document.querySelector('#startDateDrop');
 const durationInput = document.querySelector('#durationInput');
 const travelersInput = document.querySelector('#numTravelersInput');
-const costButton = document.querySelector('#costBtn');
-const bookButton = document.querySelector('#bookBtn');
+
 
 // EVENT LISTENERS
 
 window.addEventListener('load', retrieveData);
+homeButton.addEventListener('click', retrieveData);
 navButtons.forEach(button => button.addEventListener('click', function(event) {
   populateCardGrid(event);
 }));
