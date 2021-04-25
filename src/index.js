@@ -105,7 +105,8 @@ function bookNewTrip() {
   apiCalls.postNewTripRequest(newTripRequest)
    .then(response => {
       alert(`Trip succesfully booked!`)
-      retrieveData();
+      retrieveData()
+      domUpdates.displayGridTitle('My Trips');
     });
 }
 
