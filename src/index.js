@@ -2,9 +2,10 @@
 
 import './css/base.scss';
 
-import './images/arrow.png';
+import './images/tt-logo.png';
 import './images/tt-logo-no-text.png';
 import './images/thai-beach.png';
+import './images/arrow.png';
 
 import domUpdates from './domUpdates.js';
 import apiCalls from './apiCalls.js';
@@ -18,7 +19,7 @@ let currentDate = "2021/01/09";
 // user data
 let userID, currentTraveler, totalCosts;
 
-// API data
+// API datasets
 let allDestinations, allTravelers, allTrips;
 
 const homeButton = document.querySelector('#logo');
