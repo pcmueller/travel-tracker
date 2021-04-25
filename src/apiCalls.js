@@ -52,12 +52,12 @@ const apiCalls = {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(tripData), 
+      redirect: 'follow'
     })
-      .then(response => {
-        return response.json();
-      })
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
   },
-
 }
 
 export default apiCalls;

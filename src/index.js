@@ -37,7 +37,7 @@ window.addEventListener('load', retrieveData);
 navButtons.forEach(button => button.addEventListener('click', function(event) {
   populateCardGrid(event);
 }));
-costButton.addEventListener('click', recieveBookingInputs);
+costButton.addEventListener('click', estimateTripCost);
 bookButton.addEventListener('click', bookNewTrip);
 
 // HANDLER FUNCTIONS
@@ -53,8 +53,9 @@ function retrieveData() {
 }
 
 function createUser() {
-  userID = getRandomIndex(allTravelers);
-  currentTraveler = new Traveler(allTravelers[userID]);
+  // userID = getRandomIndex(allTravelers);
+  userID = 45;
+  currentTraveler = new Traveler(allTravelers[userID - 1]);
   currentTraveler.populateTrips(allTrips);
   calculateTravelCosts();
   displayUserData();
@@ -87,9 +88,21 @@ function populateCardGrid(e) {
   domUpdates.displayTripCards(userData, allDestinations);
 }
 
+function estimateTripCost() {
+  let newTripRequest = receiveBookingInputs();
+  let newTripInstance = new Trip(newTripRequest);
+  newTripInstance.calculateTripCost(allDestinations);
+
+  alert(`Estimate trip cost: $${newTripInstance.cost}`);
+}
+
 function bookNewTrip() {
-  let newTripObject = recieveBookingInputs();
-  apiCalls.postNewTripRequest(newTripObject);
+  let newTripRequest = receiveBookingInputs();
+  apiCalls.postNewTripRequest(newTripRequest)
+   .then(response => {
+      alert(`Trip succesfully booked!`)
+      retrieveData();
+    });
 }
 
 // HELPER & UTIL FUNCTIONS
@@ -122,11 +135,11 @@ function getNextTripID() {
   return lastEntry.id + 1;
 };
 
-function recieveBookingInputs() {
+function receiveBookingInputs() {
   let destinationID = parseInt(destinationSelect.value);
-  let startDate = parseInt(startDateSelect.value);
   let duration = parseInt(durationInput.value);
   let travelers = parseInt(travelersInput.value);
+  let startDate = formatSelectedDate(startDateSelect.value);
   let tripObject = {
     "id": getNextTripID(),
     "userID": currentTraveler.id,
@@ -138,4 +151,11 @@ function recieveBookingInputs() {
     "suggestedActivities": [],
   };
   return tripObject;
+}
+
+function formatSelectedDate(dateInput) {
+  let splitDate = dateInput.split('-');
+  let formattedDate = splitDate.join('/');
+
+  return formattedDate;
 }

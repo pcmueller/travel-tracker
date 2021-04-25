@@ -43,7 +43,7 @@ const domUpdates = {
         });
         let tripCard = 
           `<article class="box">
-            <section class="box-top">
+            <section class="box-top" style="background-image: url(${location.image})">
               <div class="box-top-upper">
                 <img class="arrow" src="./images/arrow.png">
               </div>

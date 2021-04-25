@@ -19,7 +19,8 @@ class Trip {
     });
     let totalLodging = destination.estimatedLodgingCostPerDay * this.duration;
     let totalAirfare = destination.estimatedFlightCostPerPerson * this.travelers;
-    this.cost = (totalLodging + totalAirfare) * 1.10;
+    this.cost = parseFloat(((totalLodging + totalAirfare) * 1.10).toFixed(2));
+    
     return this.cost;
   }
 
