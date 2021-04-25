@@ -3,7 +3,7 @@
 header {
   display: grid;
   grid-template-columns: 20% 60% 20%;
-  max-height: 18vw;
+  min-height: 16vw;
   background: $primary-header;
   border-bottom: 0.1em solid rgba(6, 10, 21, 0.274);
   box-shadow: $shadow-light;
