@@ -19,19 +19,16 @@ class Trip {
     });
     let totalLodging = destination.estimatedLodgingCostPerDay * this.duration;
     let totalAirfare = destination.estimatedFlightCostPerPerson * this.travelers;
-    this.cost = (totalLodging + totalAirfare) * 1.10;
+    this.cost = parseFloat(((totalLodging + totalAirfare) * 1.10).toFixed(2));
+    
     return this.cost;
   }
 
   getTripDates() {
     let start = new Date(this.date);
     let end = new Date(this.date).setDate(new Date(this.date).getDate() + this.duration);
-    
     this.startDate = start.getTime();
     this.endDate = end;
-    
-    console.log("startDate: ", this.startDate);
-    console.log("endDate: ", this.endDate);
   }
 }
 

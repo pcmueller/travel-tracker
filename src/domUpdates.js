@@ -43,7 +43,7 @@ const domUpdates = {
         });
         let tripCard = 
           `<article class="box">
-            <section class="box-top">
+            <section class="box-top" style="background-image: url(${location.image})">
               <div class="box-top-upper">
                 <img class="arrow" src="./images/arrow.png">
               </div>
@@ -63,12 +63,12 @@ const domUpdates = {
                 </label>
               </div>
               <div class="travel-info">
-                <label for=travelers>Travelers: 
+                <label for=travelers>Travelers:
                   <p class="data-small" id="travelers">${card.travelers}</p>
                 </label>
               </div>
               <div class="travel-info">
-                <label for=travelers>Trip Status: 
+                <label for=travelers>Trip Status:
                   <p class="data-small" id="tripStatus">${card.status}</p>
                 </label>
               </div>

@@ -2,7 +2,6 @@
 
 import './css/base.scss';
 
-import './images/turing-logo.png'
 import './images/arrow.png'
 import './images/tt-logo-no-text.png'
 
@@ -25,8 +24,10 @@ const logoutBtn = document.querySelector('#logoutBtn');
 const navButtons = document.querySelectorAll('#navBtn');
 const destinationSelect = document.querySelector('#destinationDrop');
 const startDateSelect = document.querySelector('#startDateDrop');
-const durationSelect = document.querySelector('#durationInput');
+const durationInput = document.querySelector('#durationInput');
 const travelersInput = document.querySelector('#numTravelersInput');
+const costButton = document.querySelector('#costBtn');
+const bookButton = document.querySelector('#bookBtn');
 
 // EVENT LISTENERS
 
@@ -34,6 +35,8 @@ window.addEventListener('load', retrieveData);
 navButtons.forEach(button => button.addEventListener('click', function(event) {
   populateCardGrid(event);
 }));
+costButton.addEventListener('click', estimateTripCost);
+bookButton.addEventListener('click', bookNewTrip);
 
 // HANDLER FUNCTIONS
 
@@ -48,8 +51,9 @@ function retrieveData() {
 }
 
 function createUser() {
-  userID = getRandomIndex(allTravelers);
-  currentTraveler = new Traveler(allTravelers[userID]);
+  // userID = getRandomIndex(allTravelers);
+  userID = 45;
+  currentTraveler = new Traveler(allTravelers[userID - 1]);
   currentTraveler.populateTrips(allTrips);
   calculateTravelCosts();
   displayUserData();
@@ -82,6 +86,23 @@ function populateCardGrid(e) {
   domUpdates.displayTripCards(userData, allDestinations);
 }
 
+function estimateTripCost() {
+  let newTripRequest = receiveBookingInputs();
+  let newTripInstance = new Trip(newTripRequest);
+  newTripInstance.calculateTripCost(allDestinations);
+
+  alert(`Estimate trip cost: $${newTripInstance.cost}`);
+}
+
+function bookNewTrip() {
+  let newTripRequest = receiveBookingInputs();
+  apiCalls.postNewTripRequest(newTripRequest)
+   .then(response => {
+      alert(`Trip succesfully booked!`)
+      retrieveData();
+    });
+}
+
 // HELPER & UTIL FUNCTIONS
 
 function displayUserData() {
@@ -102,3 +123,37 @@ function calculateTravelCosts() {
     return Math.round(total);
   }, 0);
 };
+
+function getNextTripID() {
+  allTrips.sort((a, b) => {
+    return b.id - a.id;
+  });
+  let [ lastEntry ] = allTrips;
+
+  return lastEntry.id + 1;
+};
+
+function receiveBookingInputs() {
+  let destinationID = parseInt(destinationSelect.value);
+  let duration = parseInt(durationInput.value);
+  let travelers = parseInt(travelersInput.value);
+  let startDate = formatSelectedDate(startDateSelect.value);
+  let tripObject = {
+    "id": getNextTripID(),
+    "userID": currentTraveler.id,
+    "destinationID": destinationID,
+    "travelers": travelers,
+    "date": startDate,
+    "duration": duration,
+    "status": "pending",
+    "suggestedActivities": [],
+  };
+  return tripObject;
+}
+
+function formatSelectedDate(dateInput) {
+  let splitDate = dateInput.split('-');
+  let formattedDate = splitDate.join('/');
+
+  return formattedDate;
+}

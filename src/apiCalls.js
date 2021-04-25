@@ -45,6 +45,19 @@ const apiCalls = {
     .catch(error => console.log(`${error}: Error retrieving all data`));
   },
 
+  postNewTripRequest(tripData) {
+    return fetch('http://localhost:3001/api/v1/trips', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(tripData), 
+      redirect: 'follow'
+    })
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
+  },
 }
 
 export default apiCalls;

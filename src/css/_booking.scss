@@ -4,7 +4,7 @@
   display: grid;
   grid-template-rows: 30% 70%;
   margin: 3% 7% 1% 7%;
-  max-height: 15vw;
+  max-height: 12vw;
   box-shadow: $shadow-heavy;
   background: $primary-accent;
   color: $primary-dark;
@@ -38,6 +38,7 @@
     flex-direction: column;
     justify-content: flex-end;
     margin-bottom: 8%;
+    font-size: 1.25vw;
   }
 }
 
