@@ -90,15 +90,13 @@ function populateCardGrid(e) {
 
   domUpdates.displayGridTitle(titleText);
   domUpdates.displayTripCards(userData, allDestinations);
-  // domUpdates.updateActiveButton(e.target);
 }
 
 function estimateTripCost() {
   let newTripRequest = receiveBookingInputs();
   let newTripInstance = new Trip(newTripRequest);
   newTripInstance.calculateTripCost(allDestinations);
-
-  alert(`Estimate trip cost: $${newTripInstance.cost}`);
+  domUpdates.displayTripCostModal(newTripInstance.cost);
 }
 
 function bookNewTrip() {
@@ -108,6 +106,7 @@ function bookNewTrip() {
       alert(`Trip succesfully booked!`)
       retrieveData()
       domUpdates.displayGridTitle('My Trips');
+      domUpdates.displaySuccessfulBooking();
     });
 }
 

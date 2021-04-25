@@ -81,15 +81,17 @@ const domUpdates = {
     }
   },
 
-  // updateActiveButton(clicked) {
-  //   let allTripButtons = document.querySelectorAll('#navBtns');
-  //   clicked.classList.add('active');
-  //   allTripButtons.forEach(button => {
-  //     if (!button.classList.includes(clicked.className[0])){
-  //       button.classList.remove('active');
-  //     }
-  //   });
-  // },
+  displayTripCostModal(tripCost) {
+    let modal = document.querySelector('#modal');
+    modal.innerHTML = `
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <label for="trip-cost">Estimated trip cost:</label>
+          <p class="trip-cost">$${tripCost}</p>
+      </div>`;
+    modal.style.display = "block";
+  },
+
 
 }
 
