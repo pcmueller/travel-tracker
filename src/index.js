@@ -2,7 +2,6 @@
 
 import './css/base.scss';
 
-import './images/turing-logo.png'
 import './images/arrow.png'
 import './images/tt-logo-no-text.png'
 
@@ -10,7 +9,6 @@ import domUpdates from './domUpdates.js';
 import apiCalls from './apiCalls.js';
 import Traveler from './Traveler.js';
 import Trip from './Trip.js';
-import destinations from '../test/test-data/destination-data';
 
 // GLOBAL VARIABLES & QUERY SELECTORS
 
