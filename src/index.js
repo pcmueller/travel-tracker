@@ -17,7 +17,7 @@ import Trip from './Trip.js';
 let currentDate = "2020/01/09";
 
 // user data
-let currentTraveler;
+let username, currentTraveler;
 
 // API datasets
 let allDestinations, allTravelers, allTrips;
@@ -42,47 +42,59 @@ const travelersInput = document.querySelector('#numTravelersInput');
 
 // EVENT LISTENERS
 
-window.addEventListener('load', retrieveData);
+window.addEventListener('load', retrieveAllData);
 loginButton.addEventListener('click', function(event) {
   retrieveLoginInfo(event);;
 });
 navButtons.forEach(button => button.addEventListener('click', function(event) {
   populateCardGrid(event);
 }));
-homeButton.addEventListener('click', retrieveData);
+homeButton.addEventListener('click', displayUserData);
 costButton.addEventListener('click', estimateTripCost);
 bookButton.addEventListener('click', bookNewTrip);
 
 
 // HANDLER FUNCTIONS
 
-function retrieveData() {
+function retrieveAllData() {
   apiCalls.getAllData()
     .then(allData => {
       allTravelers = allData[0];
       allTrips = allData[1];
       allDestinations = allData[2];
+      if (username) {
+        createUser(username);
+        displayUserData();
+      }
     })
 }
 
 function retrieveLoginInfo(event) {
   event.preventDefault();
 
-  let traveler = evaluateUsernameInput(usernameInput.value);
+  username = evaluateUsernameInput(usernameInput.value);
 
-  if (passwordInput.value === 'travel2020' && traveler) {
-    createUser(traveler);
+  if (passwordInput.value === 'travel2020' && username) {
+    createUser();
+    displayUserData();
     domUpdates.displayUserHome();
   } else {
     domUpdates.displayErrorMessage('Sorry, login info is incorrect.');
   }
 }
 
-function createUser(traveler) {
-  currentTraveler = new Traveler(traveler);
+function createUser() {
+  currentTraveler = new Traveler(username);
   currentTraveler.populateTrips(allTrips);
   currentTraveler.calculateAnnualSpending(currentDate, allDestinations);
-  displayUserData();
+}
+
+function displayUserData() {
+  domUpdates.welcomeUser(currentTraveler);
+  domUpdates.buildBookingSection(allDestinations);
+  domUpdates.displayTravelCosts(currentTraveler.annualCosts);
+  domUpdates.displayGridTitle('My Trips');
+  domUpdates.displayTripCards(currentTraveler.trips, allDestinations);
 }
 
 function populateCardGrid(e) {
@@ -134,14 +146,9 @@ function bookNewTrip() {
   } else {
     apiCalls.postNewTripRequest(newTripData)
     .then(response => {
-      retrieveData()
-      // currentTraveler.populateTrips(allTrips);
-      
+      retrieveAllData();
       newTripInstance.calculateTripCost(allDestinations);
-      domUpdates.displayGridTitle('My Trips');
       domUpdates.displayBookingMessage(newTripInstance, allDestinations);
-      
-      // displayUserData();
     });
   }
 }
@@ -156,13 +163,6 @@ function evaluateUsernameInput(username) {
   });
 
   return user;
-}
-
-function displayUserData() {
-  domUpdates.welcomeUser(currentTraveler);
-  domUpdates.buildBookingSection(allDestinations);
-  domUpdates.displayTravelCosts(currentTraveler.annualCosts);
-  domUpdates.displayTripCards(currentTraveler.trips, allDestinations);
 }
 
 function getNextTripID() {
