@@ -50,12 +50,12 @@ const apiCalls = {
     })
       .then(response => {
         if (response.ok) {
-          response.text()
+          console.log(response)
+          response.text();
         } else {
           throw new Error(`Sorry, we could not process your booking request.`);
         }
       })
-      .then(result => console.log(result))
       .catch(error => {
         console.log(error);
         apiCalls.displayErrorMessage(error);

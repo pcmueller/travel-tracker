@@ -7,8 +7,8 @@ import './images/tt-logo-no-text.png';
 import './images/thai-beach.png';
 import './images/arrow.png';
 
-import domUpdates from './domUpdates.js';
 import apiCalls from './apiCalls.js';
+import domUpdates from './domUpdates.js';
 import Traveler from './Traveler.js';
 import Trip from './Trip.js';
 
@@ -40,10 +40,10 @@ const bookButton = document.querySelector('#bookBtn');
 const logoutButton = document.querySelector('#logoutBtn');
 
 // booking
-const destinationSelect = document.querySelector('#destinationDrop');
-const startDateSelect = document.querySelector('#startDateDrop');
+const destinationSelect = document.querySelector('#destinationMenu');
+const startDateSelect = document.querySelector('#startDateMenu');
 const durationInput = document.querySelector('#durationInput');
-const travelersInput = document.querySelector('#numTravelersInput');
+const travelersInput = document.querySelector('#travelersInput');
 
 // EVENT LISTENERS
 
@@ -103,28 +103,27 @@ function displayUserData() {
 }
 
 function populateCardGrid(e) {
-  let clickedClass = e.target.className;
+  let clickedID = e.target.id;
   let userData, titleText;
 
-  switch(clickedClass) {
-    case 'current-trips':
+  switch(clickedID) {
+    case 'currentTripsButton':
       titleText = 'Current Trips';
       userData = currentTraveler.getCurrentTrips(currentDate);
       break;
-    case 'upcoming-trips':
+    case 'upcomingTripsButton':
       titleText = 'Upcoming Trips';
       userData = currentTraveler.getUpcomingTrips(currentDate);
       break;
-    case 'previous-trips':
+    case 'previousTripsButton':
       titleText = 'Previous Trips';
       userData = currentTraveler.getPreviousTrips(currentDate);
       break;
-    case 'pending-trips':
+    case 'pendingTripsButton':
       titleText = 'Pending Trips';
       userData = currentTraveler.getPendingTrips();
       break;
   }
-
   domUpdates.displayGridTitle(titleText);
   domUpdates.displayTripCards(userData, allDestinations);
 }

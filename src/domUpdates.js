@@ -14,7 +14,7 @@ const domUpdates = {
   },
 
   buildBookingSection(allDestinations) {
-    let menu = document.querySelector("#destinationDrop");
+    let menu = document.querySelector("#destinationMenu");
 
     allDestinations.sort((a, b) => {
       return a.destination.localeCompare(b.destination);
