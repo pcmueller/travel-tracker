@@ -50,34 +50,34 @@ const domUpdates = {
         });
         let tripCard = 
           `<article class="box">
-            <section class="box-top" style="background-image: url(${location.image})">
+            <section class="box-top" aria-label="[photograph of ${location.destination}]" style="background-image: url(${location.image})">
               <div class="box-top-upper">
-                <img class="arrow" src="./images/arrow.png">
+                <img class="arrow" alt="inactive arrow icon" src="./images/arrow.png">
               </div>
               <div class="box-top-lower">
-                <p id="destination">${location.destination}</p>
+                <h2 id="destination">${location.destination}</h2>
               </div>
             </section>
             <section class="box-bottom">
               <div class="travel-info">
-                <label for=startDate>Start Date:
-                  <p class="data-small" id="startDate">${card.date}</p>
-                </label>
+                <p>Start Date:
+                  <span class="data-small" id="startDate">${card.date}</span>
+                </p>
               </div>
               <div class="travel-info">
-                <label for=duration>Duration of Stay:
-                  <p class="data-small" id="duration">${card.duration}</p>
-                </label>
+                <p>Duration of Stay:
+                  <span class="data-small" id="duration">${card.duration}</span>
+                </p>
               </div>
               <div class="travel-info">
-                <label for=travelers>Travelers:
-                  <p class="data-small" id="travelers">${card.travelers}</p>
-                </label>
+                <p>Travelers:
+                  <span class="data-small" id="travelers">${card.travelers}</span>
+                </p>
               </div>
               <div class="travel-info">
-                <label for=travelers>Trip Status:
-                  <p class="data-small" id="tripStatus">${card.status}</p>
-                </label>
+                <p>Trip Status:
+                  <span class="data-small" id="tripStatus">${card.status}</span>
+                </p>
               </div>
             </section>
           </article>`;
@@ -110,7 +110,7 @@ const domUpdates = {
 
     modal.innerHTML = `
       <div class="booking-modal">
-        <span class="close" id="modalClose">&times;</span>
+        <span class="close" id="modalClose" type="button" name="close-button">&times;</span>
           <p class="booking-message">${message}</p>
       </div>`;
     modal.style.display = "block";

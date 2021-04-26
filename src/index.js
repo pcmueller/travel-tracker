@@ -17,7 +17,12 @@ import Trip from './Trip.js';
 let currentDate = "2020/01/09";
 
 // user data
-let username, currentTraveler;
+let currentTraveler;
+let user = {
+    "id": 6,
+    "name": "Laverna Flawith",
+    "travelerType": "shopper"
+};
 
 // API datasets
 let allDestinations, allTravelers, allTrips;
@@ -62,8 +67,8 @@ function retrieveAllData() {
       allTravelers = allData[0];
       allTrips = allData[1];
       allDestinations = allData[2];
-      if (username) {
-        createUser(username);
+      if (user) {
+        createUser(user);
         displayUserData();
       }
     })
@@ -72,9 +77,9 @@ function retrieveAllData() {
 function retrieveLoginInfo(event) {
   event.preventDefault();
 
-  username = evaluateUsernameInput(usernameInput.value);
+  user = evaluateUsernameInput(usernameInput.value);
 
-  if (passwordInput.value === 'travel2020' && username) {
+  if (passwordInput.value === 'travel2020' && user) {
     createUser();
     displayUserData();
     domUpdates.displayUserHome();
@@ -84,7 +89,7 @@ function retrieveLoginInfo(event) {
 }
 
 function createUser() {
-  currentTraveler = new Traveler(username);
+  currentTraveler = new Traveler(user);
   currentTraveler.populateTrips(allTrips);
   currentTraveler.calculateAnnualSpending(currentDate, allDestinations);
 }
