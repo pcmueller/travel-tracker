@@ -10,7 +10,7 @@
   background-color: rgba(0,0,0,0.4);
 }
 
-.modal-content {
+.cost-modal {
   display: grid;
   grid-template-rows: 20% 40% 40%;
   width: 20vw;
@@ -28,6 +28,24 @@
   p {
     justify-self: center;
     font-size: 1.5vw;
+  }
+}
+
+.booking-modal {
+  display: grid;
+  grid-template-rows: 20% 60%;
+  justify-content: center;
+  align-items: center;
+  width: 30vw;
+  height: 20vw;
+  margin: 18vw auto;
+  border: 1px solid rgb(136, 136, 136);
+  background-color: #fefefed9;
+  font-size: 2vw;
+
+  p {
+    margin: 5vw;
+    justify-self: center;
   }
 }
 

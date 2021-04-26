@@ -83,15 +83,49 @@ const domUpdates = {
 
   displayTripCostModal(tripCost) {
     let modal = document.querySelector('#modal');
+
     modal.innerHTML = `
-      <div class="modal-content">
-        <span class="close">&times;</span>
+      <div class="cost-modal">
+        <span class="close" id="modalClose">&times;</span>
         <label for="trip-cost">Estimated trip cost:</label>
           <p class="trip-cost">$${tripCost}</p>
       </div>`;
     modal.style.display = "block";
+
+    const closeButton = document.querySelector('#modalClose');
+    closeButton.addEventListener('click', this.closeModal);
   },
 
+  displayBookingMessage(newTrip, allDestinations) {
+    let modal = document.querySelector('#modal');
+    let destination = this.getDestinationName(newTrip.destinationID, allDestinations);
+    let message = `Congratulations, you've booked a trip to ${destination} for $${newTrip.cost}!`;
+
+    modal.innerHTML = `
+      <div class="booking-modal">
+        <span class="close" id="modalClose">&times;</span>
+          <p class="booking-message">${message}</p>
+      </div>`;
+    modal.style.display = "block";
+
+    const closeButton = document.querySelector('#modalClose');
+    closeButton.addEventListener('click', this.closeModal);
+  },
+
+  getDestinationName(id, allDestinations) {
+    let location = allDestinations.find(place => {
+      if (place.id === id) {
+        return place;
+      }
+    });
+    return location.destination;
+  },
+
+  closeModal() {
+    let modal = document.querySelector('#modal');
+    console.log("MODAL", modal);
+    modal.style.display = "none";
+  },
 
 }
 

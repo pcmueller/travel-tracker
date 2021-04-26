@@ -26,13 +26,12 @@ const homeButton = document.querySelector('#logo');
 const navButtons = document.querySelectorAll('#navBtn');
 const costButton = document.querySelector('#costBtn');
 const bookButton = document.querySelector('#bookBtn');
-const logoutBtn = document.querySelector('#logoutBtn');
+const logoutButton = document.querySelector('#logoutBtn');
 
 const destinationSelect = document.querySelector('#destinationDrop');
 const startDateSelect = document.querySelector('#startDateDrop');
 const durationInput = document.querySelector('#durationInput');
 const travelersInput = document.querySelector('#numTravelersInput');
-
 
 // EVENT LISTENERS
 
@@ -103,10 +102,14 @@ function bookNewTrip() {
   let newTripRequest = receiveBookingInputs();
   apiCalls.postNewTripRequest(newTripRequest)
    .then(response => {
-      alert(`Trip succesfully booked!`)
       retrieveData()
+
+      let newTripRequest = receiveBookingInputs();
+      let newTripInstance = new Trip(newTripRequest);
+      newTripInstance.calculateTripCost(allDestinations);
+
       domUpdates.displayGridTitle('My Trips');
-      domUpdates.displaySuccessfulBooking();
+      domUpdates.displayBookingMessage(newTripInstance, allDestinations);
     });
 }
 
