@@ -14,7 +14,7 @@ import Trip from './Trip.js';
 
 // GLOBAL VARIABLES & QUERY SELECTORS
 
-let currentDate = "2021/01/09";
+let currentDate = "2020/01/09";
 
 // user data
 let userID, currentTraveler;
@@ -57,8 +57,7 @@ function retrieveData() {
 }
 
 function createUser() {
-  // userID = getRandomIndex(allTravelers);
-  userID = 45;
+  userID = getRandomIndex(allTravelers);
   currentTraveler = new Traveler(allTravelers[userID - 1]);
   currentTraveler.populateTrips(allTrips);
   currentTraveler.calculateAnnualSpending(currentDate, allDestinations);
@@ -173,4 +172,9 @@ function evaluateBookingInputs(newTripData) {
     isComplete = false;
   }
   return isComplete;
+}
+
+function getRandomIndex(array) {
+  const index = Math.floor(Math.random() * array.length);
+  return index;
 }
