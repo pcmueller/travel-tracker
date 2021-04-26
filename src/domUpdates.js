@@ -122,16 +122,17 @@ const domUpdates = {
   },
 
   displayErrorMessage() {
+    const bookingError = document.querySelector('#bookingError');
+
     bookingError.classList.remove('hidden');
     modal.style.display = "block";
-    
+
     const closeButton = document.querySelector('#modalClose');
     closeButton.addEventListener('click', this.closeModal);
   },
 
   closeModal() {
     let modal = document.querySelector('#modal');
-    console.log("MODAL", modal);
     modal.style.display = "none";
   },
 

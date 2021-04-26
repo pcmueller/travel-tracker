@@ -32,7 +32,6 @@ const destinationSelect = document.querySelector('#destinationDrop');
 const startDateSelect = document.querySelector('#startDateDrop');
 const durationInput = document.querySelector('#durationInput');
 const travelersInput = document.querySelector('#numTravelersInput');
-const bookingError = document.querySelector('#bookingError');
 
 // EVENT LISTENERS
 
@@ -94,20 +93,23 @@ function populateCardGrid(e) {
 }
 
 function estimateTripCost() {
-  let newTripRequest = receiveBookingInputs();
-  let newTripInstance = new Trip(newTripRequest);
-  newTripInstance.calculateTripCost(allDestinations);
-  domUpdates.displayTripCostModal(newTripInstance.cost);
+  let newTripData = receiveBookingInputs();
+  let newTripInstance = new Trip(newTripData);
+  let inputTest = evaluateBookingInputs(newTripData);
+  if (!inputTest) {
+    domUpdates.displayErrorMessage();
+  } else {
+    newTripInstance.calculateTripCost(allDestinations);
+    domUpdates.displayTripCostModal(newTripInstance.cost);
+  }
 }
 
 function bookNewTrip() {
   let newTripData = receiveBookingInputs();
   let newTripInstance = new Trip(newTripData);
+  let inputTest = evaluateBookingInputs(newTripData);
   
-  console.log(newTripData);
-  console.log(newTripInstance);
-  
-  if (newTripData.date === '' || !newTripData.duration || !newTripData.travelers || newTripData.destinationID <= 0) {
+  if (!inputTest) {
     domUpdates.displayErrorMessage();
   } else {
     apiCalls.postNewTripRequest(newTripData)
@@ -165,7 +167,10 @@ function formatSelectedDate(dateInput) {
   return formattedDate;
 }
 
-function getRandomIndex(array) {
-  const index = Math.floor(Math.random() * array.length);
-  return index;
+function evaluateBookingInputs(newTripData) {
+  let isComplete = true;
+  if (newTripData.date === '' || !newTripData.duration || !newTripData.travelers || newTripData.destinationID <= 0) {
+    isComplete = false;
+  }
+  return isComplete;
 }
