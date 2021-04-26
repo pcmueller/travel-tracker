@@ -60,24 +60,20 @@ const domUpdates = {
             </section>
             <section class="box-bottom">
               <div class="travel-info">
-                <p>Start Date:
-                  <span class="data-small" id="startDate">${card.date}</span>
-                </p>
+                <p>Start Date:</p>
+                <span class="data-small" id="startDate">${card.date}</span>
               </div>
               <div class="travel-info">
-                <p>Duration of Stay:
-                  <span class="data-small" id="duration">${card.duration}</span>
-                </p>
+                <p>Duration of Stay:</p>
+                <span class="data-small" id="duration">${card.duration}</span>
               </div>
               <div class="travel-info">
-                <p>Travelers:
-                  <span class="data-small" id="travelers">${card.travelers}</span>
-                </p>
+                <p>Travelers:</p>
+                <span class="data-small" id="travelers">${card.travelers}</span>
               </div>
               <div class="travel-info">
-                <p>Trip Status:
-                  <span class="data-small" id="tripStatus">${card.status}</span>
-                </p>
+                <p>Trip Status:</p>
+                <span class="data-small" id="tripStatus">${card.status}</span>
               </div>
             </section>
           </article>`;
