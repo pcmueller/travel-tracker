@@ -14,10 +14,10 @@ import Trip from './Trip.js';
 
 // GLOBAL VARIABLES & QUERY SELECTORS
 
-let currentDate = "2021/01/09";
+let currentDate = "2020/01/09";
 
 // user data
-let userID, currentTraveler, totalCosts;
+let userID, currentTraveler;
 
 // API datasets
 let allDestinations, allTravelers, allTrips;
@@ -26,13 +26,12 @@ const homeButton = document.querySelector('#logo');
 const navButtons = document.querySelectorAll('#navBtn');
 const costButton = document.querySelector('#costBtn');
 const bookButton = document.querySelector('#bookBtn');
-const logoutBtn = document.querySelector('#logoutBtn');
+const logoutButton = document.querySelector('#logoutBtn');
 
 const destinationSelect = document.querySelector('#destinationDrop');
 const startDateSelect = document.querySelector('#startDateDrop');
 const durationInput = document.querySelector('#durationInput');
 const travelersInput = document.querySelector('#numTravelersInput');
-
 
 // EVENT LISTENERS
 
@@ -43,6 +42,7 @@ navButtons.forEach(button => button.addEventListener('click', function(event) {
 }));
 costButton.addEventListener('click', estimateTripCost);
 bookButton.addEventListener('click', bookNewTrip);
+
 
 // HANDLER FUNCTIONS
 
@@ -57,11 +57,10 @@ function retrieveData() {
 }
 
 function createUser() {
-  // userID = getRandomIndex(allTravelers);
-  userID = 45;
+  userID = getRandomIndex(allTravelers);
   currentTraveler = new Traveler(allTravelers[userID - 1]);
   currentTraveler.populateTrips(allTrips);
-  calculateTravelCosts();
+  currentTraveler.calculateAnnualSpending(currentDate, allDestinations);
   displayUserData();
 }
 
@@ -90,25 +89,37 @@ function populateCardGrid(e) {
 
   domUpdates.displayGridTitle(titleText);
   domUpdates.displayTripCards(userData, allDestinations);
-  // domUpdates.updateActiveButton(e.target);
 }
 
 function estimateTripCost() {
-  let newTripRequest = receiveBookingInputs();
-  let newTripInstance = new Trip(newTripRequest);
-  newTripInstance.calculateTripCost(allDestinations);
-
-  alert(`Estimate trip cost: $${newTripInstance.cost}`);
+  let newTripData = receiveBookingInputs();
+  let newTripInstance = new Trip(newTripData);
+  let inputTest = evaluateBookingInputs(newTripData);
+  if (!inputTest) {
+    domUpdates.displayErrorMessage();
+  } else {
+    newTripInstance.calculateTripCost(allDestinations);
+    domUpdates.displayTripCostModal(newTripInstance.cost);
+  }
 }
 
 function bookNewTrip() {
-  let newTripRequest = receiveBookingInputs();
-  apiCalls.postNewTripRequest(newTripRequest)
-   .then(response => {
-      alert(`Trip succesfully booked!`)
+  let newTripData = receiveBookingInputs();
+  let newTripInstance = new Trip(newTripData);
+  let inputTest = evaluateBookingInputs(newTripData);
+  
+  if (!inputTest) {
+    domUpdates.displayErrorMessage();
+  } else {
+    apiCalls.postNewTripRequest(newTripData)
+    .then(response => {
       retrieveData()
+      
+      newTripInstance.calculateTripCost(allDestinations);
       domUpdates.displayGridTitle('My Trips');
+      domUpdates.displayBookingMessage(newTripInstance, allDestinations);
     });
+  }
 }
 
 // HELPER & UTIL FUNCTIONS
@@ -116,21 +127,9 @@ function bookNewTrip() {
 function displayUserData() {
   domUpdates.welcomeUser(currentTraveler);
   domUpdates.buildBookingSection(allDestinations);
-  domUpdates.displayTravelCosts(totalCosts);
+  domUpdates.displayTravelCosts(currentTraveler.annualCosts);
   domUpdates.displayTripCards(currentTraveler.trips, allDestinations);
 }
-
-function getRandomIndex(array) {
-  const index = Math.floor(Math.random() * array.length);
-  return index;
-}
-
-function calculateTravelCosts() {
-  totalCosts = currentTraveler.trips.reduce((total, trip) => {
-    total += trip.calculateTripCost(allDestinations);
-    return Math.round(total);
-  }, 0);
-};
 
 function getNextTripID() {
   allTrips.sort((a, b) => {
@@ -142,10 +141,11 @@ function getNextTripID() {
 };
 
 function receiveBookingInputs() {
-  let destinationID = parseInt(destinationSelect.value);
+  let startDate = formatSelectedDate(startDateSelect.value);
   let duration = parseInt(durationInput.value);
   let travelers = parseInt(travelersInput.value);
-  let startDate = formatSelectedDate(startDateSelect.value);
+  let destinationID = parseInt(destinationSelect.value);
+
   let tripObject = {
     "id": getNextTripID(),
     "userID": currentTraveler.id,
@@ -164,4 +164,17 @@ function formatSelectedDate(dateInput) {
   let formattedDate = splitDate.join('/');
 
   return formattedDate;
+}
+
+function evaluateBookingInputs(newTripData) {
+  let isComplete = true;
+  if (newTripData.date === '' || !newTripData.duration || !newTripData.travelers || newTripData.destinationID <= 0) {
+    isComplete = false;
+  }
+  return isComplete;
+}
+
+function getRandomIndex(array) {
+  const index = Math.floor(Math.random() * array.length);
+  return index;
 }

@@ -3,13 +3,16 @@ import { expect } from 'chai';
 import Traveler from '../src/Traveler.js';
 import travelerData from './test-data/travelers-data';
 import tripsData from './test-data/trips-data';
+import destinations from './test-data/destination-data';
 
 describe('Traveler', function() {
-  let traveler;
+  let currentDate, traveler, allDestinations;
 
   beforeEach(function() {
+    currentDate = "2021/01/09";
     traveler = new Traveler(travelerData[0]);
-  })
+    allDestinations = destinations;
+  });
 
   it('is a function', function() {
     expect(Traveler).to.be.a('function');
@@ -47,9 +50,24 @@ describe('Traveler', function() {
         date: '2021/01/09',
         duration: 15,
         suggestedActivities: [],
-        status: 'approved'
+        status: 'approved',
+        cost: null,
+        startDate: 1610175600000,
+        endDate: 1611471600000,
       }
     ]);
   });
-  
+
+  it('should initialize with an annual costs property', function() {
+    expect(traveler.annualCosts).to.eq(0);
+  });
+
+    
+  it('should be able to calculate annual trip costs', function() {
+    traveler.populateTrips(tripsData);
+    traveler.calculateAnnualSpending(currentDate, allDestinations);
+
+    expect(traveler.annualCosts).to.eq(4125);
+  });
+
 });

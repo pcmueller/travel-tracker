@@ -51,7 +51,7 @@
               <p id="welcomeName"></p>
             </div>
             <div class="total-spent">
-              <p class="total-title">TOTAL SPENT: </p>
+              <p class="total-title">Annual Travel Costs: </p>
               <p class="total-amt" id="totalAmt"></p>
             </div>
             <button id="logoutBtn">LOG OUT</button>
@@ -89,6 +89,12 @@
             <button class="book-button" id="bookBtn">Book Trip</button>
           </div>
         </article>
+      </section>
+      <section class="modal" id="modal">
+        <div class="booking-error hidden" id="bookingError">
+          <span class="close" id="modalClose">&times;</span>
+          Please fill out all required inputs!
+        </div>
       </section>
       <main>
         <div class="main-wrapper">
