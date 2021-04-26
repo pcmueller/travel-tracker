@@ -33,8 +33,8 @@ const passwordInput = document.querySelector('#password');
 const loginButton = document.querySelector('#loginBtn');
 
 // navbar
+const navButtons = document.querySelectorAll('.nav-btn');
 const homeButton = document.querySelector('#logo');
-const navButtons = document.querySelectorAll('#navBtn');
 const costButton = document.querySelector('#costBtn');
 const bookButton = document.querySelector('#bookBtn');
 const logoutButton = document.querySelector('#logoutBtn');
