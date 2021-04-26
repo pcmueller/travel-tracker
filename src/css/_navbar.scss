@@ -75,7 +75,7 @@ header {
     cursor: pointer;
 
      &:hover {
-      background-color:rgba(142, 238, 240, 0.658);
+      background-color:rgba(142, 238, 240, 0.315);
     }
 
   }
@@ -129,8 +129,8 @@ header {
   justify-self: center;
   align-self: center;
   align-items: center;
-  width: 12vw;
-  height: 3.5vw;
+  width: 11vw;
+  height: 2.75vw;
   background-color:#4ef98169;
   // border: 1px solid rgba(7, 22, 9, 0.493);
   box-shadow: $shadow-light;
