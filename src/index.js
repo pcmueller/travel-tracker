@@ -17,17 +17,24 @@ import Trip from './Trip.js';
 let currentDate = "2020/01/09";
 
 // user data
-let userID, currentTraveler;
+let username, currentTraveler;
 
 // API datasets
 let allDestinations, allTravelers, allTrips;
 
+// login
+const usernameInput = document.querySelector('#username');
+const passwordInput = document.querySelector('#password');
+const loginButton = document.querySelector('#loginBtn');
+
+// navbar
 const homeButton = document.querySelector('#logo');
 const navButtons = document.querySelectorAll('#navBtn');
 const costButton = document.querySelector('#costBtn');
 const bookButton = document.querySelector('#bookBtn');
 const logoutButton = document.querySelector('#logoutBtn');
 
+// booking
 const destinationSelect = document.querySelector('#destinationDrop');
 const startDateSelect = document.querySelector('#startDateDrop');
 const durationInput = document.querySelector('#durationInput');
@@ -35,33 +42,59 @@ const travelersInput = document.querySelector('#numTravelersInput');
 
 // EVENT LISTENERS
 
-window.addEventListener('load', retrieveData);
-homeButton.addEventListener('click', retrieveData);
+window.addEventListener('load', retrieveAllData);
+loginButton.addEventListener('click', function(event) {
+  retrieveLoginInfo(event);;
+});
 navButtons.forEach(button => button.addEventListener('click', function(event) {
   populateCardGrid(event);
 }));
+homeButton.addEventListener('click', displayUserData);
 costButton.addEventListener('click', estimateTripCost);
 bookButton.addEventListener('click', bookNewTrip);
 
 
 // HANDLER FUNCTIONS
 
-function retrieveData() {
+function retrieveAllData() {
   apiCalls.getAllData()
     .then(allData => {
       allTravelers = allData[0];
       allTrips = allData[1];
       allDestinations = allData[2];
-      createUser();
+      if (username) {
+        createUser(username);
+        displayUserData();
+      }
     })
 }
 
+function retrieveLoginInfo(event) {
+  event.preventDefault();
+
+  username = evaluateUsernameInput(usernameInput.value);
+
+  if (passwordInput.value === 'travel2020' && username) {
+    createUser();
+    displayUserData();
+    domUpdates.displayUserHome();
+  } else {
+    domUpdates.displayErrorMessage('Sorry, login info is incorrect.');
+  }
+}
+
 function createUser() {
-  userID = getRandomIndex(allTravelers);
-  currentTraveler = new Traveler(allTravelers[userID - 1]);
+  currentTraveler = new Traveler(username);
   currentTraveler.populateTrips(allTrips);
   currentTraveler.calculateAnnualSpending(currentDate, allDestinations);
-  displayUserData();
+}
+
+function displayUserData() {
+  domUpdates.welcomeUser(currentTraveler);
+  domUpdates.buildBookingSection(allDestinations);
+  domUpdates.displayTravelCosts(currentTraveler.annualCosts);
+  domUpdates.displayGridTitle('My Trips');
+  domUpdates.displayTripCards(currentTraveler.trips, allDestinations);
 }
 
 function populateCardGrid(e) {
@@ -96,7 +129,7 @@ function estimateTripCost() {
   let newTripInstance = new Trip(newTripData);
   let inputTest = evaluateBookingInputs(newTripData);
   if (!inputTest) {
-    domUpdates.displayErrorMessage();
+    domUpdates.displayErrorMessage('Please fill out all required inputs!');
   } else {
     newTripInstance.calculateTripCost(allDestinations);
     domUpdates.displayTripCostModal(newTripInstance.cost);
@@ -109,14 +142,12 @@ function bookNewTrip() {
   let inputTest = evaluateBookingInputs(newTripData);
   
   if (!inputTest) {
-    domUpdates.displayErrorMessage();
+    domUpdates.displayErrorMessage('Please fill out all required inputs!');
   } else {
     apiCalls.postNewTripRequest(newTripData)
     .then(response => {
-      retrieveData()
-      
+      retrieveAllData();
       newTripInstance.calculateTripCost(allDestinations);
-      domUpdates.displayGridTitle('My Trips');
       domUpdates.displayBookingMessage(newTripInstance, allDestinations);
     });
   }
@@ -124,11 +155,14 @@ function bookNewTrip() {
 
 // HELPER & UTIL FUNCTIONS
 
-function displayUserData() {
-  domUpdates.welcomeUser(currentTraveler);
-  domUpdates.buildBookingSection(allDestinations);
-  domUpdates.displayTravelCosts(currentTraveler.annualCosts);
-  domUpdates.displayTripCards(currentTraveler.trips, allDestinations);
+function evaluateUsernameInput(username) {
+  let splitInput = username.split('');
+  let joinedNum = parseInt(splitInput[8] + splitInput[9]);
+  let user = allTravelers.find(traveler => {
+    return traveler.id === joinedNum;
+  });
+
+  return user;
 }
 
 function getNextTripID() {
@@ -156,6 +190,7 @@ function receiveBookingInputs() {
     "status": "pending",
     "suggestedActivities": [],
   };
+
   return tripObject;
 }
 
@@ -172,9 +207,4 @@ function evaluateBookingInputs(newTripData) {
     isComplete = false;
   }
   return isComplete;
-}
-
-function getRandomIndex(array) {
-  const index = Math.floor(Math.random() * array.length);
-  return index;
 }

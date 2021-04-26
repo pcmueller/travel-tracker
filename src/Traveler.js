@@ -62,7 +62,6 @@ class Traveler {
       }
       return Math.round(total);
     }, 0);
-
   }
 
 }

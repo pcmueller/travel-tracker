@@ -1,5 +1,12 @@
 const domUpdates = {
 
+  displayUserHome() {
+    const loginPage = document.querySelector('#loginPage');
+    const userPage = document.querySelector('#userPage');
+    loginPage.classList.add('hidden');
+    userPage.classList.remove('hidden');
+  },
+
   welcomeUser(user) {
     const welcomeName = document.querySelector('#welcomeName');
     const [ firstName ] = user.name.split(' ');
@@ -121,10 +128,12 @@ const domUpdates = {
     return location.destination;
   },
 
-  displayErrorMessage() {
-    const bookingError = document.querySelector('#bookingError');
+  displayErrorMessage(errorMessage) {
+    const errorModal = document.querySelector('#errorModal');
+    const messageText = document.querySelector('#messageText');
 
-    bookingError.classList.remove('hidden');
+    messageText.innerText = errorMessage;
+    errorModal.classList.remove('hidden');
     modal.style.display = "block";
 
     const closeButton = document.querySelector('#modalClose');

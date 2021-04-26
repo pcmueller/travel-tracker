@@ -9,7 +9,7 @@
     <title>Travel Tracker</title>
   </head>
   <body>
-    <section class="login hidden">
+    <section class="login-page" id="loginPage">
       <div class="login-box">
         <img class="logo-big" id="logoBig" src="./images/tt-logo.png">
         <form class="login-form" id="login-form">
@@ -21,7 +21,13 @@
         </form>
       </div>
     </section>
-    <section class="user-page">
+    <section class="modal" id="modal">
+      <div class="error-modal hidden" id="errorModal">
+        <span class="close" id="modalClose">&times;</span>
+        <span id="messageText"></span>
+      </div>
+    </section>
+    <section class="user-page hidden" id="userPage">
       <header>
         <section class="nav-left">
           <div class="logo-container">
@@ -71,7 +77,7 @@
           </div>
           <div class="choice">
             <label for="startDateDrop">Departure date:
-              <input required type="date" id="startDateDrop" name="startDate" min="2021-01-01" max="2030-12-31">
+              <input required type="date" id="startDateDrop" name="startDate" min="2019-01-01" max="2030-12-31">
             </label>
           </div>
           <div class="choice">
@@ -89,12 +95,6 @@
             <button class="book-button" id="bookBtn">Book Trip</button>
           </div>
         </article>
-      </section>
-      <section class="modal" id="modal">
-        <div class="booking-error hidden" id="bookingError">
-          <span class="close" id="modalClose">&times;</span>
-          Please fill out all required inputs!
-        </div>
       </section>
       <main>
         <div class="main-wrapper">
