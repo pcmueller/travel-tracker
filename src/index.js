@@ -32,6 +32,7 @@ const destinationSelect = document.querySelector('#destinationDrop');
 const startDateSelect = document.querySelector('#startDateDrop');
 const durationInput = document.querySelector('#durationInput');
 const travelersInput = document.querySelector('#numTravelersInput');
+const bookingError = document.querySelector('#bookingError');
 
 // EVENT LISTENERS
 
@@ -42,6 +43,7 @@ navButtons.forEach(button => button.addEventListener('click', function(event) {
 }));
 costButton.addEventListener('click', estimateTripCost);
 bookButton.addEventListener('click', bookNewTrip);
+
 
 // HANDLER FUNCTIONS
 
@@ -99,18 +101,24 @@ function estimateTripCost() {
 }
 
 function bookNewTrip() {
-  let newTripRequest = receiveBookingInputs();
-  apiCalls.postNewTripRequest(newTripRequest)
-   .then(response => {
+  let newTripData = receiveBookingInputs();
+  let newTripInstance = new Trip(newTripData);
+  
+  console.log(newTripData);
+  console.log(newTripInstance);
+  
+  if (newTripData.date === '' || !newTripData.duration || !newTripData.travelers || newTripData.destinationID <= 0) {
+    domUpdates.displayErrorMessage();
+  } else {
+    apiCalls.postNewTripRequest(newTripData)
+    .then(response => {
       retrieveData()
-
-      let newTripRequest = receiveBookingInputs();
-      let newTripInstance = new Trip(newTripRequest);
+      
       newTripInstance.calculateTripCost(allDestinations);
-
       domUpdates.displayGridTitle('My Trips');
       domUpdates.displayBookingMessage(newTripInstance, allDestinations);
     });
+  }
 }
 
 // HELPER & UTIL FUNCTIONS
@@ -120,11 +128,6 @@ function displayUserData() {
   domUpdates.buildBookingSection(allDestinations);
   domUpdates.displayTravelCosts(currentTraveler.annualCosts);
   domUpdates.displayTripCards(currentTraveler.trips, allDestinations);
-}
-
-function getRandomIndex(array) {
-  const index = Math.floor(Math.random() * array.length);
-  return index;
 }
 
 function getNextTripID() {
@@ -137,10 +140,11 @@ function getNextTripID() {
 };
 
 function receiveBookingInputs() {
-  let destinationID = parseInt(destinationSelect.value);
+  let startDate = formatSelectedDate(startDateSelect.value);
   let duration = parseInt(durationInput.value);
   let travelers = parseInt(travelersInput.value);
-  let startDate = formatSelectedDate(startDateSelect.value);
+  let destinationID = parseInt(destinationSelect.value);
+
   let tripObject = {
     "id": getNextTripID(),
     "userID": currentTraveler.id,
@@ -159,4 +163,9 @@ function formatSelectedDate(dateInput) {
   let formattedDate = splitDate.join('/');
 
   return formattedDate;
+}
+
+function getRandomIndex(array) {
+  const index = Math.floor(Math.random() * array.length);
+  return index;
 }

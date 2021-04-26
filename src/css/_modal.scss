@@ -1,12 +1,13 @@
 .modal {
   display: none;
   position: fixed; /* Stay in place */
+  overflow-x: scroll;
   z-index: 1; /* Sit on top */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
-  // overflow: auto; /* Enable scroll if needed */
+  overflow: auto; /* Enable scroll if needed */
   background-color: rgba(0,0,0,0.4);
 }
 
@@ -49,9 +50,26 @@
   }
 }
 
+.booking-error {
+  display: grid;
+  grid-template-rows: 20% 60%;
+  justify-content: center;
+  align-items: center;
+  width: 35vw;
+  height: 10vw;
+  margin: 20vw auto;
+  border: 1px solid rgb(136, 136, 136);
+  background-color: #fefefed9;
+  font-size: 2vw;
+
+  p {
+    margin: 5vw;
+    justify-self: center;
+  }
+}
+
 .close {
   justify-self: flex-end;
-  // float: right;
   margin: 1vw;
   font-size: 2vw;
   font-weight: bold;
