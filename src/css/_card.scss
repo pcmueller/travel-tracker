@@ -1,35 +1,18 @@
 // TRIP CARD
 
+/** four card width **/
 .card {
   display: grid;
-  grid-template-rows: 35% 65%;
+  grid-template-rows: 40% 60%;
   width: auto;
   height: 33vw;
   border-radius: 3px;
   box-shadow: $shadow-heavy;
 }
 
-@media screen and (max-width: 1050px) {
-  .card {
-    height: 38vw;
-  }
-}
-
-@media screen and (max-width: 625px) {
-  .card {
-    height: 55vw;
-  }
-}
-
-@media screen and (max-width: 350px) {
-  .card {
-    height: 105vw;
-  }
-}
-
 .card-top {
   display: grid;
-  grid-template-rows: 50% 50%;
+  grid-template-rows: 60% 40%;
   padding: 1%;
   border-radius: 3px 3px 0 0;
   background-repeat: no-repeat;
@@ -47,7 +30,7 @@
 .card-top-lower-half {
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: flex-start;
   margin-bottom: 3%;
 
   h2 {
@@ -56,8 +39,8 @@
     margin-bottom: 1%;
     font-size: 1.5vw;
     font-weight: bold;
-    color:hsl(214, 70%, 6%);
-    background-color:rgba(125, 218, 246, 0.541);
+    color:hsla(0, 0%, 0%, 0.671);
+    background-color:rgba(160, 225, 245, 0.692);
     box-shadow: $shadow-light;
   }
 }
@@ -65,31 +48,128 @@
 .card-bottom {
   display: grid;
   grid-template-rows: 23% 23% 23% 23%;
-  // justify-content: flex-start;
-  align-items: space-between;
+  align-items: flex-end;
   padding: 1.6vw;
   border-radius: 0 0 3px 3px;
   background: rgba(255, 255, 255, 0.829);
 }
 
 .trip-info {
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 60% 40%;
+
   width: 100%;
-  margin: 5% 2% 3% 2%;
+  margin: 5% 1% 3% 1%;
 
   h3 {
-    font-size: 1.5vw;
-    margin-bottom: 0.5vw;
+    font-size: 1.25vw;
+    margin: 0;
   }
 }
 
 .data-small {
-  font-size: 1.25vw;
-  margin: 0.5vw auto 0.5vw auto;
+  font-size: 1.15vw;
   color: rgb(51, 10, 173)
 }
 
 .no-match {
   font-size: 2vw;
   color: $offwhite;
+}
+
+// MEDIA QUERIES
+
+/** three card width **/
+@media screen and (max-width: 1050px) {
+  .card {
+    height: 44vw;
+  }
+
+  .arrow {
+    width: 4vw;
+    height: 4vw;
+  }
+
+  .card-top-lower-half {
+    h2 {
+      font-size: 2vw;
+    }
+  }
+
+  .trip-info {
+
+    h3 {
+      font-size: 1.75vw;
+    }
+  }
+
+  .data-small {
+    font-size: 1.75vw;
+  }
+}
+
+/** two card width **/
+@media screen and (max-width: 625px) {
+  .card {
+    height: 60vw;
+  }
+
+  .arrow {
+    width: 6vw;
+    height: 6vw;
+  }
+
+  .card-top-lower-half {
+    h2 {
+      font-size: 2.8vw;
+    }
+  }
+
+  .trip-info {
+
+    h3 {
+      font-size: 2.75vw;
+    }
+  }
+
+  .data-small {
+    font-size: 2.5vw;
+  }
+}
+
+/** one card width **/
+@media screen and (max-width: 375px) {
+  .card {
+    height: 110vw;
+  }
+
+  .arrow {
+    width: 8vw;
+    height: 8vw;
+  }
+  
+  .card-top-lower-half {
+
+    h2 {
+      font-size: 4.5vw;
+    }
+  }
+
+  .card-bottom {
+    justify-content: center;
+    align-items: center;
+    padding: 3.5vw 6vw 0 0;
+  }
+
+  .trip-info {
+    margin: 0;
+
+    h3 {
+      font-size: 4vw;
+    }
+  }
+
+  .data-small {
+    font-size: 4vw;
+  }
 }

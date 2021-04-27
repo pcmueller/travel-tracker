@@ -132,9 +132,9 @@ header {
   justify-self: center;
   align-self: center;
   align-items: center;
-  width: 11vw;
-  height: 2.75vw;
-  background-color: rgba(137, 225, 241, 0.397);
+  width: 12vw;
+  height: 3.5vw;
+  background-color: rgba(146, 126, 140, 0.315);
   box-shadow: $shadow-light;
   color: rgba(1, 3, 5, 0.945);
 }
@@ -147,5 +147,5 @@ header {
 
 .total-amt {
   font-size: 1.2vw;
-  color: $primary-dark;
+  color: rgba(12, 66, 17, 0.883);
 }

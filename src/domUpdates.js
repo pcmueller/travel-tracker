@@ -70,8 +70,8 @@ const domUpdates = {
                 <span class="data-small" id="startDate">${card.date}</span>
               </div>
               <div class="trip-info">
-                <h3>Duration of Stay:</h3>
-                <span class="data-small" id="duration">${card.duration}</span>
+                <h3>Duration:</h3>
+                <span class="data-small" id="duration">${card.duration} days</span>
               </div>
               <div class="trip-info">
                 <h3>Travelers:</h3>
