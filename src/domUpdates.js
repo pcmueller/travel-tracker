@@ -84,19 +84,23 @@ const domUpdates = {
     }
   },
 
+
+  // MODAL DISPLAY FUNCTIONS
+
   displayTripCostModal(tripCost) {
     let modal = document.querySelector('#modal');
 
     modal.innerHTML = `
-      <div class="cost-modal">
-        <span class="close" id="modalClose">&times;</span>
-        <label for="trip-cost">Estimated trip cost:</label>
-          <p class="trip-cost">$${tripCost}</p>
-      </div>`;
-    modal.style.display = "block";
+    <div class="cost-modal">
+      <span class="close" id="modalClose">&times;</span>
+      <label for="trip-cost">Estimated trip cost:</label>
+      <p class="trip-cost">$${tripCost}</p>
+    </div>`;
+      
+    modal.style.display = "inline";
 
-    const closeButton = document.querySelector('#modalClose');
-    closeButton.addEventListener('click', this.closeModal);
+    this.addModalCloseFunctionality();
+
   },
 
   displayBookingMessage(newTrip, allDestinations) {
@@ -106,13 +110,14 @@ const domUpdates = {
 
     modal.innerHTML = `
       <div class="booking-modal">
-        <span class="close" id="modalClose" type="button" name="close-button">&times;</span>
-          <p class="booking-message">${message}</p>
+        <span class="close" id="modalClose" type="button" role="button" name="close-button">&times;</span>
+        <p class="booking-message">${message}</p>
       </div>`;
-    modal.style.display = "block";
+      
+    modal.style.display = "inline";
 
-    const closeButton = document.querySelector('#modalClose');
-    closeButton.addEventListener('click', this.closeModal);
+    this.addModalCloseFunctionality();
+
   },
 
   getDestinationName(id, allDestinations) {
@@ -125,22 +130,49 @@ const domUpdates = {
   },
 
   displayErrorMessage(errorMessage) {
-    const errorModal = document.querySelector('#errorModal');
-    const messageText = document.querySelector('#messageText');
+    let modal = document.querySelector('#modal');
+    let body = document.querySelector("body");
 
-    messageText.innerText = errorMessage;
-    errorModal.classList.remove('hidden');
-    modal.style.display = "block";
+    body.classList.toggle('noscroll');
 
+    modal.innerHTML = `
+      <div tabindex=-1 class="error-modal" id="errorModal" aria-modal="true">
+        <span tabindex=0 class="close" id="modalClose">&times;</span>
+        <p id="messageText">${errorMessage}</p>
+      </div>`;
+
+    modal.style.display = "inline";
+    
+    let errorModal = document.querySelector('#errorModal');
+    errorModal.focus();
+
+    this.addModalCloseFunctionality();
+  },
+
+  addModalCloseFunctionality() {
     const closeButton = document.querySelector('#modalClose');
     closeButton.addEventListener('click', this.closeModal);
+    closeButton.addEventListener('keydown', function(event) {
+      checkKeyPressed(event);
+    });
   },
 
   closeModal() {
     let modal = document.querySelector('#modal');
+    let body = document.querySelector("body");
+
     modal.style.display = "none";
+    body.classList.toggle('noscroll');
   },
 
+}
+
+// UTIL FUNCTIONS
+
+function checkKeyPressed(e) {
+  if (e.code === 'Enter' || e.code === 'Escape') {
+    domUpdates.closeModal();
+  }
 }
 
 export default domUpdates;

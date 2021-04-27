@@ -10,16 +10,14 @@ html {
 }
 
 body {
-  // min-height: 100vh;
+  z-index: 0;
   display: grid;
-  // grid-template-rows: 15% 15% 70%;
-  font-family: $primary-font;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-
   background-color: #ee65b3c0;
   background-image: linear-gradient(240deg, #ff3caaaf 0%, #784BA0 40%, #2B86C5 100%);
+  font-family: $primary-font;
 }
 
 main {
@@ -63,4 +61,8 @@ main {
 
 .hidden {
   display: none;
+}
+
+.noscroll {
+  overflow: hidden;
 }
