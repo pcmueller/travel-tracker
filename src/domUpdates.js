@@ -87,53 +87,48 @@ const domUpdates = {
 
   // MODAL DISPLAY FUNCTIONS
 
-  displayTripCostModal(tripCost) {
-    let modal = document.querySelector('#modal');
-
-    modal.innerHTML = `
-    <div class="cost-modal">
-      <span class="close" id="modalClose">&times;</span>
-      <label for="trip-cost">Estimated trip cost:</label>
-      <p class="trip-cost">$${tripCost}</p>
-    </div>`;
-      
-    modal.style.display = "inline";
-
-    this.addModalCloseFunctionality();
-
-  },
-
-  displayBookingMessage(newTrip, allDestinations) {
-    let modal = document.querySelector('#modal');
-    let destination = this.getDestinationName(newTrip.destinationID, allDestinations);
-    let message = `Congratulations, you've booked a trip to ${destination} for $${newTrip.cost}!`;
-
-    modal.innerHTML = `
-      <div class="booking-modal">
-        <span class="close" id="modalClose" type="button" role="button" name="close-button">&times;</span>
-        <p class="booking-message">${message}</p>
-      </div>`;
-      
-    modal.style.display = "inline";
-
-    this.addModalCloseFunctionality();
-
-  },
-
-  getDestinationName(id, allDestinations) {
-    let location = allDestinations.find(place => {
-      if (place.id === id) {
-        return place;
-      }
-    });
-    return location.destination;
-  },
-
-  displayErrorMessage(errorMessage) {
+  buildTripCostModal(tripCost) {
     let modal = document.querySelector('#modal');
     let body = document.querySelector("body");
 
+    modal.innerHTML = `
+    <div tabindex=-1 class="cost-modal" id="costModal" aria-modal="true">
+      <span tabindex=0 class="close" id="modalClose">&times;</span>
+      <label for="trip-cost">Estimated trip cost:</label>
+      <p class="trip-cost">$${tripCost}</p>
+    </div>`;
+
+    let costModal = document.querySelector('#costModal');
+      
+    modal.style.display = "inline";
     body.classList.toggle('noscroll');
+    costModal.focus();
+    addModalCloseFunctionality();
+  },
+
+  buildBookingModal(newTrip, allDestinations) {
+    let modal = document.querySelector('#modal');
+    let body = document.querySelector("body");
+    let destination = getDestinationName(newTrip.destinationID, allDestinations);
+    let message = `Congratulations, you've booked a trip to ${destination} for $${newTrip.cost}!`;
+
+    modal.innerHTML = `
+      <div tabindex=-1 class="booking-modal" id="bookingModal" aria-modal="true">
+        <span tabindex=0 class="close" id="modalClose" type="button" role="button" name="close-button">&times;</span>
+        <p class="booking-message">${message}</p>
+      </div>`;
+
+    let bookingModal = document.querySelector('#bookingModal');
+
+    modal.style.display = "inline";
+    body.classList.toggle('noscroll');
+    bookingModal.focus();
+    addModalCloseFunctionality();
+  },
+
+  buildErrorModal(errorMessage) {
+    let modal = document.querySelector('#modal');
+    let body = document.querySelector("body");
 
     modal.innerHTML = `
       <div tabindex=-1 class="error-modal" id="errorModal" aria-modal="true">
@@ -141,38 +136,47 @@ const domUpdates = {
         <p id="messageText">${errorMessage}</p>
       </div>`;
 
-    modal.style.display = "inline";
-    
     let errorModal = document.querySelector('#errorModal');
-    errorModal.focus();
 
-    this.addModalCloseFunctionality();
-  },
-
-  addModalCloseFunctionality() {
-    const closeButton = document.querySelector('#modalClose');
-    closeButton.addEventListener('click', this.closeModal);
-    closeButton.addEventListener('keydown', function(event) {
-      checkKeyPressed(event);
-    });
-  },
-
-  closeModal() {
-    let modal = document.querySelector('#modal');
-    let body = document.querySelector("body");
-
-    modal.style.display = "none";
+    modal.style.display = "inline";
     body.classList.toggle('noscroll');
-  },
-
+    errorModal.focus();
+    addModalCloseFunctionality();
+  }
 }
 
-// UTIL FUNCTIONS
+// HELPER FUNCTIONS
+
+function getDestinationName(id, allDestinations) {
+  let location = allDestinations.find(place => {
+    if (place.id === id) {
+      return place;
+    }
+  });
+  return location.destination;
+}
 
 function checkKeyPressed(e) {
   if (e.code === 'Enter' || e.code === 'Escape') {
-    domUpdates.closeModal();
+    closeModal();
   }
 }
+
+function addModalCloseFunctionality() {
+  const closeButton = document.querySelector('#modalClose');
+  closeButton.addEventListener('click', closeModal);
+  closeButton.addEventListener('keydown', function(event) {
+    checkKeyPressed(event);
+  });
+}
+
+function closeModal() {
+  let modal = document.querySelector('#modal');
+  let body = document.querySelector("body");
+
+  modal.style.display = "none";
+  body.classList.toggle('noscroll');
+}
+
 
 export default domUpdates;

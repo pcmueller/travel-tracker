@@ -84,7 +84,7 @@ function retrieveLoginInfo(event) {
     displayUserData();
     domUpdates.displayUserHome();
   } else {
-    domUpdates.displayErrorMessage('Sorry, login info is incorrect.');
+    domUpdates.buildErrorModal('Sorry, login info is incorrect.');
   }
 }
 
@@ -133,10 +133,10 @@ function estimateTripCost() {
   let newTripInstance = new Trip(newTripData);
   let inputTest = evaluateBookingInputs(newTripData);
   if (!inputTest) {
-    domUpdates.displayErrorMessage('Please fill out all required inputs!');
+    domUpdates.buildErrorModal('Please fill out all required inputs!');
   } else {
     newTripInstance.calculateTripCost(allDestinations);
-    domUpdates.displayTripCostModal(newTripInstance.cost);
+    domUpdates.buildTripCostModal(newTripInstance.cost);
   }
 }
 
@@ -146,13 +146,13 @@ function bookNewTrip() {
   let inputTest = evaluateBookingInputs(newTripData);
   
   if (!inputTest) {
-    domUpdates.displayErrorMessage('Please fill out all required inputs!');
+    domUpdates.buildErrorModal('Please fill out all required inputs!');
   } else {
     apiCalls.postNewTripRequest(newTripData)
     .then(response => {
       retrieveAllData();
       newTripInstance.calculateTripCost(allDestinations);
-      domUpdates.displayBookingMessage(newTripInstance, allDestinations);
+      domUpdates.buildBookingModal(newTripInstance, allDestinations);
     });
   }
 }
