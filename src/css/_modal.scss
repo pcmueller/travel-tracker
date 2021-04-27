@@ -13,18 +13,17 @@
 
 .error-modal {
   display: grid;
-  // position: absolute;
   grid-template-rows: 20% 60%;
   z-index: 1000;
   justify-content: center;
   align-items: center;
-  width: 30vw;
-  height: 10vw;
+  width: 50vw;
+  height: 7vw;
   margin: 20vw auto;
   border: 1px solid rgb(136, 136, 136);
   border-radius: 7px;
   background-color: #fefefed9;
-  font-size: 1.5vw;
+  font-size: 2vw;
 
   p {
     margin: 5vw;

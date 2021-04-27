@@ -12,22 +12,15 @@ import domUpdates from './domUpdates.js';
 import Traveler from './Traveler.js';
 import Trip from './Trip.js';
 
-// GLOBAL VARIABLES & QUERY SELECTORS
+// GLOBAL VARIABLES
 
 let currentDate = "2020/01/01";
 
-// user data
-let currentTraveler;
-let user;
+let user, currentTraveler;
 
-// let user = {
-//     "id": 6,
-//     "name": "Laverna Flawith",
-//     "travelerType": "shopper"
-// };
-
-// API datasets
 let allDestinations, allTravelers, allTrips;
+
+// QUERY SELECTORS
 
 // login
 let usernameInput = document.querySelector('#username');
@@ -60,7 +53,6 @@ homeButton.addEventListener('click', displayUserData);
 costButton.addEventListener('click', estimateTripCost);
 bookButton.addEventListener('click', bookNewTrip);
 logoutButton.addEventListener('click', logoutUser);
-
 
 // HANDLER FUNCTIONS
 
@@ -136,7 +128,7 @@ function estimateTripCost() {
   let newTripInstance = new Trip(newTripData);
   let inputTest = evaluateBookingInputs(newTripData);
   if (!inputTest) {
-    domUpdates.buildErrorModal('Please fill out all required inputs!');
+    domUpdates.buildErrorModal('Please provide all required booking info!');
   } else {
     newTripInstance.calculateTripCost(allDestinations);
     domUpdates.buildTripCostModal(newTripInstance.cost);
@@ -149,7 +141,7 @@ function bookNewTrip() {
   let inputTest = evaluateBookingInputs(newTripData);
   
   if (!inputTest) {
-    domUpdates.buildErrorModal('Please fill out all required inputs!');
+    domUpdates.buildErrorModal('Please provide all required booking info!');
   } else {
     apiCalls.postNewTripRequest(newTripData)
     .then(response => {
@@ -221,5 +213,6 @@ function evaluateBookingInputs(newTripData) {
   if (newTripData.date === '' || !newTripData.duration || !newTripData.travelers || newTripData.destinationID <= 0) {
     isComplete = false;
   }
+
   return isComplete;
 }

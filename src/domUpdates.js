@@ -1,8 +1,14 @@
-const domUpdates = {
+// DOM GLOBAL VARIABLES
 
+const body = document.querySelector("body");
+const modal = document.querySelector('#modal');
+const loginPage = document.querySelector('#loginPage');
+const userPage = document.querySelector('#userPage');
+
+// DOM FUNCTIONS
+
+const domUpdates = {
   togglePageView() {
-    const loginPage = document.querySelector('#loginPage');
-    const userPage = document.querySelector('#userPage');
     loginPage.classList.toggle('hidden');
     userPage.classList.toggle('hidden');
   },
@@ -26,7 +32,7 @@ const domUpdates = {
   },
 
   displayTravelCosts(totalCost) {
-    let totalDisplay = document.querySelector('#totalAmt');
+    const totalDisplay = document.querySelector('#totalAmt');
     totalDisplay.innerText = `$${totalCost}`;
   },
 
@@ -86,10 +92,7 @@ const domUpdates = {
 
   // MODAL DISPLAY FUNCTIONS
 
-  buildTripCostModal(tripCost, bookButton) {
-    let modal = document.querySelector('#modal');
-    let body = document.querySelector("body");
-
+  buildTripCostModal(tripCost) {
     modal.innerHTML = `
     <div tabindex=-1 class="cost-modal" id="costModal" aria-modal="true">
       <span tabindex=0 class="close" id="modalClose">&times;</span>
@@ -106,8 +109,6 @@ const domUpdates = {
   },
 
   buildBookingModal(newTrip, allDestinations) {
-    let modal = document.querySelector('#modal');
-    let body = document.querySelector("body");
     let destination = getDestinationName(newTrip.destinationID, allDestinations);
     let message = `Congratulations, you've booked a trip to ${destination} for $${newTrip.cost}!`;
 
@@ -126,9 +127,6 @@ const domUpdates = {
   },
 
   buildErrorModal(errorMessage) {
-    let modal = document.querySelector('#modal');
-    let body = document.querySelector("body");
-
     modal.innerHTML = `
       <div tabindex=-1 class="error-modal" id="errorModal" aria-modal="true">
         <span tabindex=0 class="close" id="modalClose">&times;</span>
