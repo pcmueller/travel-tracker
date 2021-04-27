@@ -3,10 +3,28 @@
 .card {
   display: grid;
   grid-template-rows: 35% 65%;
-  width: 23vw;
-  height: 35vw;
+  width: auto;
+  height: 33vw;
   border-radius: 3px;
   box-shadow: $shadow-heavy;
+}
+
+@media screen and (max-width: 1050px) {
+  .card {
+    height: 38vw;
+  }
+}
+
+@media screen and (max-width: 625px) {
+  .card {
+    height: 55vw;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .card {
+    height: 105vw;
+  }
 }
 
 .card-top {
