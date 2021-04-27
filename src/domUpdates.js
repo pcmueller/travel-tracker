@@ -54,6 +54,7 @@ const domUpdates = {
         let location = allDestinations.find(place => {
           return place.id === card.destinationID;
         });
+        let date = formatDate(card.date);
         let tripCard = 
           `<article class="card">
             <section class="card-top" aria-label="[photograph of ${location.destination}]" style="background-image: url(${location.image})">
@@ -67,7 +68,7 @@ const domUpdates = {
             <section class="card-bottom">
               <div class="trip-info">
                 <h3>Start Date:</h3>
-                <span class="data-small" id="startDate">${card.date}</span>
+                <span class="data-small" id="startDate">${date}</span>
               </div>
               <div class="trip-info">
                 <h3>Duration:</h3>
@@ -152,6 +153,13 @@ function getDestinationName(id, allDestinations) {
     }
   });
   return location.destination;
+}
+
+function formatDate(date) {
+  let split = date.split('/');
+  let newDate = `${split[1]}/${split[2]}/${split[0]}`;
+
+  return newDate;
 }
 
 function checkKeyPressed(e) {
