@@ -110,7 +110,8 @@ const domUpdates = {
 
   buildBookingModal(newTrip, allDestinations) {
     let destination = getDestinationName(newTrip.destinationID, allDestinations);
-    let message = `Congratulations, you've booked a trip to ${destination} for $${newTrip.cost}!`;
+    let costString = newTrip.cost.toFixed(2).toString();
+    let message = `Congratulations, you've booked a trip to ${destination} for $${costString}!`;
 
     modal.innerHTML = `
       <div tabindex=-1 class="booking-modal" id="bookingModal" aria-modal="true">

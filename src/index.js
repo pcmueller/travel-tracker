@@ -131,7 +131,8 @@ function estimateTripCost() {
     domUpdates.buildErrorModal('Please provide all required booking info!');
   } else {
     newTripInstance.calculateTripCost(allDestinations);
-    domUpdates.buildTripCostModal(newTripInstance.cost);
+    let costString = newTripInstance.cost.toFixed(2).toString();
+    domUpdates.buildTripCostModal(costString);
   }
 }
 
