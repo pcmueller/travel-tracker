@@ -44,7 +44,7 @@ const travelersInput = document.querySelector('#travelersInput');
 
 window.addEventListener('load', retrieveAllData);
 loginButton.addEventListener('click', function(event) {
-  retrieveLoginInfo(event);;
+  retrieveLoginInfo(event);
 });
 navButtons.forEach(button => button.addEventListener('click', function(event) {
   populateCardGrid(event);
@@ -101,23 +101,23 @@ function populateCardGrid(e) {
   let clickedID = e.target.id;
   let userData, titleText;
 
-  switch(clickedID) {
-    case 'currentTripsButton':
-      titleText = 'Current Trips';
-      userData = currentTraveler.getCurrentTrips(currentDate);
-      break;
-    case 'upcomingTripsButton':
-      titleText = 'Upcoming Trips';
-      userData = currentTraveler.getUpcomingTrips(currentDate);
-      break;
-    case 'previousTripsButton':
-      titleText = 'Previous Trips';
-      userData = currentTraveler.getPreviousTrips(currentDate);
-      break;
-    case 'pendingTripsButton':
-      titleText = 'Pending Trips';
-      userData = currentTraveler.getPendingTrips();
-      break;
+  switch (clickedID) {
+  case 'currentTripsButton':
+    titleText = 'Current Trips';
+    userData = currentTraveler.getCurrentTrips(currentDate);
+    break;
+  case 'upcomingTripsButton':
+    titleText = 'Upcoming Trips';
+    userData = currentTraveler.getUpcomingTrips(currentDate);
+    break;
+  case 'previousTripsButton':
+    titleText = 'Previous Trips';
+    userData = currentTraveler.getPreviousTrips(currentDate);
+    break;
+  case 'pendingTripsButton':
+    titleText = 'Pending Trips';
+    userData = currentTraveler.getPendingTrips();
+    break;
   }
   domUpdates.displayGridTitle(titleText);
   domUpdates.displayTripCards(userData, allDestinations);
@@ -145,11 +145,11 @@ function bookNewTrip() {
     domUpdates.buildErrorModal('Please provide all required booking info!');
   } else {
     apiCalls.postNewTripRequest(newTripData)
-    .then(response => {
-      retrieveAllData();
-      newTripInstance.calculateTripCost(allDestinations);
-      domUpdates.buildBookingModal(newTripInstance, allDestinations);
-    });
+      .then(function() {
+        retrieveAllData();
+        newTripInstance.calculateTripCost(allDestinations);
+        domUpdates.buildBookingModal(newTripInstance, allDestinations);
+      });
   }
 }
 
@@ -182,21 +182,21 @@ function getNextTripID() {
   let [ lastEntry ] = allTrips;
 
   return lastEntry.id + 1;
-};
+}
 
 function receiveBookingInputs() {
   let startDate = formatSelectedDate(startDateSelect.value);
-  let duration = parseInt(durationInput.value);
-  let travelers = parseInt(travelersInput.value);
-  let destinationID = parseInt(destinationSelect.value);
+  let numDays = parseInt(durationInput.value);
+  let numTravelers = parseInt(travelersInput.value);
+  let destID = parseInt(destinationSelect.value);
 
   let tripObject = {
     "id": getNextTripID(),
     "userID": currentTraveler.id,
-    "destinationID": destinationID,
-    "travelers": travelers,
+    "destinationID": destID,
+    "travelers": numTravelers,
     "date": startDate,
-    "duration": duration,
+    "duration": numDays,
     "status": "pending",
     "suggestedActivities": [],
   };

@@ -31,12 +31,12 @@ const apiCalls = {
   },
 
   getAllData() {
-    let promises = [apiCalls.getAllTravelers(), apiCalls.getAllTrips(), apiCalls.getAllDestinations()];
+    let promises = [ apiCalls.getAllTravelers(), apiCalls.getAllTrips(), apiCalls.getAllDestinations() ];
     return Promise.all(promises)
-    .then(values => {
-      return values;
-    })
-    .catch(error => console.log(`${error}: Error retrieving all data`));
+      .then(values => {
+        return values;
+      })
+      .catch(error => console.log(`${error}: Error retrieving all data`));
   },
 
   postNewTripRequest(tripData) {
