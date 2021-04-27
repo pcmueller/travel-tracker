@@ -12,24 +12,19 @@ import domUpdates from './domUpdates.js';
 import Traveler from './Traveler.js';
 import Trip from './Trip.js';
 
-// GLOBAL VARIABLES & QUERY SELECTORS
+// GLOBAL VARIABLES
 
-let currentDate = "2020/01/09";
+let currentDate = "2020/01/01";
 
-// user data
-let currentTraveler;
-let user = {
-    "id": 6,
-    "name": "Laverna Flawith",
-    "travelerType": "shopper"
-};
+let user, currentTraveler;
 
-// API datasets
 let allDestinations, allTravelers, allTrips;
 
+// QUERY SELECTORS
+
 // login
-const usernameInput = document.querySelector('#username');
-const passwordInput = document.querySelector('#password');
+let usernameInput = document.querySelector('#username');
+let passwordInput = document.querySelector('#password');
 const loginButton = document.querySelector('#loginBtn');
 
 // navbar
@@ -57,7 +52,7 @@ navButtons.forEach(button => button.addEventListener('click', function(event) {
 homeButton.addEventListener('click', displayUserData);
 costButton.addEventListener('click', estimateTripCost);
 bookButton.addEventListener('click', bookNewTrip);
-
+logoutButton.addEventListener('click', logoutUser);
 
 // HANDLER FUNCTIONS
 
@@ -82,9 +77,9 @@ function retrieveLoginInfo(event) {
   if (passwordInput.value === 'travel2020' && user) {
     createUser();
     displayUserData();
-    domUpdates.displayUserHome();
+    domUpdates.togglePageView();
   } else {
-    domUpdates.displayErrorMessage('Sorry, login info is incorrect.');
+    domUpdates.buildErrorModal('Sorry, login info is incorrect.');
   }
 }
 
@@ -133,10 +128,10 @@ function estimateTripCost() {
   let newTripInstance = new Trip(newTripData);
   let inputTest = evaluateBookingInputs(newTripData);
   if (!inputTest) {
-    domUpdates.displayErrorMessage('Please fill out all required inputs!');
+    domUpdates.buildErrorModal('Please provide all required booking info!');
   } else {
     newTripInstance.calculateTripCost(allDestinations);
-    domUpdates.displayTripCostModal(newTripInstance.cost);
+    domUpdates.buildTripCostModal(newTripInstance.cost);
   }
 }
 
@@ -146,15 +141,23 @@ function bookNewTrip() {
   let inputTest = evaluateBookingInputs(newTripData);
   
   if (!inputTest) {
-    domUpdates.displayErrorMessage('Please fill out all required inputs!');
+    domUpdates.buildErrorModal('Please provide all required booking info!');
   } else {
     apiCalls.postNewTripRequest(newTripData)
     .then(response => {
       retrieveAllData();
       newTripInstance.calculateTripCost(allDestinations);
-      domUpdates.displayBookingMessage(newTripInstance, allDestinations);
+      domUpdates.buildBookingModal(newTripInstance, allDestinations);
     });
   }
+}
+
+function logoutUser() {
+  user = null;
+  usernameInput.value = '';
+  passwordInput.value = '';
+  retrieveAllData();
+  domUpdates.togglePageView();
 }
 
 // HELPER & UTIL FUNCTIONS
@@ -210,5 +213,6 @@ function evaluateBookingInputs(newTripData) {
   if (newTripData.date === '' || !newTripData.duration || !newTripData.travelers || newTripData.destinationID <= 0) {
     isComplete = false;
   }
+
   return isComplete;
 }
