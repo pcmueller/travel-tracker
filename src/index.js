@@ -7,8 +7,8 @@ import './images/tt-logo-no-text.png';
 import './images/thai-beach.png';
 import './images/arrow.png';
 
-import domUpdates from './domUpdates.js';
 import apiCalls from './apiCalls.js';
+import domUpdates from './domUpdates.js';
 import Traveler from './Traveler.js';
 import Trip from './Trip.js';
 
@@ -17,7 +17,12 @@ import Trip from './Trip.js';
 let currentDate = "2020/01/09";
 
 // user data
-let username, currentTraveler;
+let currentTraveler;
+let user = {
+    "id": 6,
+    "name": "Laverna Flawith",
+    "travelerType": "shopper"
+};
 
 // API datasets
 let allDestinations, allTravelers, allTrips;
@@ -28,17 +33,17 @@ const passwordInput = document.querySelector('#password');
 const loginButton = document.querySelector('#loginBtn');
 
 // navbar
+const navButtons = document.querySelectorAll('.nav-btn');
 const homeButton = document.querySelector('#logo');
-const navButtons = document.querySelectorAll('#navBtn');
 const costButton = document.querySelector('#costBtn');
 const bookButton = document.querySelector('#bookBtn');
 const logoutButton = document.querySelector('#logoutBtn');
 
 // booking
-const destinationSelect = document.querySelector('#destinationDrop');
-const startDateSelect = document.querySelector('#startDateDrop');
+const destinationSelect = document.querySelector('#destinationMenu');
+const startDateSelect = document.querySelector('#startDateMenu');
 const durationInput = document.querySelector('#durationInput');
-const travelersInput = document.querySelector('#numTravelersInput');
+const travelersInput = document.querySelector('#travelersInput');
 
 // EVENT LISTENERS
 
@@ -62,8 +67,8 @@ function retrieveAllData() {
       allTravelers = allData[0];
       allTrips = allData[1];
       allDestinations = allData[2];
-      if (username) {
-        createUser(username);
+      if (user) {
+        createUser(user);
         displayUserData();
       }
     })
@@ -72,9 +77,9 @@ function retrieveAllData() {
 function retrieveLoginInfo(event) {
   event.preventDefault();
 
-  username = evaluateUsernameInput(usernameInput.value);
+  user = evaluateUsernameInput(usernameInput.value);
 
-  if (passwordInput.value === 'travel2020' && username) {
+  if (passwordInput.value === 'travel2020' && user) {
     createUser();
     displayUserData();
     domUpdates.displayUserHome();
@@ -84,7 +89,7 @@ function retrieveLoginInfo(event) {
 }
 
 function createUser() {
-  currentTraveler = new Traveler(username);
+  currentTraveler = new Traveler(user);
   currentTraveler.populateTrips(allTrips);
   currentTraveler.calculateAnnualSpending(currentDate, allDestinations);
 }
@@ -98,28 +103,27 @@ function displayUserData() {
 }
 
 function populateCardGrid(e) {
-  let clickedClass = e.target.className;
+  let clickedID = e.target.id;
   let userData, titleText;
 
-  switch(clickedClass) {
-    case 'current-trips':
+  switch(clickedID) {
+    case 'currentTripsButton':
       titleText = 'Current Trips';
       userData = currentTraveler.getCurrentTrips(currentDate);
       break;
-    case 'upcoming-trips':
+    case 'upcomingTripsButton':
       titleText = 'Upcoming Trips';
       userData = currentTraveler.getUpcomingTrips(currentDate);
       break;
-    case 'previous-trips':
+    case 'previousTripsButton':
       titleText = 'Previous Trips';
       userData = currentTraveler.getPreviousTrips(currentDate);
       break;
-    case 'pending-trips':
+    case 'pendingTripsButton':
       titleText = 'Pending Trips';
       userData = currentTraveler.getPendingTrips();
       break;
   }
-
   domUpdates.displayGridTitle(titleText);
   domUpdates.displayTripCards(userData, allDestinations);
 }

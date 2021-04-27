@@ -14,7 +14,7 @@ const domUpdates = {
   },
 
   buildBookingSection(allDestinations) {
-    let menu = document.querySelector("#destinationDrop");
+    let menu = document.querySelector("#destinationMenu");
 
     allDestinations.sort((a, b) => {
       return a.destination.localeCompare(b.destination);
@@ -50,34 +50,30 @@ const domUpdates = {
         });
         let tripCard = 
           `<article class="box">
-            <section class="box-top" style="background-image: url(${location.image})">
+            <section class="box-top" aria-label="[photograph of ${location.destination}]" style="background-image: url(${location.image})">
               <div class="box-top-upper">
-                <img class="arrow" src="./images/arrow.png">
+                <img class="arrow" alt="inactive arrow icon" src="./images/arrow.png">
               </div>
               <div class="box-top-lower">
-                <p id="destination">${location.destination}</p>
+                <h2 id="destination">${location.destination}</h2>
               </div>
             </section>
             <section class="box-bottom">
               <div class="travel-info">
-                <label for=startDate>Start Date:
-                  <p class="data-small" id="startDate">${card.date}</p>
-                </label>
+                <p>Start Date:</p>
+                <span class="data-small" id="startDate">${card.date}</span>
               </div>
               <div class="travel-info">
-                <label for=duration>Duration of Stay:
-                  <p class="data-small" id="duration">${card.duration}</p>
-                </label>
+                <p>Duration of Stay:</p>
+                <span class="data-small" id="duration">${card.duration}</span>
               </div>
               <div class="travel-info">
-                <label for=travelers>Travelers:
-                  <p class="data-small" id="travelers">${card.travelers}</p>
-                </label>
+                <p>Travelers:</p>
+                <span class="data-small" id="travelers">${card.travelers}</span>
               </div>
               <div class="travel-info">
-                <label for=travelers>Trip Status:
-                  <p class="data-small" id="tripStatus">${card.status}</p>
-                </label>
+                <p>Trip Status:</p>
+                <span class="data-small" id="tripStatus">${card.status}</span>
               </div>
             </section>
           </article>`;
@@ -88,19 +84,23 @@ const domUpdates = {
     }
   },
 
+
+  // MODAL DISPLAY FUNCTIONS
+
   displayTripCostModal(tripCost) {
     let modal = document.querySelector('#modal');
 
     modal.innerHTML = `
-      <div class="cost-modal">
-        <span class="close" id="modalClose">&times;</span>
-        <label for="trip-cost">Estimated trip cost:</label>
-          <p class="trip-cost">$${tripCost}</p>
-      </div>`;
-    modal.style.display = "block";
+    <div class="cost-modal">
+      <span class="close" id="modalClose">&times;</span>
+      <label for="trip-cost">Estimated trip cost:</label>
+      <p class="trip-cost">$${tripCost}</p>
+    </div>`;
+      
+    modal.style.display = "inline";
 
-    const closeButton = document.querySelector('#modalClose');
-    closeButton.addEventListener('click', this.closeModal);
+    this.addModalCloseFunctionality();
+
   },
 
   displayBookingMessage(newTrip, allDestinations) {
@@ -110,13 +110,14 @@ const domUpdates = {
 
     modal.innerHTML = `
       <div class="booking-modal">
-        <span class="close" id="modalClose">&times;</span>
-          <p class="booking-message">${message}</p>
+        <span class="close" id="modalClose" type="button" role="button" name="close-button">&times;</span>
+        <p class="booking-message">${message}</p>
       </div>`;
-    modal.style.display = "block";
+      
+    modal.style.display = "inline";
 
-    const closeButton = document.querySelector('#modalClose');
-    closeButton.addEventListener('click', this.closeModal);
+    this.addModalCloseFunctionality();
+
   },
 
   getDestinationName(id, allDestinations) {
@@ -129,22 +130,49 @@ const domUpdates = {
   },
 
   displayErrorMessage(errorMessage) {
-    const errorModal = document.querySelector('#errorModal');
-    const messageText = document.querySelector('#messageText');
+    let modal = document.querySelector('#modal');
+    let body = document.querySelector("body");
 
-    messageText.innerText = errorMessage;
-    errorModal.classList.remove('hidden');
-    modal.style.display = "block";
+    body.classList.toggle('noscroll');
 
+    modal.innerHTML = `
+      <div tabindex=-1 class="error-modal" id="errorModal" aria-modal="true">
+        <span tabindex=0 class="close" id="modalClose">&times;</span>
+        <p id="messageText">${errorMessage}</p>
+      </div>`;
+
+    modal.style.display = "inline";
+    
+    let errorModal = document.querySelector('#errorModal');
+    errorModal.focus();
+
+    this.addModalCloseFunctionality();
+  },
+
+  addModalCloseFunctionality() {
     const closeButton = document.querySelector('#modalClose');
     closeButton.addEventListener('click', this.closeModal);
+    closeButton.addEventListener('keydown', function(event) {
+      checkKeyPressed(event);
+    });
   },
 
   closeModal() {
     let modal = document.querySelector('#modal');
+    let body = document.querySelector("body");
+
     modal.style.display = "none";
+    body.classList.toggle('noscroll');
   },
 
+}
+
+// UTIL FUNCTIONS
+
+function checkKeyPressed(e) {
+  if (e.code === 'Enter' || e.code === 'Escape') {
+    domUpdates.closeModal();
+  }
 }
 
 export default domUpdates;

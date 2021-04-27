@@ -8,8 +8,6 @@ const apiCalls = {
       .then(allTravelers => {
         return allTravelers.travelers
       })
-      // .then(result => console.log(result))
-      .catch(error => console.log(`${error}: Error retrieving data from ${url}`));
   },
 
   getAllTrips() {
@@ -20,8 +18,6 @@ const apiCalls = {
       .then(allTrips => {
         return allTrips.trips
       })
-      // .then(result => console.log(result))
-      .catch(error => console.log(`${error}: Error retrieving data from ${url}`));
   },
 
   getAllDestinations() {
@@ -32,8 +28,6 @@ const apiCalls = {
       .then(allDestinations => {
         return allDestinations.destinations
       })
-      // .then(result => console.log(result))
-      .catch(error => console.log(`${error}: Error retrieving data from ${url}`));
   },
 
   getAllData() {
@@ -54,9 +48,18 @@ const apiCalls = {
       body: JSON.stringify(tripData), 
       redirect: 'follow'
     })
-      .then(response => response.text())
-      .then(result => console.log(result))
-      .catch(error => console.log('error', error));
+      .then(response => {
+        if (response.ok) {
+          console.log(response)
+          response.text();
+        } else {
+          throw new Error(`Sorry, we could not process your booking request.`);
+        }
+      })
+      .catch(error => {
+        console.log(error);
+        apiCalls.displayErrorMessage(error);
+      });
   },
 }
 
