@@ -15,7 +15,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-color: #ee65b3c0;
+  background-color: #b64c88c0;
   background-image: linear-gradient(240deg, #ff3caaaf 0%, #784BA0 40%, #2B86C5 100%);
   font-family: $primary-font;
 }
@@ -26,7 +26,7 @@ main {
   height: 100%;
 }
 
-// BOX GRID
+// CARD GRID
 
 .main-wrapper {
   display: flex;
@@ -37,7 +37,7 @@ main {
   // min-height: 100vh;
 }
 
-.box-grid-title {
+.card-grid-title {
   display: flex;
   align-items: center;
   height: 3vw;
@@ -47,7 +47,7 @@ main {
   color: rgba(2, 13, 26, 0.849);
 }
 
-.box-grid {
+.card-grid {
   display: grid;
   grid-template-columns: 24% 24% 24% 24%;
   grid-column-gap: 1.4%;

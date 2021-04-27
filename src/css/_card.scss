@@ -1,6 +1,6 @@
 // TRIP CARD
 
-.box {
+.card {
   display: grid;
   grid-template-rows: 35% 65%;
   width: 23vw;
@@ -9,7 +9,7 @@
   box-shadow: $shadow-heavy;
 }
 
-.box-top {
+.card-top {
   display: grid;
   grid-template-rows: 50% 50%;
   padding: 1%;
@@ -26,7 +26,7 @@
   padding: 5% 0 0 5%;
 }
 
-.box-top-lower {
+.card-top-lower-half {
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -39,12 +39,12 @@
     font-size: 1.5vw;
     font-weight: bold;
     color:hsl(214, 70%, 6%);
-    background-color:rgba(125, 218, 246, 0.695);
+    background-color:rgba(125, 218, 246, 0.541);
     box-shadow: $shadow-light;
   }
 }
 
-.box-bottom {
+.card-bottom {
   display: grid;
   grid-template-rows: 23% 23% 23% 23%;
   // justify-content: flex-start;
@@ -54,12 +54,12 @@
   background: rgba(255, 255, 255, 0.829);
 }
 
-.travel-info {
+.trip-info {
   flex-direction: column;
   width: 100%;
   margin: 5% 2% 3% 2%;
 
-  p {
+  h3 {
     font-size: 1.5vw;
     margin-bottom: 0.5vw;
   }

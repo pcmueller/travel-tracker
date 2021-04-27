@@ -74,7 +74,7 @@ function retrieveLoginInfo(event) {
 
   user = evaluateUsernameInput(usernameInput.value);
 
-  if (passwordInput.value === 'travel2020' && user) {
+  if (passwordInput.value === '0' && user) {
     createUser();
     displayUserData();
     domUpdates.togglePageView();
@@ -165,7 +165,9 @@ function logoutUser() {
 
 function evaluateUsernameInput(username) {
   let splitInput = username.split('');
-  let joinedNum = parseInt(splitInput[8] + splitInput[9]);
+  // let joinedNum = parseInt(splitInput[8] + splitInput[9]);
+  let joinedNum = parseInt(splitInput[0] + splitInput[1]);
+
   let user = allTravelers.find(traveler => {
     return traveler.id === joinedNum;
   });

@@ -34,8 +34,8 @@
 .cost-modal {
   display: grid;
   grid-template-rows: 20% 40% 40%;
-  width: 20vw;
-  height: 10vw;
+  width: 25vw;
+  height: 15vw;
   margin: 18vw auto;
   border: 1px solid rgb(136, 136, 136);
   background-color: #fefefed2;
@@ -43,12 +43,12 @@
   label {
     justify-self: center;
     align-self: center;
-    font-size: 1.25vw;
+    font-size: 1.5vw;
   }
 
   p {
     justify-self: center;
-    font-size: 1.5vw;
+    font-size: 1.75vw;
   }
 }
 
@@ -58,7 +58,7 @@
   justify-content: center;
   align-items: center;
   width: 50vw;
-  height: 10vw;
+  height: 15vw;
   margin: 18vw auto;
   border: 1px solid rgb(136, 136, 136);
   background-color: #fefefed9;

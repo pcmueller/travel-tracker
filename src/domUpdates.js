@@ -55,30 +55,30 @@ const domUpdates = {
           return place.id === card.destinationID;
         });
         let tripCard = 
-          `<article class="box">
-            <section class="box-top" aria-label="[photograph of ${location.destination}]" style="background-image: url(${location.image})">
-              <div class="box-top-upper">
+          `<article class="card">
+            <section class="card-top" aria-label="[photograph of ${location.destination}]" style="background-image: url(${location.image})">
+              <div class="card-top-upper">
                 <img class="arrow" alt="inactive arrow icon" src="./images/arrow.png">
               </div>
-              <div class="box-top-lower">
+              <div class="card-top-lower-half">
                 <h2 id="destination">${location.destination}</h2>
               </div>
             </section>
-            <section class="box-bottom">
-              <div class="travel-info">
-                <p>Start Date:</p>
+            <section class="card-bottom">
+              <div class="trip-info">
+                <h3>Start Date:</h3>
                 <span class="data-small" id="startDate">${card.date}</span>
               </div>
-              <div class="travel-info">
-                <p>Duration of Stay:</p>
+              <div class="trip-info">
+                <h3>Duration of Stay:</h3>
                 <span class="data-small" id="duration">${card.duration}</span>
               </div>
-              <div class="travel-info">
-                <p>Travelers:</p>
+              <div class="trip-info">
+                <h3>Travelers:</h3>
                 <span class="data-small" id="travelers">${card.travelers}</span>
               </div>
-              <div class="travel-info">
-                <p>Trip Status:</p>
+              <div class="trip-info">
+                <h3>Trip Status:</h3>
                 <span class="data-small" id="tripStatus">${card.status}</span>
               </div>
             </section>
