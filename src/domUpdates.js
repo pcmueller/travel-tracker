@@ -1,10 +1,10 @@
 const domUpdates = {
 
-  displayUserHome() {
+  togglePageView() {
     const loginPage = document.querySelector('#loginPage');
     const userPage = document.querySelector('#userPage');
-    loginPage.classList.add('hidden');
-    userPage.classList.remove('hidden');
+    loginPage.classList.toggle('hidden');
+    userPage.classList.toggle('hidden');
   },
 
   welcomeUser(user) {
@@ -84,10 +84,9 @@ const domUpdates = {
     }
   },
 
-
   // MODAL DISPLAY FUNCTIONS
 
-  buildTripCostModal(tripCost) {
+  buildTripCostModal(tripCost, bookButton) {
     let modal = document.querySelector('#modal');
     let body = document.querySelector("body");
 
@@ -157,7 +156,7 @@ function getDestinationName(id, allDestinations) {
 }
 
 function checkKeyPressed(e) {
-  if (e.code === 'Enter' || e.code === 'Escape') {
+  if (e.code === 'Enter' || e.code === 'NumpadEnter' || e.code === 'Escape') {
     closeModal();
   }
 }
@@ -177,6 +176,5 @@ function closeModal() {
   modal.style.display = "none";
   body.classList.toggle('noscroll');
 }
-
 
 export default domUpdates;

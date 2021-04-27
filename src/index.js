@@ -14,22 +14,24 @@ import Trip from './Trip.js';
 
 // GLOBAL VARIABLES & QUERY SELECTORS
 
-let currentDate = "2020/01/09";
+let currentDate = "2020/01/01";
 
 // user data
 let currentTraveler;
-let user = {
-    "id": 6,
-    "name": "Laverna Flawith",
-    "travelerType": "shopper"
-};
+let user;
+
+// let user = {
+//     "id": 6,
+//     "name": "Laverna Flawith",
+//     "travelerType": "shopper"
+// };
 
 // API datasets
 let allDestinations, allTravelers, allTrips;
 
 // login
-const usernameInput = document.querySelector('#username');
-const passwordInput = document.querySelector('#password');
+let usernameInput = document.querySelector('#username');
+let passwordInput = document.querySelector('#password');
 const loginButton = document.querySelector('#loginBtn');
 
 // navbar
@@ -57,6 +59,7 @@ navButtons.forEach(button => button.addEventListener('click', function(event) {
 homeButton.addEventListener('click', displayUserData);
 costButton.addEventListener('click', estimateTripCost);
 bookButton.addEventListener('click', bookNewTrip);
+logoutButton.addEventListener('click', logoutUser);
 
 
 // HANDLER FUNCTIONS
@@ -82,7 +85,7 @@ function retrieveLoginInfo(event) {
   if (passwordInput.value === 'travel2020' && user) {
     createUser();
     displayUserData();
-    domUpdates.displayUserHome();
+    domUpdates.togglePageView();
   } else {
     domUpdates.buildErrorModal('Sorry, login info is incorrect.');
   }
@@ -155,6 +158,14 @@ function bookNewTrip() {
       domUpdates.buildBookingModal(newTripInstance, allDestinations);
     });
   }
+}
+
+function logoutUser() {
+  user = null;
+  usernameInput.value = '';
+  passwordInput.value = '';
+  retrieveAllData();
+  domUpdates.togglePageView();
 }
 
 // HELPER & UTIL FUNCTIONS
