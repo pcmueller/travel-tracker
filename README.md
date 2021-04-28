@@ -20,9 +20,13 @@ A [web application](https://pcmueller.github.io/travel-tracker/) to cost, track,
 
 <img width="500" height="400" alt="Home Page View" src="./src/images/home-page-large.png">
 
+### Mobile View
+
+<img alt="Mobile Page View" src="./src/images/home-page-mobile.png">
+
 ### Demonstration
 
-![GIF](https://media.giphy.com/media/YhLq8vdNNrDIr8stZg/giphy.gif)
+![Page Demonstration GIF](https://media.giphy.com/media/YhLq8vdNNrDIr8stZg/giphy.gif)
 
 ## Walkthrough
 * To login to the page, type in the word 'traveler' + any two-digit number, 1 - 50 (e.g. 'traveler06').
