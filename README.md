@@ -14,11 +14,11 @@ An application to manage and track different trips for users and a travel agency
 
 ## Login Page View
 
-<img width="750" alt="Login Page View" src="./src/images/login-view.png">
+<img width="500" alt="Login Page View" src="./src/images/login-view.png">
 
 ## Home View
 
-<img width="750" alt="Home Page View" src="./src/images/home-page-large.png">
+<img width="500" alt="Home Page View" src="./src/images/home-page-large.png">
 
 ## Demonstration
 
