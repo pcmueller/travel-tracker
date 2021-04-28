@@ -33,15 +33,19 @@ A hosted [web application](https://pcmueller.github.io/travel-tracker/) to cost,
 
 * In the page header, the user's "Annual Travel Costs" are instantly calculated and displayed in the upper right corner.
 * Below that is a "Logout" button, which can be clicked at any time to clear the "traveler" data and return a user back to the login page.
-* In the center is a nav bar with four buttons: Current Trips, Upcoming Trips, Previous Trips, and Pending Trips, each toggling the display of the appropriate collection of "trip cards" below.
+* In the center is a nav bar with four buttons: *Current Trips*, *Upcoming Trips*, *Previous Trips*, and *Pending Trips*, each toggling the display of the appropriate collection of "trip cards" below.
 * On the left end of the header is a Travel Tracker company logo, which has been activated as a "Home" button and can be clicked to take the user back to same "My Trips" view displayed on initial page load.
 * Below the header is an interactive "Plan Your Next Adventure" section, through which a user can book a new trip.
 * This section is completely navigable via keyboard, and contains four required input fields:
-  - Select Destination: drop-down menu containing a list of all possible travel destinations, a dynamic list that auto-populates on page load.
-  - Duration Date: drop-down calendar menu allowing a user to select the first date of their trip.  Since our "trips" dataset is comprised entirely of past dates, the calendar starts in 2019, and the user can book as far out as 2035.
-  - 
-
-
+  - *Select Destination*: drop-down menu containing a list of all possible travel destinations, a dynamic list that auto-populates on page load.
+  - *Departure Date*: drop-down calendar menu allowing a user to select the first date of their trip.  Since our "trips" dataset is comprised entirely of past dates, the calendar starts in 2019, and the user can book as far out as 2035.
+  - *Duration of trip*: input box (with clickable arrow to increment/decrement value) to type or select the trip length, represented in number of days.
+  - *Number of travelers*: input box (with clickable arrow to increment/decrement value) to type or select the trip length in number of days.
+* Once all four fields have been filled out, the user can click two different buttons to process this information:
+  - *Estimate Trip Cost*: will display a modal window with the estimated cost of this trip, including airfare, lodging and the 10% agent fee.
+  - *Book Trip*: submit the trip request by posting data to the API with a trip status of "pending", requiring the agent's approval.
+* The trip is then automatically loaded into the "My Trips" view, and a modal window pops-up to notify the user of their successful booking, with the message including both the destination name and the estimated trip cost.
+* Error Handling: several error messages have been built into the data functionality, utilizing accessiblity-friendly modal windows to display: unsuccessful GET and POST requests to the API, incomplete form selections (when clicking either booking button), and invalid username or password submission on the login page.
 
 ## Installation
 
