@@ -49,15 +49,14 @@ An application to manage and track different trips for users and a travel agency
 
 * Project Description: (https://frontend.turing.edu/projects/travel-tracker.html)
 * GitHub Repo: (https://github.com/pcmueller/travel-tracker)
-* GitHub Hosted URL:  
-// ADD DEPLOYED PAGE
+* GitHub Hosted URL: (https://pcmueller.github.io/travel-tracker/)
 
 
 ## Installation
 
-### Clone This Repo
+// MODIFY INSTRUCTIONS
 
-That's right, _clone_ not fork. You will use this repo multiple times, but you can only fork a repository once. So here is what you need to do to clone the repo and still be able to push changes to your repo:
+### Clone This Repo
 
 1. Clone down this repo. Since you don't want to name your project "webpack-starter-kit", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments): `git clone [remote-address] [what you want to name the repo]`
 1. Remove the default remote: `git remote rm origin` (notice that `git remote -v` not gives you back nothing)
