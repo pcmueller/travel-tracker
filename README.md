@@ -18,7 +18,7 @@ An application to manage and track different trips for users and a travel agency
 
 ## Home View
 
-<img width="500" height="500" alt="Home Page View" src="./src/images/home-page-large.png">
+<img width="500" height="400" alt="Home Page View" src="./src/images/home-page-large.png">
 
 ## Demonstration
 
