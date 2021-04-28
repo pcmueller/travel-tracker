@@ -1,18 +1,15 @@
 # Travel Tracker
 
-1. [Overview](#overview)
-2. [Images](#images)
-3. [Functionality](#functionality)
-4. [Technologies](#technologies)
-5. [Contributors](#contributors)
-6. [Resources](#resources)
-7. [Installation](#installation)
+An [web application](https://pcmueller.github.io/travel-tracker/) to manage and track different trips for users and a travel agency.
 
-## Overview
+1. [Images](#images)
+2. [Functionality](#functionality)
+3. [Technologies](#technologies)
+4. [Contributors](#contributors)
+5. [Resources](#resources)
+6. [Installation](#installation)
 
-An application to manage and track different trips for users and a travel agency.
 
-* [Deployed Page](https://pcmueller.github.io/travel-tracker/)
 
 ## Images
 
