@@ -29,7 +29,8 @@ A hosted [web application](https://pcmueller.github.io/travel-tracker/) to cost,
 
 ### Trip Card Responsiveness
 
-<iframe src="https://giphy.com/embed/ow6HfUcgbA5NFFu2dX" width="500" height="400" frameBorder="0" class="giphy-embed"></iframe>
+![Responsiveness Demonstration GIF](https://media.giphy.com/media/ow6HfUcgbA5NFFu2dX/giphy.gif)
+
 
 ## Login
 * To login to the page, type in the word "traveler" + any two-digit number, 01 - 50 (e.g. 'traveler06').
