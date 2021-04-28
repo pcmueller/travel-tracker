@@ -8,6 +8,10 @@ header {
   background-size: cover;
   border-bottom: 0.6em solid rgba(6, 10, 21, 0.418);
   box-shadow: $shadow-light;
+
+  @media screen and (max-width: 800px) {
+    height: 30vw;
+  }
 }
 
 // LEFT SIDE

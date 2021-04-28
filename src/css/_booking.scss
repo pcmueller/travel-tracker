@@ -8,6 +8,11 @@
   box-shadow: $shadow-heavy;
   background-image: linear-gradient(#100638d5, #231a8dde, #1431c4e7);
   color: $primary-dark;
+
+  @media screen and (max-width: 800px) {
+    max-height: 50vw;
+    height: 17vw;
+  }
 }
 
 .booking-top {
@@ -24,7 +29,6 @@
   display: grid;
   grid-template-columns: 18% 18% 18% 18% 18%;
   justify-content: space-around;
-  // align-items: flex-end;
   margin: 1% 1% 1% 2%;
 
   input, select {
@@ -49,8 +53,6 @@
   flex-direction: row;
   margin: 0;
   justify-content: center;
-  // align-items: center;
-  // padding: 5% 5% 1% 10%;
   height: 100%;
 }
 
