@@ -42,8 +42,8 @@ An application to manage and track different trips for users and a travel agency
 
 ## Contributors
 
-* Creator: [Peter Muellerleile](https://github.com/pcmueller)
-* Project Manager: [Travis Rollins](https://github.com/Kalikoze)
+* Creator: [🦥 Peter Muellerleile](https://github.com/pcmueller)
+* Project Manager: [🎓 Travis Rollins](https://github.com/Kalikoze)
 
 ## Resources
 
