@@ -7,7 +7,7 @@ A [web application](https://pcmueller.github.io/travel-tracker/) to cost, track,
 3. [Installation](#installation)
 4. [Technologies](#technologies)
 5. [Contributors](#contributors)
-6. [Resources](#resources)
+6. [Links](#resources)
 
 ## Images
 
@@ -53,7 +53,7 @@ A [web application](https://pcmueller.github.io/travel-tracker/) to cost, track,
 * Developer: [🦥 Peter Muellerleile](https://github.com/pcmueller)
 * Project Manager: [🎓 Travis Rollins](https://github.com/Kalikoze)
 
-## Resources
+## Links
 
 * [Project Specifications](https://frontend.turing.edu/projects/travel-tracker.html)
 * [GitHub Repo](https://github.com/pcmueller/travel-tracker)
