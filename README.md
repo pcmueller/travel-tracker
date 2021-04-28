@@ -12,17 +12,17 @@
 
 An application to manage and track different trips for users and a travel agency.
 
-# Images
+## Images
 
-## Login Page View
+### Login Page View
 
 <img width="750" alt="Login Page View" src="./src/images/login-view.png">
 
-## Home View
+### Home View
 
 <img width="500" height="400" alt="Home Page View" src="./src/images/home-page-large.png">
 
-## Demonstration
+### Demonstration
 
 ![GIF](https://media.giphy.com/media/YhLq8vdNNrDIr8stZg/giphy.gif)
 
@@ -40,7 +40,6 @@ An application to manage and track different trips for users and a travel agency
 6. Mocha & Chai
 7. GitHub
 
-
 ## Contributors
 
 * Creator: [Peter Muellerleile](https://github.com/pcmueller)
@@ -56,7 +55,7 @@ An application to manage and track different trips for users and a travel agency
 
 ## Installation
 
-## Clone This Repo
+### Clone This Repo
 
 That's right, _clone_ not fork. You will use this repo multiple times, but you can only fork a repository once. So here is what you need to do to clone the repo and still be able to push changes to your repo:
 
@@ -66,7 +65,7 @@ That's right, _clone_ not fork. You will use this repo multiple times, but you c
 1. Copy the address that you would use to clone down this repo - something like `git@github.com:...`
 1. Add this remote to your cloned down repo: `git remote add origin [address you copied in the previous step]` - do not include the brackets
 
-## How to View Code in Action
+### How to View Code in Action
 
 In the terminal, run:
 
