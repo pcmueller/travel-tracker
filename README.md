@@ -20,10 +20,6 @@ A [web application](https://pcmueller.github.io/travel-tracker/) to cost, track,
 
 <img width="500" height="400" alt="Home Page View" src="./src/images/home-page-large.png">
 
-### Mobile View
-
-<img alt="Mobile Page View" src="./src/images/home-page-mobile.png">
-
 ### Demonstration
 
 ![Page Demonstration GIF](https://media.giphy.com/media/YhLq8vdNNrDIr8stZg/giphy.gif)
