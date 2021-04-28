@@ -8,19 +8,19 @@
     <script src="https://kit.fontawesome.com/ca77517a12.js" crossorigin="anonymous"></script>
     <title>Travel Tracker</title>
   </head>
+  <section class="login-page" id="loginPage">
+    <div class="login-container">
+      <img class="logo-big" alt="Travel Tracker globe logo and text" src="./images/tt-logo.png">
+      <form tabindex=-1 class="login-form" id="login-form">
+        <label for="username">Username</label>
+          <input tabindex=0 type="text" name="username" id="username" class="login-input" placeholder="username">
+        <label for="password">Password</label>
+          <input type="password" name="password" id="password" class="login-input" placeholder="password">
+        <button type="submit" class="login-button" id="loginBtn">Login</button>
+      </form>
+    </div>
+  </section>
   <body>
-    <section class="login-page" id="loginPage">
-      <div class="login-box">
-        <img class="logo-big" id="logoBig" alt="Travel Tracker globe logo with company name beneath" src="./images/tt-logo.png">
-        <form class="login-form" id="login-form">
-          <label for="username">Username</label>
-            <input type="text" name="username" id="username" class="login-form-field" placeholder="username">
-          <label for="password">Password</label>
-            <input type="password" name="password" id="password" class="login-form-field" placeholder="password">
-          <button type="submit" class="login-button" id="loginBtn">Login</button>
-        </form>
-      </div>
-    </section>
     <section class="modal hidden" id="modal">
     </section>
     <section class="user-page hidden" id="userPage">
@@ -94,8 +94,8 @@
       </section>
       <main>
         <div class="main-wrapper">
-          <h2 class="box-grid-title" id="gridTitle">My Trips</h2>
-          <section class="box-grid" id="cardGrid">
+          <h2 class="grid-title" id="gridTitle">My Trips</h2>
+          <section class="card-grid" id="cardGrid">
           </section>
         </div>
       </main>

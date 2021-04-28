@@ -54,31 +54,32 @@ const domUpdates = {
         let location = allDestinations.find(place => {
           return place.id === card.destinationID;
         });
+        let date = formatDate(card.date);
         let tripCard = 
-          `<article class="box">
-            <section class="box-top" aria-label="[photograph of ${location.destination}]" style="background-image: url(${location.image})">
-              <div class="box-top-upper">
+          `<article class="card">
+            <section class="card-top" aria-label="[photograph of ${location.destination}]" style="background-image: url(${location.image})">
+              <div class="card-top-upper">
                 <img class="arrow" alt="inactive arrow icon" src="./images/arrow.png">
               </div>
-              <div class="box-top-lower">
+              <div class="card-top-lower-half">
                 <h2 id="destination">${location.destination}</h2>
               </div>
             </section>
-            <section class="box-bottom">
-              <div class="travel-info">
-                <p>Start Date:</p>
-                <span class="data-small" id="startDate">${card.date}</span>
+            <section class="card-bottom">
+              <div class="trip-info">
+                <h3>Start Date:</h3>
+                <span class="data-small" id="startDate">${date}</span>
               </div>
-              <div class="travel-info">
-                <p>Duration of Stay:</p>
-                <span class="data-small" id="duration">${card.duration}</span>
+              <div class="trip-info">
+                <h3>Duration:</h3>
+                <span class="data-small" id="duration">${card.duration} days</span>
               </div>
-              <div class="travel-info">
-                <p>Travelers:</p>
+              <div class="trip-info">
+                <h3>Travelers:</h3>
                 <span class="data-small" id="travelers">${card.travelers}</span>
               </div>
-              <div class="travel-info">
-                <p>Trip Status:</p>
+              <div class="trip-info">
+                <h3>Trip Status:</h3>
                 <span class="data-small" id="tripStatus">${card.status}</span>
               </div>
             </section>
@@ -110,7 +111,8 @@ const domUpdates = {
 
   buildBookingModal(newTrip, allDestinations) {
     let destination = getDestinationName(newTrip.destinationID, allDestinations);
-    let message = `Congratulations, you've booked a trip to ${destination} for $${newTrip.cost}!`;
+    let costString = newTrip.cost.toFixed(2).toString();
+    let message = `Congratulations, you've booked a trip to ${destination} for $${costString}!`;
 
     modal.innerHTML = `
       <div tabindex=-1 class="booking-modal" id="bookingModal" aria-modal="true">
@@ -153,6 +155,13 @@ function getDestinationName(id, allDestinations) {
   return location.destination;
 }
 
+function formatDate(date) {
+  let split = date.split('/');
+  let newDate = `${split[1]}/${split[2]}/${split[0]}`;
+
+  return newDate;
+}
+
 function checkKeyPressed(e) {
   if (e.code === 'Enter' || e.code === 'NumpadEnter' || e.code === 'Escape') {
     closeModal();
@@ -169,9 +178,9 @@ function addModalCloseFunctionality() {
 
 function closeModal() {
   let modal = document.querySelector('#modal');
-  let body = document.querySelector("body");
+  let body = document.querySelector('body');
 
-  modal.style.display = "none";
+  modal.style.display = 'none';
   body.classList.toggle('noscroll');
 }
 

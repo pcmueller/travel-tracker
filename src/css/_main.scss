@@ -1,4 +1,4 @@
-// MAIN
+// MAIN SECTION
 
 * {
   margin: 0;
@@ -15,8 +15,13 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-color: #ee65b3c0;
-  background-image: linear-gradient(240deg, #ff3caaaf 0%, #784BA0 40%, #2B86C5 100%);
+  background-image: #C6FFDD;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   font-family: $primary-font;
 }
 
@@ -26,7 +31,7 @@ main {
   height: 100%;
 }
 
-// BOX GRID
+// CARD GRID
 
 .main-wrapper {
   display: flex;
@@ -34,30 +39,74 @@ main {
   justify-content: flex-start;
   width: 94%;
   height: 100%;
-  // min-height: 100vh;
 }
 
-.box-grid-title {
+/** four card width **/
+
+.grid-title {
   display: flex;
   align-items: center;
   height: 3vw;
-  margin: 3% 0 3% 0;
-  font-size: 3vw;
-  font-weight: bold;
-  color: rgba(2, 13, 26, 0.849);
+  margin: 4% 0 4% 1.5%;
+  font-size: 3.5vw;
+  color: $primary-dark;
 }
 
-.box-grid {
+.card-grid {
   display: grid;
-  grid-template-columns: 24% 24% 24% 24%;
-  grid-column-gap: 1.4%;
-  grid-row-gap: 1.4%;
-  justify-items: center;
+  grid-template-columns: 23% 23% 23% 23%;
+  grid-row-gap: 1.5%;
+  justify-content: space-evenly;
   align-content: flex-start;
   width: 100%;
   height: 100%;
-  margin-bottom: 30%;
+  margin-bottom: 5%;
 }
+
+/** three card width **/
+
+@media screen and (min-width: 626px) and (max-width: 1050px) {
+  .grid-title {
+    font-size: 4vw;
+    margin: 5% 0 5% 1.5%;
+  }
+
+  .card-grid {
+    grid-template-columns: 31% 31% 31%;
+    grid-row-gap: 1.75%;
+  }
+}
+
+/** two card width **/
+
+@media screen and (min-width: 375px) and (max-width: 625px) {
+  .grid-title {
+    margin: 5% 0 5% 2.7%;
+    font-size: 4.5vw;
+  }
+
+  .card-grid {
+    grid-template-columns: 45% 45%;
+    grid-column-gap: 1.5%;
+    grid-row-gap: 1.75%;
+  }
+}
+
+/** one card width **/
+
+@media screen and (max-width: 375px) {
+  .grid-title {
+    margin: 8% 0 7% 10%;
+    font-size: 5.5vw;
+  }
+  
+  .card-grid {
+    grid-template-columns: 80%;
+    grid-row-gap: 1%;
+  }
+}
+
+// TOGGLED CLASSES
 
 .hidden {
   display: none;

@@ -1,46 +1,78 @@
 .login-page {
   display: flex;
-  min-height: 80vh;
   height: 100%;
   width: 100%;
   justify-content: center;
   align-items: center;
+  margin-top: 9vw;
+  background-image: url('../images/thai-beach.png');
+  border-top: 1em solid rgba(18, 27, 145, 0.522);
+  border-bottom: 1em solid rgba(18, 27, 145, 0.522);
+
+  @media screen and (max-width: 800px) {
+    margin-top: 18vw;
+  }
+
+  @media screen and (max-width: 500px) {
+    margin-top: 23vw;
+  }
 }
 
-.login-box {
+.login-container {
   display: grid;
-  grid-template-rows: 50% 50%;
+  grid-template-rows: 45% 45%;
+  height: 100%;
+  width: 50%;
+
+  @media screen and (max-width: 400px) {
+    width: 80%;
+  }
 }
 
 .logo-big {
   align-self: center;
   justify-self: center;
   height: 100%;
-  margin-top: 2vw;
-  margin-bottom: 4vw;
 }
 
 .login-form {
   display: flex;
   flex-direction: column;
+  justify-self: center;
   justify-content: space-around;
+  align-items: center;
+  width: 60%;
+  padding: 1vw;
+  background-color: $primary-accent;
+  box-shadow: $shadow-heavy;
+  color: rgba(4, 5, 5, 0.921);
 
-  input, label {
-    max-width: 15vw;
-    align-self: center;
-    margin-bottom: 1vw;
+  @media screen and (max-width: 1050px) {
+    width: 80%;
+  }
+
+  @media screen and (max-width: 800px) {
+    width: 100%;
+  }
+}
+
+.login-input {
+  width: 50%;
+  padding: 0.25vw;
+  border: 1px solid rgba(10, 46, 85, 0.921);
+
+  @media screen and (max-width: 1050px) {
+    width: 50%;
   }
 }
 
 .login-button {
-  margin-top: 1vw;
-  width: 6vw;
+  width: 5em;
   align-self: center;
   cursor: pointer;
+  border: 1px solid rgba(10, 46, 85, 0.921);
 
   &:hover {
     background-color: rgba(104, 202, 255, 0.811);
   }
 }
-
-// add responsive sizing to input boxes
