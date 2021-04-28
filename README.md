@@ -12,6 +12,8 @@
 
 An application to manage and track different trips for users and a travel agency.
 
+* [Deployed Page](https://pcmueller.github.io/travel-tracker/)
+
 ## Images
 
 ### Login Page View
@@ -47,9 +49,9 @@ An application to manage and track different trips for users and a travel agency
 
 ## Resources
 
-* Project Description: (https://frontend.turing.edu/projects/travel-tracker.html)
-* GitHub Repo: (https://github.com/pcmueller/travel-tracker)
-* GitHub Hosted URL: (https://pcmueller.github.io/travel-tracker/)
+* [Project Specifications](https://frontend.turing.edu/projects/travel-tracker.html)
+* [GitHub Repo](https://github.com/pcmueller/travel-tracker)
+* [GitHub Hosted Page](https://pcmueller.github.io/travel-tracker/)
 
 
 ## Installation
