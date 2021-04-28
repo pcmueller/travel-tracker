@@ -2,23 +2,19 @@
 
 A hosted [web application](https://pcmueller.github.io/travel-tracker/) to cost, track, and book trips for individual travelers.
 
-1. [Walkthrough](#walkthrough)
-3. [Demonstrations](#demonstrations)
-4. [Functionality](#functionality)
-5. [Installation](#installation)
-6. [Technologies](#technologies)
-7. [Contributors](#contributors)
-8. [Links](#resources)
+1. [Functionality](#functionality)
+2. [Installation](#installation)
+3. [Technologies](#technologies)
+4. [Contributors](#contributors)
+5. [Links](#resources)
 
-## Walkthrough
+## Functionality
 
 <img width="600" alt="Login Page View" src="./src/images/login-view.png">
 
 * To login to the page, type in the word "traveler" + any two-digit number, 01 - 50 (e.g. 'traveler06').
 * Type in the password - `travel2020` - and click the login button.
 * You'll then be taken to the home page and greeted by the name of the user you've selected, with that user's travel data displayed.
-
-## Functionality
 
 <img width="500" height="400" alt="Home Page View" src="./src/images/home-page-large.png">
 
