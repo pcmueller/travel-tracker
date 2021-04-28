@@ -2,7 +2,7 @@
   "name": "webpack-starter-kit",
   "version": "1.0.0",
   "description": "Project starter kit using webpack, mocha, chai, and SCSS/SASS enabled",
-  "main": "src/index.js",
+  "main": "./src/index.js",
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack",
