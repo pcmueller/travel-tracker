@@ -2,9 +2,9 @@
 
 A hosted [web application](https://pcmueller.github.io/travel-tracker/) to cost, track, and book trips for individual travelers.
 
-1. [Images](#images)
-2. [Demonstrations](#demonstrations)
-3. [Login](#walkthrough)
+1. [Login](#walkthrough)
+2. [Images](#images)
+3. [Demonstrations](#demonstrations)
 4. [Functionality](#functionality)
 5. [Installation](#installation)
 6. [Technologies](#technologies)
