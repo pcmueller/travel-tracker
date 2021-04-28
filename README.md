@@ -23,6 +23,11 @@ A [web application](https://pcmueller.github.io/travel-tracker/) to cost, track,
 
 ![GIF](https://media.giphy.com/media/YhLq8vdNNrDIr8stZg/giphy.gif)
 
+## Walkthrough
+* To login to the page, type in the word 'traveler' + any two-digit number, 1 - 50 (e.g. 'traveler06').
+* Type in the password - `travel2020` - and click the login button.
+* You'll then be taken to the home page and greeted by the name of whichever user's ID you've selected, with that user's travel data displayed.
+
 ## Functionality
 
 // ADD FUNCTIONALITY
