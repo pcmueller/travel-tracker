@@ -48,9 +48,9 @@ A hosted [web application](https://pcmueller.github.io/travel-tracker/) to cost,
 * Install repository dependencies using `npm i`
 * Initialize webpack server using command `npm start`
 * Clone down `travel-tracker-api` by following [these instructions](https://github.com/turingschool-examples/travel-tracker-api)
-* Navigate to cloned API directory 
-* Initialize Express server using command `npm start`
-* Access application in your browser at using this [local server](http://localhost:8080/)
+* Navigate into cloned API directory 
+* Initialize local server using command `npm start`
+* Once both servers are initialized, you can access the application in your browser [here](http://localhost:8080/)
 
 ## Technologies
 
