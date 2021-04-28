@@ -3,12 +3,13 @@
 A hosted [web application](https://pcmueller.github.io/travel-tracker/) to cost, track, and book trips for individual travelers.
 
 1. [Images](#images)
-2. [Login](#walkthrough)
-3. [Functionality](#functionality)
-4. [Installation](#installation)
-5. [Technologies](#technologies)
-6. [Contributors](#contributors)
-7. [Links](#resources)
+2. [Demonstrations](#demonstrations)
+3. [Login](#walkthrough)
+4. [Functionality](#functionality)
+5. [Installation](#installation)
+6. [Technologies](#technologies)
+7. [Contributors](#contributors)
+8. [Links](#resources)
 
 ## Images
 
@@ -20,9 +21,15 @@ A hosted [web application](https://pcmueller.github.io/travel-tracker/) to cost,
 
 <img width="500" height="400" alt="Home Page View" src="./src/images/home-page-large.png">
 
-### Demonstration
+## Demonstrations
 
-![Page Demonstration GIF](https://media.giphy.com/media/YhLq8vdNNrDIr8stZg/giphy.gif)
+### Booking & Navigation
+
+![Functionality Demonstration GIF](https://media.giphy.com/media/YhLq8vdNNrDIr8stZg/giphy.gif)
+
+### Trip Card Responsiveness
+
+![Responsiveness Demonstration GIF](https://media.giphy.com/media/ow6HfUcgbA5NFFu2dX/giphy.gif)
 
 ## Login
 * To login to the page, type in the word "traveler" + any two-digit number, 01 - 50 (e.g. 'traveler06').
