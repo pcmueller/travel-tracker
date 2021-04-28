@@ -50,7 +50,7 @@ A [web application](https://pcmueller.github.io/travel-tracker/) to cost, track,
 
 ## Contributors
 
-* Creator: [🦥 Peter Muellerleile](https://github.com/pcmueller)
+* Developer: [🦥 Peter Muellerleile](https://github.com/pcmueller)
 * Project Manager: [🎓 Travis Rollins](https://github.com/Kalikoze)
 
 ## Resources
