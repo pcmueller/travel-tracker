@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset='UTF-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/ca77517a12.js" crossorigin="anonymous"></script>
+    <title>Travel Tracker</title>
+  </head>
+  <section class="login-page" id="loginPage">
+    <div class="login-container">
+      <img class="logo-big" alt="Travel Tracker globe logo and text" src="./images/tt-logo.png">
+      <form tabindex=-1 class="login-form" id="login-form">
+        <label for="username">Username</label>
+          <input tabindex=0 type="text" name="username" id="username" class="login-input" placeholder="username">
+        <label for="password">Password</label>
+          <input type="password" name="password" id="password" class="login-input" placeholder="password">
+        <button type="submit" class="login-button" id="loginBtn">Login</button>
+      </form>
+    </div>
+  </section>
+  <body>
+    <section class="modal hidden" id="modal">
+    </section>
+    <section class="user-page hidden" id="userPage">
+      <header>
+        <section class="nav-left">
+          <div class="logo-container">
+            <img class="logo" id="logo" alt="Travel Tracker globe logo" src="./images/tt-logo-no-text.png">
+          </div>
+        </section>
+        <section class="nav-center">
+          <h1 class="title">Travel Tracker</h1>
+          <nav class="nav-buttons">
+            <button class="nav-btn" id="currentTripsButton">
+              <i class="fas fa-plane"></i> Current Trips
+            </button>
+            <button class="nav-btn" id="upcomingTripsButton">
+              <i class="fas fa-globe-africa"></i> Upcoming Trips
+            </button>
+            <button class="nav-btn" id="previousTripsButton">
+              <i class="fas fa-passport"></i> Previous Trips
+            </button>
+            <button class="nav-btn" id="pendingTripsButton">
+              <i class="far fa-clock"></i> Pending Trips
+            </button>
+          </nav>
+        </section>
+        <section class="nav-right">
+            <div class="welcome">
+              <h2>Welcome,</h2>
+              <h2 id="welcomeName"></h2>
+            </div>
+            <div class="total-spent">
+              <p class="total-title">Annual Travel Costs: </p>
+              <p class="total-amt" id="totalAmt"></p>
+            </div>
+            <button id="logoutBtn">LOG OUT</button>
+        </section>
+      </header>
+      <section class="booking-section">
+        <h2 for="bookingForm" class="booking-top">
+          Plan Your Next Adventure!
+        </h2>
+        <form id="bookingForm" class="booking-bottom">
+          <div class="choice">
+            <label for="destinationMenu">Select destination:
+              <select required name="destination-menu" id="destinationMenu">
+                <option value="0">Select destination</option>
+              </select>
+            </label>
+          </div>
+          <div class="choice">
+            <label for="startDateMenu">Departure date:
+              <input required name="start-date-menu" id="startDateMenu" type="date" min="2019-01-01" max="2030-12-31">
+            </label>
+          </div
+          <div class="choice"></div>
+            <label for="durationInput">Duration of trip:
+              <input required name="duration-input" id="durationInput" type="number" min="1">
+            </label>
+          </div>
+          <div class="choice">
+            <label for="travelersInput">Number of travelers:
+              <input required name="travelers-input" id="travelersInput" type="number" min="1">
+            </label>
+          </div>
+          <div class="booking-btns">
+            <button class="cost-button" id="costBtn" type="button" name="button">Estimate Trip Cost</button>
+            <button class="book-button" id="bookBtn" type="button" name="button">Book Trip</button>
+          </div>
+        </form>
+      </section>
+      <main>
+        <div class="main-wrapper">
+          <h2 class="grid-title" id="gridTitle">My Trips</h2>
+          <section class="card-grid" id="cardGrid">
+          </section>
+        </div>
+      </main>
+    </section>
+  <script src="main.bundle.js"></script></body>
+</html>
