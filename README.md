@@ -22,7 +22,7 @@ An application to manage and track different trips for users and a travel agency
 
 ## Demonstration
 
-![GIF](https://gph.is/g/E16yQLD)
+![GIF](https://media.giphy.com/media/YhLq8vdNNrDIr8stZg/giphy.gif)
 
 ## Functionality
 
