@@ -1,12 +1,13 @@
 # Travel Tracker
 
-A [web application](https://pcmueller.github.io/travel-tracker/) to cost, track, and book trips for different travelers.
+A [web application](https://pcmueller.github.io/travel-tracker/) to cost, track, and book trips for individual travelers.
+
 1. [Images](#images)
 2. [Functionality](#functionality)
-3. [Technologies](#technologies)
-4. [Contributors](#contributors)
-5. [Resources](#resources)
-6. [Installation](#installation)
+3. [Installation](#installation)
+4. [Technologies](#technologies)
+5. [Contributors](#contributors)
+6. [Resources](#resources)
 
 ## Images
 
@@ -25,6 +26,17 @@ A [web application](https://pcmueller.github.io/travel-tracker/) to cost, track,
 ## Functionality
 
 // ADD FUNCTIONALITY
+
+## Installation
+
+* Clone down remote repository by entering `git clone git@github.com:pcmueller/travel-tracker.git` in console
+* Use command `cd` to navigate into new `travel-tracker` directory
+* Install repository dependencies using `npm i`
+* Initialize webpack server using command `npm start`
+* Clone down `travel-tracker-api` by following [these instructions](https://github.com/turingschool-examples/travel-tracker-api)
+* Navigate to cloned API directory 
+* Initialize Express server using command `npm start`
+* Access hosted application in your browser at http://localhost:8080/
 
 ## Technologies
 
@@ -46,34 +58,3 @@ A [web application](https://pcmueller.github.io/travel-tracker/) to cost, track,
 * [Project Specifications](https://frontend.turing.edu/projects/travel-tracker.html)
 * [GitHub Repo](https://github.com/pcmueller/travel-tracker)
 * [GitHub Hosted Page](https://pcmueller.github.io/travel-tracker/)
-
-
-## Installation
-
-// MODIFY INSTRUCTIONS
-
-### Clone This Repo
-
-1. Clone down this repo. Since you don't want to name your project "webpack-starter-kit", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments): `git clone [remote-address] [what you want to name the repo]`
-1. Remove the default remote: `git remote rm origin` (notice that `git remote -v` not gives you back nothing)
-1. Create a new repo on GitHub with the name of `[what you want to name the repo]` to be consistent with naming
-1. Copy the address that you would use to clone down this repo - something like `git@github.com:...`
-1. Add this remote to your cloned down repo: `git remote add origin [address you copied in the previous step]` - do not include the brackets
-
-### How to View Code in Action
-
-In the terminal, run:
-
-```bash
-npm start
-```
-
-You will see a bunch of lines output to your terminal. One of those lines will be something like:
-
-```bash
-Project is running at http://localhost:8080/
-```
-
-Go to `http://localhost:8080/` in your browser to view code running in the browser.
-
----
