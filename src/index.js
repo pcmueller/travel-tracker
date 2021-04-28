@@ -74,7 +74,7 @@ function retrieveLoginInfo(event) {
 
   user = evaluateUsernameInput(usernameInput.value);
 
-  if (passwordInput.value === '0' && user) {
+  if (passwordInput.value === 'travel2020' && user) {
     createUser();
     displayUserData();
     domUpdates.togglePageView();
