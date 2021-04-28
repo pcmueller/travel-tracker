@@ -1,6 +1,7 @@
 # Travel Tracker
 
-A [Front-End Project] by [Peter Muellerleile](https://github.com/pcmueller)
+An application to manage and track different trips for users and a travel agency.
+by [Peter Muellerleile](https://github.com/pcmueller)
 
 * Project Manager: [Travis Rollins](https://github.com/Kalikoze)
 
