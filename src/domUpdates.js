@@ -115,8 +115,8 @@ const domUpdates = {
     let message = `Congratulations, you've booked a trip to ${destination} for $${costString}!`;
 
     modal.innerHTML = `
-      <div tabindex=0 class="booking-modal" id="bookingModal" aria-modal="true">
-        <span tabindex=1 class="close" id="modalClose" type="button" role="button" name="close-button">&times;</span>
+      <div tabindex=-1 class="booking-modal" id="bookingModal" aria-modal="true">
+        <span tabindex=0 class="close" id="modalClose" type="button" role="button" name="close-button">&times;</span>
         <p class="booking-message">${message}</p>
       </div>`;
 

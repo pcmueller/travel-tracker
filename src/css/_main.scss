@@ -15,8 +15,13 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-color: #b64c88c0;
-  background-image: linear-gradient(240deg, #ff3caaaf 0%, #784BA0 40%, #2B86C5 100%);
+  background-image: #C6FFDD;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   font-family: $primary-font;
 }
 
@@ -44,8 +49,7 @@ main {
   height: 3vw;
   margin: 4% 0 4% 1.5%;
   font-size: 3.5vw;
-  font-weight: 400;
-  color: rgba(181, 249, 250, 0.849);
+  color: $primary-dark;
 }
 
 .card-grid {
