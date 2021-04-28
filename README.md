@@ -1,9 +1,9 @@
 # Travel Tracker
 
-A [web application](https://pcmueller.github.io/travel-tracker/) to cost, track, and book trips for individual travelers.
+A hosted [web application](https://pcmueller.github.io/travel-tracker/) to cost, track, and book trips for individual travelers.
 
 1. [Images](#images)
-2. [Walkthrough](#walkthrough)
+2. [Login](#walkthrough)
 3. [Functionality](#functionality)
 4. [Installation](#installation)
 5. [Technologies](#technologies)
@@ -24,14 +24,24 @@ A [web application](https://pcmueller.github.io/travel-tracker/) to cost, track,
 
 ![Page Demonstration GIF](https://media.giphy.com/media/YhLq8vdNNrDIr8stZg/giphy.gif)
 
-## Walkthrough
-* To login to the page, type in the word 'traveler' + any two-digit number, 1 - 50 (e.g. 'traveler06').
+## Login
+* To login to the page, type in the word "traveler" + any two-digit number, 01 - 50 (e.g. 'traveler06').
 * Type in the password - `travel2020` - and click the login button.
-* You'll then be taken to the home page and greeted by the name of whichever user's ID you've selected, with that user's travel data displayed.
+* You'll then be taken to the home page and greeted by the name of the user you've selected, with that user's travel data displayed.
 
 ## Functionality
 
-// ADD FUNCTIONALITY
+* In the page header, the user's "Annual Travel Costs" are instantly calculated and displayed in the upper right corner.
+* Below that is a "Logout" button, which can be clicked at any time to clear the "traveler" data and return a user back to the login page.
+* In the center is a nav bar with four buttons: Current Trips, Upcoming Trips, Previous Trips, and Pending Trips, each toggling the display of the appropriate collection of "trip cards" below.
+* On the left end of the header is a Travel Tracker company logo, which has been activated as a "Home" button and can be clicked to take the user back to same "My Trips" view displayed on initial page load.
+* Below the header is an interactive "Plan Your Next Adventure" section, through which a user can book a new trip.
+* This section is completely navigable via keyboard, and contains four required input fields:
+  - Select Destination: drop-down menu containing a list of all possible travel destinations, a dynamic list that auto-populates on page load.
+  - Duration Date: drop-down calendar menu allowing a user to select the first date of their trip.  Since our "trips" dataset is comprised entirely of past dates, the calendar starts in 2019, and the user can book as far out as 2035.
+  - 
+
+
 
 ## Installation
 
@@ -42,7 +52,7 @@ A [web application](https://pcmueller.github.io/travel-tracker/) to cost, track,
 * Clone down `travel-tracker-api` by following [these instructions](https://github.com/turingschool-examples/travel-tracker-api)
 * Navigate to cloned API directory 
 * Initialize Express server using command `npm start`
-* Access hosted application in your browser at http://localhost:8080/
+* Access application in your browser at using this [local server](http://localhost:8080/)
 
 ## Technologies
 
