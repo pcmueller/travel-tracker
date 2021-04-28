@@ -1,10 +1,5 @@
 # Travel Tracker
 
-An application to manage and track different trips for users and a travel agency.
-by [Peter Muellerleile](https://github.com/pcmueller)
-
-* Project Manager: [Travis Rollins](https://github.com/Kalikoze)
-
 1. [Overview](#overview)
 2. [Functionality](#functionality)
 3. [Iterations](#iterations)
