@@ -20,9 +20,9 @@ An application to manage and track different trips for users and a travel agency
 
 <img width="750" alt="Home Page View" src="./src/images/home-page-large.png">
 
-## Booking View
+## Demonstration
 
-<img width="750" alt="Booking View" src=".src/images/booking-view.png">
+![GIF](src/images/booking-view.png)
 
 ## Functionality
 
