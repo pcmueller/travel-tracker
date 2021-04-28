@@ -1,16 +1,18 @@
 # Travel Tracker
 
 1. [Overview](#overview)
-2. [Functionality](#functionality)
-3. [Iterations](#iterations)
+2. [Images](#images)
+3. [Functionality](#functionality)
 4. [Technologies](#technologies)
 5. [Contributors](#contributors)
 6. [Resources](#resources)
-6. [Installation](#installation)
+7. [Installation](#installation)
 
 ## Overview
 
 An application to manage and track different trips for users and a travel agency.
+
+# Images
 
 ## Login Page View
 
@@ -33,8 +35,11 @@ An application to manage and track different trips for users and a travel agency
 1. HTML
 2. CSS/Sass
 3. JavaScript
-4. GitHub (website hosting and source code management)
+4. Express
 5. Webpack
+6. Mocha & Chai
+7. GitHub
+
 
 ## Contributors
 
@@ -49,7 +54,7 @@ An application to manage and track different trips for users and a travel agency
 // ADD DEPLOYED PAGE
 
 
-# Installation
+## Installation
 
 ## Clone This Repo
 
