@@ -29,7 +29,7 @@ A hosted [web application](https://pcmueller.github.io/travel-tracker/) to cost,
 
 ### Trip Card Responsiveness
 
-![Responsiveness Demonstration GIF](https://media.giphy.com/media/ow6HfUcgbA5NFFu2dX/giphy.gif)
+![Responsiveness Demonstration GIF](https://media.giphy.com/media/wHi6w0Ush0rLzwzxOL/giphy.gif)
 
 
 ## Login
